@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^kopicksv3.github.io/$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.kopicksv3.github.io/$
+RewriteCond %{REQUEST_URI} !kopicksv3/
+RewriteRule (.*) /kopicksv3/$1 [L]
