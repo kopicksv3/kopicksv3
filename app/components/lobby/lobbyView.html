@@ -1,0 +1,380 @@
+﻿<!-- this will be where the ngView directives go -->
+<div ng-include="'/app/shared/header/header.html'"></div>
+<main class="container container-body">
+    <!-- <div ng-include="'/app/components/lobby/partial/lobbyPromo.html'"></div> -->
+
+    <!--<div ng-include="'/app/components/lobby/activeLeagues/activeLeaguesView.html'"></div>-->
+
+    <h2 class="text-center bottom-buffer">Fantasy Leagues Lobby</h2>
+
+    <div ng-controller="LobbyGridController" id="LobbyGridPanel">
+
+      <!-- SPORTS TABS -->
+      <div class="sports-container">
+        <div class="row">
+          <div class="col-md-8">
+            <button ng-click="addSportFilter('NFL')" data-toggle="buttons-checkbox" class="btn">
+              <span class="glyphicon icon-nfl"></span>
+              <p class="title">NFL</p>
+            </button>
+            <button ng-click="addSportFilter('MLB')" data-toggle="buttons-checkbox" class="btn">
+              <span class="glyphicon icon-mlb"></span>
+              <p class="title">MLB</p>
+            </button>
+            <button ng-click="addSportFilter('NBA')" data-toggle="buttons-checkbox" class="btn">
+              <span class="glyphicon icon-nba"></span>
+              <p class="title">NBA</p>
+            </button>
+            <button ng-click="addSportFilter('NHL')" data-toggle="buttons-checkbox" class="btn">
+              <span class="glyphicon icon-nhl"></span>
+              <p class="title">NHL</p>
+            </button>
+          </div>
+          <div class="col-md-4">
+            <div class="search-leagues">
+              <input type="text" ng-model="searchLeaguesVal" class="form-control" placeholder="Search Leagues">
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <div class="content content-lobby">
+
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <div class="row">
+                        <div class="col-md-6 padding-xs text-center">
+                            <h4>Buy-In</h4>
+                            <div class="form-group">
+                                    <select class="form-control" ng-model="buyinValFilter">
+                                        <option value="ALL">ALL</option>
+                                        <option value="CASH">CASH</option>
+                                        <option value="FREE">FREE</option>
+                                        <option value="POINTS">POINTS</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 padding-xs text-center">
+                            <h4>Stake</h4>
+                            <div class="form-group">
+                                <div class="col-xs-6 padding-xs">
+                                    <input type="text" class="form-control" ng-model="stakeMinFilter" placeholder="FREE" ng-blur="changeStake([stakeMinFilter, stakeMaxFilter],'min')">
+                                </div>
+                                <div class="col-xs-6 padding-xs">
+                                    <input type="text" class="form-control" ng-model="stakeMaxFilter" placeholder="420" ng-blur="changeStake([stakeMinFilter, stakeMaxFilter], 'max')">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 bottom-buffer lobby-slider">
+                                <div ui-slider="{range: true}" min="0" max="420" step="1" ng-model="stake" ng-change="changeStake(stake, 'both');"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--<div class="row">
+                        <div class="col-xs-12 lobby-sports-list">
+                            <div class="col-xs-6">
+                                    <button ng-click="addSportFilter('NFL')" data-toggle="buttons-checkbox" class="btn sprite sports-icons nfl"></button> NFL
+                            </div>
+                            <div class="col-xs-6">
+                                <button ng-click="addSportFilter('MLB')" data-toggle="buttons-checkbox" class="btn sprite sports-icons mlb"></button> MLB
+                            </div>
+                            <div class="col-xs-6">
+                                <button ng-click="addSportFilter('NBA')" data-toggle="buttons-checkbox" class="btn sprite sports-icons nba"></button> NBA
+                            </div>
+                            <div class="col-xs-6">
+                                <button ng-click="addSportFilter('NHL')" data-toggle="buttons-checkbox" class="btn sprite sports-icons nhl"></button> NHL
+                            </div>
+                        </div>
+                    </div>-->
+
+                </div>
+
+                <div class="col-md-8">
+                    <div class="row">
+
+                        <div class="col-md-2 padding-xs text-center">
+                            <h4>League</h4>
+                                <div class="row no-margin button-group">
+                                    <div class="col-xs-6 col-md-12 padding-xs button">
+                                        <button ng-click="addLeagueTypeFilter('DAILYWEEKLY')" class="button btn btn-block btn-default">Day/Weekly</button>
+                                </div>
+                                    <!--<div class="col-xs-6 col-md-12 padding-xs button">
+                                        <button ng-click="addLeagueTypeFilter('TURBO')" class="button btn btn-block btn-default">Turbo</button>
+                                </div>-->
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 padding-xs text-center">
+                            <h4>Duration</h4>
+                            <div class="row no-margin">
+                                <div class="col-xs-12 padding-xs">
+                                        <button ng-click="addDurationIDFilter('Daily')" data-toggle="buttons-checkbox" class="btn btn-block btn-default">Daily</button>
+                                </div>
+                                <div class="col-xs-12 padding-xs">
+                                        <button ng-click="addDurationIDFilter('TwoDays')" data-toggle="buttons-checkbox" class="btn btn-block btn-default FilterDisabled">Two-Day</button>
+                                </div>
+                                <div class="col-xs-12 padding-xs">
+                                        <button ng-click="addDurationIDFilter('Weekly')" data-toggle="buttons-checkbox" class="btn btn-block btn-default FilterDisabled">Weekly</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 padding-xs text-center">
+                            <h4>Game Type</h4>
+                            <div class="row no-margin">
+                                <div class="col-xs-6 padding-xs">
+                                    <button data-toggle="buttons-checkbox" ng-click="addGameType('GUARANTEED')" class="btn btn-block btn-default">GPP</button>
+                                </div>
+                                <div class="col-xs-6 padding-xs">
+                                    <button data-toggle="buttons-checkbox" ng-click="addGameType('SNG')" class="btn btn-block btn-default">SnG</button>
+                                </div>
+                                <div class="col-xs-12 padding-xs">
+                                    <button data-toggle="buttons-checkbox" ng-click="addGameType('CUSTOM')" class="btn btn-block btn-default">Custom</button>
+                                </div>
+                                <div class="col-xs-12 padding-xs">
+                                    <button data-toggle="buttons-checkbox" ng-click="addGameType('PRIVATE')" class="btn btn-block btn-default">Private</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 padding-xs text-center">
+                            <h4>Style</h4>
+                            <div class="row no-margin">
+                                <div class="col-xs-12 padding-xs">
+                                    <button data-toggle="buttons-checkbox" ng-click="addBettingStyleFilter('STANDARD')" class="btn btn-block btn-default">Standard</button>
+                                </div>
+                                <div class="col-xs-6 padding-xs">
+                                    <button data-toggle="buttons-checkbox" ng-click="addBettingStyleFilter('DOUBLEUP')" class="btn btn-block btn-default">2X</button>
+                                </div>
+                                <div class="col-xs-6 padding-xs">
+                                    <button data-toggle="buttons-checkbox" ng-click="addBettingStyleFilter('TRIPLEUP')" class="btn btn-block btn-default">3X</button>
+                                </div>
+                                <div class="col-xs-12 padding-xs">
+                                    <button data-toggle="buttons-checkbox" ng-click="addBettingStyleFilter('WINNERTAKEALL')" class="btn btn-block btn-default">Take All</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 padding-xs text-center">
+                            <h4>Size</h4>
+                            <div class="row no-margin">
+                                <div class="col-xs-4 padding-xs">
+                                    <button ng-click="addPlayerNumFilter(2); " data-toggle="buttons-checkbox" class="btn btn-block btn-default">2</button>
+                                </div>
+                                <div class="col-xs-4 padding-xs">
+                                    <button ng-click="addPlayerNumFilter(3); " data-toggle="buttons-checkbox" class="btn btn-block btn-default">3</button>
+                                </div>
+                                <div class="col-xs-4 padding-xs">
+                                    <button ng-click="addPlayerNumFilter(5)" data-toggle="buttons-checkbox" class="btn btn-block btn-default">5</button>
+                                </div>
+
+                                <div class="col-xs-4 padding-xs">
+                                    <button ng-click="addPlayerNumFilter(6)" data-toggle="buttons-checkbox" class="btn btn-block btn-default">6</button>
+                                </div>
+                                <div class="col-xs-4 padding-xs">
+                                    <button ng-click="addPlayerNumFilter(10)" data-toggle="buttons-checkbox" class="btn btn-block btn-default">10</button>
+                                </div>
+                                <div class="col-xs-4 padding-xs">
+                                    <button ng-click="addPlayerNumFilter(12)" data-toggle="buttons-checkbox" class="btn btn-block btn-default">12</button>
+                                </div>
+
+                                <div class="col-xs-4 padding-xs">
+                                    <button ng-click="addPlayerNumFilter(18)" data-toggle="buttons-checkbox" class="btn btn-block btn-default">18</button>
+                                </div>
+                                <div class="col-xs-4 padding-xs">
+                                    <button ng-click="addPlayerNumFilter(20)" data-toggle="buttons-checkbox" class="btn btn-block btn-default">20</button>
+                                </div>
+                                <div class="col-xs-4 padding-xs">
+                                    <button ng-click="addPlayerNumFilter('21+')" data-toggle="buttons-checkbox" class="btn btn-block btn-default">21+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-5">
+                <div class="panel panel-default" ng-controller="activeLeaguesController">
+                  <div class="panel-body text-center" ng-show="acctid">
+                    <h4>Active Leagues</h4>
+                    <div class="top-buffer" ng-show="loading">
+                      <div ng-include="'app/shared/spinner/spinner.html'"></div>
+                    </div>
+                    <div ng-show="!loading">
+                        <small>Active Games: <span class="activeGames">{{ activeGames }}</span> // Currently Winning: $<span class="winnings">{{ curWin }}</span></small>
+                        <form class="form-inline top-buffer">
+                          <div class="form-group">
+                            <select class="form-control" onchange="window.location.href=this.value">
+                              <option>Daily / Weekly</option>
+                              <option ng-repeat="league in activeLeagues | orderBy: 'startDate'" value="{{league.path}}">
+                                <span class="UserActiveLeagueQtipLeague">{{ league.leagueID | getLeagueStr }}</span>
+                                <span class="UserActiveLeagueQtipFee">${{ league.entryFee }}</span>
+                                <span class="UserActiveLeagueQtipStartTime">{{ league.startDate | date:'M/d h:mm a' }}</span>
+                                <span class="UserActiveLeagueQtipEntries"> {{ league.place | undefinedZero  }}/{{ league.numPlayers }}</span>
+                                <!-- figure out how to wire in link to lineup -->
+                                <span class="UserActiveLeagueQtipAction">Lineup</span>
+                              </option>
+                            </select>
+                          </div>
+                            <!--
+                    <div id="UserActiveLeagueDataDailyWeekly">
+                        <div ng-repeat="league in activeLeagues" class="UserActiveLeagueQtipRow" data-ftid="461443" data-dataid="0">
+
+                        </div>
+                    </div>
+                    -->
+                        <div class="form-group form-block top-buffer">
+                          <a class="btn btn-red" href="#/myLineups">My Lineups</a>
+                          <a href="#/myScores" class="btn btn-red">My Scores</a>
+                        </div>
+                      </form>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-7">
+
+                <div class="top-buffer bottom-buffer text-right">
+                  <strong>Key:</strong>
+                  <button type="button" ng-click="addBettingStyleFilter('DOUBLEUP')" class="btn btn-key btn-dup" data-toggle="tooltip buttons-checkbox" data-placement="top" title="Double-Up Payout">2<sub>x</sub></button>
+                  <button type="button" ng-click="addBettingStyleFilter('TRIPLEUP')" class="btn btn-key btn-tup" data-toggle="tooltip buttons-checkbox" data-placement="top" title="Triple-Up Payout">3<sub>x</sub></button>
+                  <button type="button" ng-click="addGameType('GUARANTEED')" class="btn btn-key btn-gl" data-toggle="tooltip buttons-checkbox" data-placement="top" title="Guaranteed League">G</button>
+                  <button type="button" ng-click="addPlayerNumFilter(2); " class="btn btn-key btn-hu" data-toggle="tooltip buttons-checkbox" data-placement="top" title="Heads Up">H</button>
+                  <button type="button" ng-click="multiEntryFilterVal = !multiEntryFilterVal" class="btn btn-key btn-me" data-toggle="tooltip buttons-checkbox" data-placement="top" title="Multi-Entry">M</button>
+                  <button type="button" ng-click="qualifierFilterVal = !qualifierFilterVal" class="btn btn-key btn-qualifier" data-toggle="tooltip buttons-checkbox" data-placement="top" title="Qualifier">Q</button>
+                  <button type="button" ng-click="satelliteFilterVal = !satelliteFilterVal" class="btn btn-key btn-satellite" data-toggle="tooltip buttons-checkbox" data-placement="top" title="Satellite">S</button>
+                  <!--<button type="button" ng-click="addLeagueTypeFilter('TURBO')" class="btn btn-key btn-turbo" data-toggle="tooltip buttons-checkbox" data-placement="top" title="Turbo">T</button>-->
+                  <button type="button" ng-click="addGameType('CUSTOM')" class="btn btn-key btn-custom" data-toggle="tooltip buttons-checkbox" data-placement="top" title="Custom">C</button>
+                  <button type="button" ng-click="addBettingStyleFilter('WINNERTAKEALL')" class="btn btn-key btn-wta" data-toggle="tooltip buttons-checkbox" data-placement="top" title="Winner Take All">W</button>
+                </div>
+
+                <div ng-controller="CreateALeagueController" class="top-buffer bottom-buffer text-right">
+                  <!--<button class="btn btn-default">Save Filter</button>
+                  <button class="btn btn-default">Revert</button>-->
+                  <button ng-click="clear()" class="btn btn-default top-buffer">Clear</button>
+                  <button type="button" ng-click="openCreateALeague()" class="btn btn-red top-buffer" data-toggle="tooltip buttons-checkbox" data-placement="top" title="Qualifier">Create A League</button>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="top-buffer" ng-show="loading">
+            <div ng-include="'app/shared/spinner/spinner.html'"></div>
+        </div>
+        <!-- Here there be filters -->
+        <div ng-show="!loading" class="content-lobby-feed">
+            <div class="table-responsive">
+
+                <table id="lobbyTable"  class="table table-hover table-bordered table-striped table-td-first-left-align table-td-center table-td-middle">
+                    <thead>
+                        <tr>
+                            <th class="borderless">
+                              Tournament Name
+                                <!--<div class="col-xs-6">
+                                    Tournament Name
+                                </div>
+                                <div class="col-xs-6">
+                                    <input type="text" ng-model="searchLeaguesVal" class="form-control" placeholder="Search Leagues">
+                                </div>-->
+                            </th>
+                            <th class="borderless text-center">
+                                <a ng-click="sortType = 'fantasyDraftStyleID'; sortReverse = !sortReverse">
+                                    Draft
+                                    <span ng-show="sortType == 'fantasyDraftStyleID'" class="fa fa-caret-down"></span>
+                                </a>
+                            </th>
+                            <th class="borderless text-center">
+                                <a ng-click="sortType = 'entryFee'; sortReverse = !sortReverse">
+                                    Buy-In
+                                    <span ng-show="sortType == 'entryFee'" class="fa fa-caret-down"></span>
+                                </a>
+                            </th>
+                            <th class="borderless text-center">
+                                <a ng-click="sortType = 'fantasyLeagueDurationId'; sortReverse = !sortReverse">
+                                    League
+                                    <span ng-show="sortType == 'fantasyLeagueDurationId'" class="fa fa-caret-down"></span>
+                                </a>
+                            </th>
+                            <th class="borderless text-center">
+                                <a ng-click="sortType = 'sizeOfPrizePool'">
+                                    Prize
+                                    <span ng-show="sortType == 'sizeOfPrizePool'" class="fa fa-caret-down"></span>
+                                </a>
+                            </th>
+                            <th class="borderless text-center">
+                                <a ng-click="sortType = 'maxNumberPlayers'; sortReverse = !sortReverse">
+                                    Entries
+                                    <span ng-show="sortType == 'maxNumberPlayers'" class="fa fa-caret-down"></span>
+                                </a>
+                            </th>
+                            <th class="borderless text-center">
+                                <a ng-click="sortType = 'draftStartDate'; sortReverse = !sortReverse">
+                                    Live In
+                                    <span ng-show="sortType == 'draftStartDate'" class="fa fa-caret-down"></span>
+                                </a>
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody ng-controller="LeagueInfoController">
+
+                        <tr ng-class="{'flash': checkOriginal(fantasyLeague)}" id="{{fantasyLeague.fantasyLeagueID}}" flindex="{{fantasyLeagues.indexOf(fantasyLeague)}}" ng-repeat="fantasyLeague in fantasyLeagues | stakeFilter:stakeMinFilter:stakeMaxFilter | buyinFilter:buyinValFilter
+                            | leagueTypeFilter:leagueTypeFilterVal | durationFilter:durationIDFilterArr | gameTypeFilter:gameTypeFilterArr
+                            | bettingStyleFilter:bettingStyleIDFilterArr | sportFilter:sportIDFilterArr | playerNumFilter:playerNumFilterArr | filter:searchLeaguesVal
+                            | multiEntryFilter:multiEntryFilterVal | qualifierFilter:qualifierFilterVal | satelliteFilter:satelliteFilterVal
+                            | orderBy:sortType:sortReverse " ng-click="openLeagueInfo(fantasyLeague.fantasyLeagueID, (fantasyLeague.currentNumberUserEntries >= fantasyLeague.maxNumberEntriesPerUser))">
+                            <td ng-class="{'lobby-leagueUserEntered': fantasyLeague.currentNumberUserEntries > 0, 'lobby-pinnedToTop': fantasyLeague.pinnedToTopOfLobby }">
+                                <span class="sports-icons glyphicon icon-{{ fantasyLeague.leagueID | getLeagueStr | lowercase }}"></span>
+                                <span ng-bind-html="fantasyLeague.guaranteed  | getGuaranteedIcon"></span>
+                                <span ng-bind-html="fantasyLeague.maxNumberEntriesPerUser | getMultiIconFilter"></span>
+
+                                {{ fantasyLeague.name }}
+                                <span style="float:right">
+                                    <span ng-bind-html="fantasyLeague.fantasyDraftStyleID | getTurboIconFilter"></span>
+                                    <span ng-bind-html="fantasyLeague.isQualifier | getQualIconFilter"></span>
+                                    <span ng-bind-html="fantasyLeague.isSatellite | getSatIconFilter"></span>
+                                </span>
+                            </td>
+                            <td>
+                                {{ fantasyLeague.fantasyDraftStyleID | getDraftStyleStr }}
+                                <span ng-bind-html="fantasyLeague.fantasyLeagueBettingStyleID | getBettingStyleIconFilter"></span>
+                            </td>
+                            <td>
+                                {{ fantasyLeague.entryFee | entryFeeTicketFilter:fantasyLeague.canOnlyBeJoinedWithTickets }}
+                            </td>
+                            <td>
+                                {{ fantasyLeague.fantasyLeagueDurationID | getDurationStr }}
+                            </td>
+                            <td>
+                                {{ fantasyLeague.sizeOfPrizePool | getPrizeFilter:fantasyLeague.payoutCurrencyType  }}
+                            </td>
+                            <td>
+                                <span ng-bind-html="fantasyLeague.maxNumberPlayers | getH2HIconFilter"></span>
+                                <span flashonchange value="fantasyLeague.currentNumberPlayers | numPlayersFilter:fantasyLeague.maxNumberPlayers " ng-class="{'lobby-leagueAlmostFilled' : (fantasyLeague.percFill >= .70 && fantasyLeague.maxNumberPlayers > 3)}">
+                                </span>
+                            </td>
+                            <td>
+                                <!--countdown displays this one if scoring date is more than a day away-->
+                                <span ng-if="(fantasyLeague.scoringStartDate_ms | dateDiffInDays) > 0">{{fantasyLeague.scoringStartDate_ms | getCountDown }}</span>
+                                <!--countdown displays this one if scoring date is within 24 hours-->
+                                <span ng-if="(fantasyLeague.scoringStartDate_ms | dateDiffInDays) < 1">{{fantasyLeague.countDown > "00:00:00" ? fantasyLeague.countDown : "LIVE" }}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<div ng-include="'app/shared/modal/leagueInfo/leagueInfoView.html'"></div>
+<div ng-include="'app/components/lobby/modal/createALeague/createALeagueView.html'"></div>
+<div ng-include="'app/components/lobby/modal/joinedLeagueMaxTimes/joinedLeagueMaxTimesView.html'"></div>

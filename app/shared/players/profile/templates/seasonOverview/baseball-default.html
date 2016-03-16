@@ -1,0 +1,65 @@
+﻿<div class="col-xs-2 padding-xs text-center">
+    <div class="panel panel-default">
+        <div class="panel-heading padding-xs">
+            <strong><small>FPPG</small></strong>
+        </div>
+        <div class="panel-body padding-xs">
+            <small>{{data.fantasyPoints | statFilter:true | currency:'':2}}</small>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-2 padding-xs text-center">
+    <div class="panel panel-default">
+        <div class="panel-heading padding-xs">
+            <strong><small>BA</small></strong>
+        </div>
+        <div class="panel-body padding-xs">
+            <small>{{ data.battingAverage | number:3 | battingAverage }}</small>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-2 padding-xs text-center">
+    <div class="panel panel-default">
+        <div class="panel-heading padding-xs">
+            <strong><small>R</small></strong>
+        </div>
+        <div class="panel-body padding-xs">
+            <small>{{ data.runs }}</small>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-2 padding-xs text-center">
+    <div class="panel panel-default">
+        <div class="panel-heading padding-xs">
+            <strong><small>HR</small></strong>
+        </div>
+        <div class="panel-body padding-xs">
+            <small>{{ data.homeRuns }}</small>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-2 padding-xs text-center">
+    <div class="panel panel-default">
+        <div class="panel-heading padding-xs">
+            <strong><small>RBI</small></strong>
+        </div>
+        <div class="panel-body padding-xs">
+            <small>{{ data.runsBattedIn }}</small>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-2 padding-xs text-center">
+    <div class="panel panel-default">
+        <div class="panel-heading padding-xs">
+            <strong><small>SB</small></strong>
+        </div>
+        <div class="panel-body padding-xs">
+            <small>{{ data.stolenBases }}</small>
+        </div>
+    </div>
+</div>

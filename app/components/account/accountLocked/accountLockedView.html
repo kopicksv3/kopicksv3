@@ -1,0 +1,27 @@
+﻿<div ng-include="'/app/shared/header/header.html'"></div>
+<main class="container container-body">
+    <div ng-controller="accountLockedController">
+        <div class="content content-header">
+            <h2 class="text-center">Account Status</h2>
+        </div>
+
+        <div class="content">
+            <!--<div class="padding-lg">-->
+            <div class="row">
+                <div class="col-md-6">
+                    <h4><strong>Unlock Account</strong></h4>
+                    <p>Your account has been locked.</p>
+                    <p>Please verify that you are the owner of this account.</p>
+                </div>
+                <div class="col-md-6">
+                    <iframe id="unlockAccountIFrame" scrolling="no"
+                            frameborder="0"
+                            style="height: 100%; width: 100%;"
+                            height="100%" width="100%"
+                            src="{{unlockAccountUrl}}"></iframe>
+                </div>
+            </div>
+            <!--</div>-->
+        </div>
+    </div>
+</main>

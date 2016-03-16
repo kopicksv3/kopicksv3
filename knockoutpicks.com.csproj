@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{0EA0EE1C-2E77-4865-9821-8C330337BF72}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.6</TypeScriptToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\app.min.js">
+      <DependentUpon>app.js</DependentUpon>
+    </Content>
+    <Content Include="app\app.modules.js" />
+    <Content Include="app\components\account\accountLocked\accountLockedController.js" />
+    <Content Include="app\components\account\accountLocked\accountLockedView.html" />
+    <Content Include="app\components\account\invalidLocation\invalidLocationView.html" />
+    <Content Include="app\components\account\accountController.js" />
+    <Content Include="app\components\account\accountView.html" />
+    <Content Include="app\components\account\accountBanned\accountBannedView.html" />
+    <Content Include="app\components\account\locationVerificationResult\invalidAgeProvided\invalidAgeProvidedView.html" />
+    <Content Include="app\components\account\locationVerificationResult\invalidLocationProvided\invalidLocationProvidedView.html" />
+    <Content Include="app\components\account\locationVerificationResult\registrationError\registrationErrorView.html" />
+    <Content Include="app\components\account\locationVerificationResult\verificationPending\verificationPendingView.html" />
+    <Content Include="app\components\account\bonuses\bonusController.js" />
+    <Content Include="app\components\account\bonuses\bonusView.html" />
+    <Content Include="app\components\account\modal\changePasswordModalConroller.js" />
+    <Content Include="app\components\account\modal\changePasswordModal.html" />
+    <Content Include="app\components\account\profile\profileView.html" />
+    <Content Include="app\components\account\referrals\referralController.js" />
+    <Content Include="app\components\account\referrals\referralView.html" />
+    <Content Include="app\components\account\tickets\ticketController.js" />
+    <Content Include="app\components\account\tickets\ticketView.html" />
+    <Content Include="app\components\draft\draftController.js" />
+    <Content Include="app\components\draft\draftLineup\draftLineupController.js" />
+    <Content Include="app\components\draft\draftLineup\draftLineupView.html" />
+    <Content Include="app\components\draft\draftView.html" />
+    <Content Include="app\components\draft\overview\draftOverview.html" />
+    <Content Include="app\components\draft\playerGrid\playerGridController.js" />
+    <Content Include="app\components\draft\playerGrid\playerGridView.html" />
+    <Content Include="app\components\draft\savedLineup\savedLineupModal.html" />
+    <Content Include="app\components\emailVerifyCallback\emailVerifyCallback.html" />
+    <Content Include="app\components\emailVerifyCallback\emailVerifyCallbackController.js" />
+    <Content Include="app\components\landing\landingController.js" />
+    <Content Include="app\components\lobby\modal\joinedLeagueMaxTimes\joinedLeagueMaxTimesView.html" />
+    <Content Include="app\components\myLineups\modals\exportLineups.html" />
+    <Content Include="app\components\myLineups\myLineupsController.js" />
+    <Content Include="app\components\myScores\scoreBoardPreview\scoreBoardData.html" />
+    <Content Include="app\components\myScores\scoreBoardPreview\scoreBoardData.js" />
+    <Content Include="app\components\myScores\scoreBoardPreview\scoreBoardPreviewVS.html" />
+    <Content Include="app\components\myScores\scoreBoardPreview\scoreBoardPreviewVS.js" />
+    <Content Include="app\components\myScores\scores.html" />
+    <Content Include="app\components\myScores\services\userLeaguesCache.js" />
+    <Content Include="app\components\aboutUs\aboutUsView.html" />
+    <Content Include="app\components\resetPassword\resetPassword.html" />
+    <Content Include="app\components\resetPassword\resetPasswordController.js" />
+    <Content Include="app\components\emailVerify\emailVerify.html" />
+    <Content Include="app\components\emailVerify\emailVerifyController.js" />
+    <Content Include="app\components\faq\faqView.html" />
+    <Content Include="app\components\howToPlay\how-to-playView.html" />
+    <Content Include="app\components\landing\landingView.html" />
+    <Content Include="app\components\leaderboards\leaderboardFilters.js" />
+    <Content Include="app\components\leaderboards\leaderboardsController.js" />
+    <Content Include="app\components\leaderboards\leaderboardsView.html" />
+    <Content Include="app\components\privacyPolicy\privacyPolicyView.html" />
+    <Content Include="app\components\termsOfUse\termsOfUseView.html" />
+    <Content Include="app\shared\controllers\activeLeaguesController.js" />
+    <Content Include="app\shared\errors\errorMessages.js" />
+    <Content Include="app\shared\leagues\almHelper.js" />
+    <Content Include="app\shared\modal\genericModal\genericModal.html" />
+    <Content Include="app\shared\lineups\showLineupLeagues.html" />
+    <Content Include="app\components\lobby\lobbyView.html" />
+    <Content Include="app\components\lobby\modal\createALeague\createALeagueController.js" />
+    <Content Include="app\components\lobby\modal\createALeague\createALeagueView.html" />
+    <Content Include="app\shared\lineups\showLineupLeaguesController.js" />
+    <Content Include="app\shared\modal\register\registerController.js" />
+    <Content Include="app\shared\modal\register\registerView.html" />
+    <Content Include="app\shared\modal\sportsScoringModals\mlb\sportsScoring.html" />
+    <Content Include="app\shared\modal\sportsScoringModals\nba\sportsScoring.html" />
+    <Content Include="app\shared\modal\sportsScoringModals\nfl\sportsScoring.html" />
+    <Content Include="app\shared\modal\sportsScoringModals\nhl\sportsScoring.html" />
+    <Content Include="app\shared\modal\sportsScoringModals\sportsScoringController.js" />
+    <Content Include="app\shared\modal\support\supportModalController.js" />
+    <Content Include="app\shared\modal\support\supportModalView.html" />
+    <Content Include="app\shared\players\profile\commonProfileSection.js" />
+    <Content Include="app\shared\players\profile\profileStatsController.js" />
+    <Content Include="app\shared\players\profile\profileStatsDirective.js" />
+    <Content Include="app\shared\players\profile\seasonOvrStatsDirectives.js" />
+    <Content Include="app\shared\players\profile\services\playerDataRetreival.js" />
+    <Content Include="app\shared\players\profile\services\statLookup.js" />
+    <Content Include="app\shared\players\profile\templates\briefOverview\basketball-default.html" />
+    <Content Include="app\shared\players\profile\commonProfileSection.html" />
+    <Content Include="app\shared\players\profile\templates\briefOverview\football-qb.html" />
+    <Content Include="app\shared\players\profile\templates\briefOverview\football-rb.html" />
+    <Content Include="app\shared\players\profile\templates\briefOverview\football-te.html" />
+    <Content Include="app\shared\players\profile\templates\briefOverview\hockey-default.html" />
+    <Content Include="app\shared\players\profile\templates\briefOverview\hockey-g.html" />
+    <Content Include="app\shared\players\profile\templates\briefOverview\mlb-default.html" />
+    <Content Include="app\shared\players\profile\templates\briefOverview\mlb-p.html" />
+    <Content Include="app\shared\players\profile\templates\Career\basketball-default.html" />
+    <Content Include="app\shared\players\profile\templates\Career\football-qb.html" />
+    <Content Include="app\shared\players\profile\templates\Career\football-rb.html" />
+    <Content Include="app\shared\players\profile\templates\Career\football-te.html" />
+    <Content Include="app\shared\players\profile\templates\Career\hockey-default.html" />
+    <Content Include="app\shared\players\profile\templates\Career\hockey-g.html" />
+    <Content Include="app\shared\players\profile\templates\Career\mlb-default.html" />
+    <Content Include="app\shared\players\profile\templates\Career\mlb-p.html" />
+    <Content Include="app\shared\players\profile\templates\GameLog\basketball-default.html" />
+    <Content Include="app\shared\players\profile\templates\GameLog\football-qb.html" />
+    <Content Include="app\shared\players\profile\templates\GameLog\football-rb.html" />
+    <Content Include="app\shared\players\profile\templates\GameLog\football-te.html" />
+    <Content Include="app\shared\players\profile\templates\GameLog\hockey-default.html" />
+    <Content Include="app\shared\players\profile\templates\GameLog\hockey-g.html" />
+    <Content Include="app\shared\players\profile\templates\GameLog\mlb-default.html" />
+    <Content Include="app\shared\players\profile\templates\GameLog\mlb-p.html" />
+    <Content Include="app\shared\players\profile\templates\seasonOverview\baseball-default.html" />
+    <Content Include="app\shared\players\profile\templates\seasonOverview\baseball-sp.html" />
+    <Content Include="app\shared\players\profile\templates\seasonOverview\basketball-default.html" />
+    <Content Include="app\shared\players\profile\templates\seasonOverview\football-dst.html" />
+    <Content Include="app\shared\players\profile\templates\seasonOverview\football-qb.html" />
+    <Content Include="app\shared\players\profile\templates\seasonOverview\football-rb.html" />
+    <Content Include="app\shared\players\profile\templates\seasonOverview\football-wr-te.html" />
+    <Content Include="app\shared\players\profile\templates\seasonOverview\hockey-default.html" />
+    <Content Include="app\shared\players\profile\templates\seasonOverview\hockey-g.html" />
+    <Content Include="app\shared\players\profile\templates\SeasonSplits\basketball-default.html" />
+    <Content Include="app\shared\players\profile\templates\SeasonSplits\career.html" />
+    <Content Include="app\shared\players\profile\templates\SeasonSplits\football-qb.html" />
+    <Content Include="app\shared\players\profile\templates\SeasonSplits\football-rb.html" />
+    <Content Include="app\shared\players\profile\templates\SeasonSplits\football-te.html" />
+    <Content Include="app\shared\players\profile\templates\SeasonSplits\hockey-default.html" />
+    <Content Include="app\shared\players\profile\templates\SeasonSplits\hockey-g.html" />
+    <Content Include="app\shared\players\profile\templates\SeasonSplits\mlb-default.html" />
+    <Content Include="app\shared\players\profile\templates\SeasonSplits\mlb-p.html" />
+    <Content Include="app\shared\players\rows\MLB\statsHeader.html" />
+    <Content Include="app\shared\players\rows\MLB\statsPlayer.html" />
+    <Content Include="app\shared\scoring\directives\scoringOutput.html" />
+    <Content Include="app\shared\scoring\directives\scoringOutput.js" />
+    <Content Include="app\shared\services\activeLeaguesService.js" />
+    <Content Include="app\shared\services\fantasyLeagues\lobbyRefresher\fantasyLeagueDiff.js" />
+    <Content Include="app\shared\modal\playerProfile\playerProfileModalController.js" />
+    <Content Include="app\shared\modal\playerProfile\playerProfileModalView.html" />
+    <Content Include="app\shared\players\profile\profileStatsHeaderDirectives.js" />
+    <Content Include="app\shared\services\fantasyLeagues\lobbyRefresher\flashOnChangeDirective.js" />
+    <Content Include="app\shared\services\fantasyLeagues\lobbyRefresher\flashOnChange.css" />
+    <Content Include="app\components\myLeagues\activeLeaguesGrid\activeLeaguesGridView.html" />
+    <Content Include="app\components\myLeagues\myLeaguesFilters.js" />
+    <Content Include="app\components\myLeagues\myLeaguesView.html" />
+    <Content Include="app\components\myLeagues\pastLeaguesGrid\pastLeaguesGridController.js" />
+    <Content Include="app\components\myLineups\myLineupsView.html" />
+    <Content Include="app\components\lobby\activeLeagues\activeLeaguesView.html" />
+    <Content Include="app\components\lobby\lobbyController.js" />
+    <Content Include="app\components\lobby\lobbyFilters.js" />
+    <Content Include="app\components\lobby\partial\lobbyPromo.html" />
+    <Content Include="app\components\myLeagues\pastLeaguesGrid\pastLeaguesGridView.html" />
+    <Content Include="app\components\rules\rulesView.html" />
+    <Content Include="app\components\myScores\currentStandings\currentStandingsController.js" />
+    <Content Include="app\components\myScores\currentStandings\currentStandingsView.html" />
+    <Content Include="app\components\myScores\currentStandings\modals\universalPlayerSwap\universalPlayerSwap.html" />
+    <Content Include="app\components\myScores\currentStandings\modals\universalPlayerSwap\universalPlayerSwapController.js" />
+    <Content Include="app\components\myScores\gameCenter\gameCenterController.js" />
+    <Content Include="app\components\myScores\gameCenter\gameCenterView.html" />
+    <Content Include="app\components\myScores\recentGames\recentController.js" />
+    <Content Include="app\components\myScores\recentGames\recentView.html" />
+    <Content Include="app\components\myScores\scoreBoardPreview\scoreBoardPreview.html" />
+    <Content Include="app\components\myScores\scoreBoardPreview\scoreBoardPreviewController.js" />
+    <Content Include="app\components\myScores\scoreBoard\scoreboardController.js" />
+    <Content Include="app\components\myScores\scoreBoard\scoreboardView.html" />
+    <Content Include="app\components\myScores\myScoresController.js" />
+    <Content Include="app\components\myScores\myScoresView.html" />
+    <Content Include="app\partials\account-locked.html" />
+    <Content Include="app\partials\confirmation-modals.html" />
+    <Content Include="app\partials\faq.html" />
+    <Content Include="app\partials\how-to-play.html" />
+    <Content Include="app\partials\index-guest-menu.html" />
+    <Content Include="app\partials\landing.html" />
+    <Content Include="app\partials\leaderboards.html" />
+    <Content Include="app\partials\league-lineup.html" />
+    <Content Include="app\partials\leagues.html" />
+    <Content Include="app\partials\lineups.html" />
+    <Content Include="app\partials\my-account.html" />
+    <Content Include="app\partials\player-profile-modal.html" />
+    <Content Include="app\partials\promotions.html" />
+    <Content Include="app\partials\rules.html" />
+    <Content Include="app\partials\scoreboard.html" />
+    <Content Include="app\partials\scores.html" />
+    <Content Include="app\partials\sports-scoring-modals.html" />
+    <Content Include="app\shared\account\accountOverviewController.js" />
+    <Content Include="app\shared\account\accountOverviewView.html" />
+    <Content Include="app\shared\app.config.js" />
+    <Content Include="app\shared\carousels\carouselTemplate.html" />
+    <Content Include="app\shared\carousels\pagedCarousel.js" />
+    <Content Include="app\shared\clientFactory.js" />
+    <Content Include="app\shared\services\fantasyLeagues\lobbyRefresher\LobbyRefresherTester.js" />
+    <Content Include="app\shared\services\fantasyLeagues\lobbyRefresher\lobbyRefresherTesterView.html" />
+    <Content Include="app\shared\support\supportSharedPopupController.js" />
+    <Content Include="app\shared\validStates\validStatesController.js" />
+    <Content Include="app\shared\header\desktopNav.html" />
+    <Content Include="app\shared\header\contentHeader.html" />
+    <Content Include="app\shared\footer.html" />
+    <Content Include="app\shared\header\header.html" />
+    <Content Include="app\shared\header\headerController.js" />
+    <Content Include="app\shared\header\mobileNav.html" />
+    <Content Include="app\shared\lineups\enterAdditionalLeagues.html" />
+    <Content Include="app\shared\lineups\enterAdditionalLeaguesController.js" />
+    <Content Include="app\shared\lineups\exportLineupsController.js" />
+    <Content Include="app\shared\lineups\exportLineups.html" />
+    <Content Include="app\shared\lineups\importLineup.html" />
+    <Content Include="app\shared\lineups\importLineupController.js" />
+    <Content Include="app\shared\services\genericModalService.js" />
+    <Content Include="app\shared\services\lineupService.js" />
+    <Content Include="app\partials\modal.html" />
+    <Content Include="app\shared\modal\eligibility\canadaEligibility.html" />
+    <Content Include="app\shared\modal\eligibility\usaEligibility.html" />
+    <Content Include="app\shared\modal\leagueInfo\leagueInfoController.js" />
+    <Content Include="app\shared\modal\leagueInfo\leagueInfoView.html" />
+    <Content Include="app\shared\modal\limitedToFreePlay\limitedToFreePlayModalController.js" />
+    <Content Include="app\shared\modal\limitedToFreePlay\limitedToFreePlayModalView.html" />
+    <Content Include="app\shared\modal\locationVerification\locationVerificationController.js" />
+    <Content Include="app\shared\modal\locationVerification\locationVerificationView.html" />
+    <Content Include="app\shared\modal\login\loginModalController.js" />
+    <Content Include="app\shared\modal\login\loginModalView.html" />
+    <Content Include="app\shared\modal\sportsScoringModals\mlb\sportsScoring.html" />
+    <Content Include="app\shared\modal\sportsScoringModals\nba\sportsScoring.html" />
+    <Content Include="app\shared\modal\sportsScoringModals\nfl\sportsScoring.html" />
+    <Content Include="app\shared\modal\sportsScoringModals\nhl\sportsScoring.html" />
+    <Content Include="app\shared\modal\sportsScoringModals\sportsScoringController.js" />
+    <Content Include="app\shared\modal\universalPlayerSwap\universalPlayerSwap.html" />
+    <Content Include="app\shared\modal\universalPlayerSwap\universalPlayerSwapController.js" />
+    <Content Include="app\shared\modal\welcomeVerified\welcomeVerifiedModalController.js" />
+    <Content Include="app\shared\modal\welcomeVerified\welcomeVerifiedModalView.html" />
+    <Content Include="app\shared\modal\welcome\welcomeModalController.js" />
+    <Content Include="app\shared\modal\welcome\welcomeModalView.html" />
+    <Content Include="app\shared\players\playerGridDirectives.js" />
+    <Content Include="app\shared\players\playerFilters.js" />
+    <Content Include="app\shared\players\rows\NBA\statsHeader.html" />
+    <Content Include="app\shared\players\rows\NBA\statsPlayer.html" />
+    <Content Include="app\shared\players\rows\NFL\statsHeader.html" />
+    <Content Include="app\shared\players\rows\NFL\statsPlayer.html" />
+    <Content Include="app\shared\players\rows\NHL\statsHeader.html" />
+    <Content Include="app\shared\players\rows\NHL\statsPlayer.html" />
+    <Content Include="app\shared\scoring\services\calculateScoreValue.js" />
+    <Content Include="app\shared\scoring\services\normalizeScoreName.js" />
+    <Content Include="app\shared\scoring\_init.js" />
+    <Content Include="app\shared\services\fantasyLeagues\fantasyLeagueSignaler.js" />
+    <Content Include="app\shared\services\fantasyLeagues\lobbyRefresher\lobbyRefresher.js" />
+    <Content Include="app\shared\services\locationVerificationModalService.js" />
+    <Content Include="app\shared\services\accountModals.js" />
+    <Content Include="app\shared\services\positionHeaders.js" />
+    <Content Include="app\shared\sharedDirectives.js" />
+    <Content Include="app\shared\sharedFilters.js" />
+    <Content Include="app\shared\spinner\spinner.html" />
+    <Content Include="app\shared\websocketcore\websocketCore.js" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\datetimepicker.css" />
+    <Content Include="assets\css\spinner.css" />
+    <Content Include="assets\css\fcg-styles.css" />
+    <Content Include="assets\css\styles.css" />
+    <Content Include="assets\css\ui-slider.css" />
+    <Content Include="assets\fonts\AGENCYB.png" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\fonts\knockout-picks.svg" />
+    <Content Include="assets\images\8328.png" />
+    <Content Include="assets\images\active-leagues-bg.jpg" />
+    <Content Include="assets\images\captcha.gif" />
+    <Content Include="assets\images\content-header-bg.jpg" />
+    <Content Include="assets\images\default-avatar.png" />
+    <Content Include="assets\images\demo-avatar1.jpg" />
+    <Content Include="assets\images\demo-avatar2.jpg" />
+    <Content Include="assets\images\demo-avatar3.jpg" />
+    <Content Include="assets\images\deposit-method1.png" />
+    <Content Include="assets\images\deposit-method2.png" />
+    <Content Include="assets\images\deposit-method3.png" />
+    <Content Include="assets\images\favicon.ico" />
+    <Content Include="assets\images\home-background.jpg" />
+    <Content Include="assets\images\home-mascot.png" />
+    <Content Include="assets\images\howtoplay-screen1.jpg" />
+    <Content Include="assets\images\howtoplay-screen2.jpg" />
+    <Content Include="assets\images\howtoplay-screen3.jpg" />
+    <Content Include="assets\images\howtoplay-screen4.jpg" />
+    <Content Include="assets\images\idology.png" />
+    <Content Include="assets\images\landing-why-bg.jpg" />
+    <Content Include="assets\images\lobby-bg.jpg" />
+    <Content Include="assets\images\lobby-promo-1.jpg" />
+    <Content Include="assets\images\lobby-slider-1.jpg" />
+    <Content Include="assets\images\lobby-slider-2.jpg" />
+    <Content Include="assets\images\logo-large.png" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\main-menu-bg.png" />
+    <Content Include="assets\images\mlb-lineups-bg.jpg" />
+    <Content Include="assets\images\nba-lineups-bg.jpg" />
+    <Content Include="assets\images\nfl-lineups-bg.jpg" />
+    <Content Include="assets\images\nhl-lineups-bg.jpg" />
+    <Content Include="assets\images\promo1.jpg" />
+    <Content Include="assets\images\promo2.jpg" />
+    <Content Include="assets\images\promoDemo.jpg" />
+    <Content Include="assets\images\sprite.png" />
+    <Content Include="assets\images\steps-bg.png" />
+    <Content Include="assets\images\steps-hr.png" />
+    <Content Include="assets\images\Tickets\sflticket_1.png" />
+    <Content Include="assets\images\Tickets\sflticket_100.png" />
+    <Content Include="assets\images\Tickets\sflticket_109.png" />
+    <Content Include="assets\images\Tickets\sflticket_11.png" />
+    <Content Include="assets\images\Tickets\sflticket_2.png" />
+    <Content Include="assets\images\Tickets\sflticket_20.png" />
+    <Content Include="assets\images\Tickets\sflticket_215.png" />
+    <Content Include="assets\images\Tickets\sflticket_22.png" />
+    <Content Include="assets\images\Tickets\sflticket_420.png" />
+    <Content Include="assets\images\Tickets\sflticket_5.png" />
+    <Content Include="assets\images\Tickets\sflticket_55.png" />
+    <Content Include="assets\images\Tickets\sflticket_sffc2015.png" />
+    <Content Include="assets\images\verisign.png" />
+    <Content Include="assets\images\vs-icon.png" />
+    <Content Include="assets\images\welcome-bg.jpg" />
+    <Content Include="assets\scripts\api\FlowerCityGaming.min.js" />
+    <Content Include="assets\scripts\lib\angular-animate.js" />
+    <Content Include="assets\scripts\lib\angular-linq.min.js" />
+    <Content Include="assets\scripts\lib\angular-modal-service.js" />
+    <Content Include="assets\scripts\lib\angular-route.min.js" />
+    <Content Include="assets\scripts\lib\angular-timer\humanize-duration.js" />
+    <Content Include="assets\scripts\lib\angular-timer\moment.js" />
+    <Content Include="assets\scripts\lib\angular-timer\progressBarService.js" />
+    <Content Include="assets\scripts\lib\angular-unique-filter.js" />
+    <Content Include="assets\scripts\lib\angular.min.js" />
+    <Content Include="assets\scripts\lib\bjqs-1.3.min.js" />
+    <Content Include="assets\scripts\lib\bootstrap.min.js" />
+    <Content Include="assets\scripts\lib\angular-timer\i18nService.js" />
+    <Content Include="assets\scripts\lib\countdown.min.js" />
+    <Content Include="assets\scripts\lib\datetimepicker.js" />
+    <Content Include="assets\scripts\lib\iframeResizer.min.js" />
+    <Content Include="assets\scripts\lib\jquery-dateFormat.min.js" />
+    <Content Include="assets\scripts\lib\jquery-ui.min.js" />
+    <Content Include="assets\scripts\lib\jquery.cookie.min.js" />
+    <Content Include="assets\scripts\lib\jquery.min.js" />
+    <Content Include="assets\scripts\lib\jwt-decode.min.js" />
+    <Content Include="assets\scripts\lib\angular-timer\_timer.js" />
+    <Content Include="assets\scripts\lib\ui-slider.js" />
+    <Content Include="auth_refresh_complete_email_verify_complete.html" />
+    <Content Include="location_verify_response.html" />
+    <Content Include="email_verify_response.html" />
+    <Content Include="assets\scripts\lib\ui-bootstrap-tpls-0.14.3.min.js" />
+    <Content Include="auth_refresh_complete.html" />
+    <Content Include="assets\scripts\lib\ui-bootstrap.min.js" />
+    <Content Include="index.html" />
+    <Content Include="js\main.js" />
+    <Content Include="login_outer.html" />
+    <Content Include="obj\web.config" />
+    <Content Include="app\partials\welcome.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\bootstrap.css.map" />
+    <Content Include="assets\fonts\AGENCYB.eot" />
+    <Content Include="assets\fonts\AGENCYB.ttf" />
+    <Content Include="assets\fonts\AGENCYB.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\fonts\knockout-picks.eot" />
+    <Content Include="assets\fonts\knockout-picks.ttf" />
+    <Content Include="assets\fonts\knockout-picks.woff" />
+    <Content Include="assets\css\datetimepicker.css.map" />
+    <Content Include="assets\scripts\lib\angular-linq.min.js.map">
+      <DependentUpon>angular-linq.min.js</DependentUpon>
+    </Content>
+    <Content Include="app\app.min.js.map">
+      <DependentUpon>app.min.js</DependentUpon>
+    </Content>
+    <None Include="fcg-ko-static - FTP.pubxml" />
+    <None Include="fcg-ko-static - Web Deploy.pubxml" />
+    <Content Include="JSLintNet.json" />
+    <None Include="obj\web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="obj\web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <Content Include="register_response.html" />
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\components\myScores\modals\" />
+    <Folder Include="app\components\support\" />
+    <Folder Include="app\shared\constants\" />
+    <Folder Include="app\shared\header\useraccount\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>knockoutpicks.com</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>(@type "$(ProjectDir)app\app.modules.js") &gt; "$(ProjectDir)app\app.bundle.js"
+(for /r "$(ProjectDir)app\components" %25%25i in (*.js) do @type "%25%25i") &gt;&gt; "$(ProjectDir)app\app.bundle.js"
+(for /r "$(ProjectDir)app\shared" %25%25i in (*.js) do @type "%25%25i") &gt;&gt; "$(ProjectDir)app\app.bundle.js"
+(@type "$(ProjectDir)app\app.js") &gt;&gt; "$(ProjectDir)app\app.bundle.js"
+(@type "$(ProjectDir)app\app.bundle.js") | "c:\Program Files (x86)\Microsoft\Microsoft Ajax Minifier\AjaxMin.exe" -JS &gt; "$(ProjectDir)app\app.min.js"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

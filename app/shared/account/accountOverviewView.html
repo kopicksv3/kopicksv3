@@ -1,0 +1,67 @@
+
+<div class="panel panel-default panel-fill" ng-controller="AccountOverviewController">
+  <div class="panel-body">
+    <div class="text-center padding-md">
+      <h4>{{AccountInfo.userName}}</h4>
+      <img class="avatar img-circle" src="/assets/images/default-avatar.png">
+      <!--<img class="avatar img-circle" ng-src="{{AccountInfo.profilePhotoUrl}}" onerror="if (!window.profilePhotoDefaultFailure) this.src = '/assets/images/default-avatar.png'; if (this.src.substr(this.src.length - ('/assets/images/default-avatar.png').length) == '/assets/images/default-avatar.png') window.profilePhotoDefaultFailure = true;" />-->
+    </div>
+
+    <table class="table borderless">
+      <tbody>
+        <tr>
+          <td><strong>Balance:</strong></td>
+          <td class="text-right">${{ account.userBalance | toDecimal }}</td>
+        </tr>
+        <tr>
+          <td><strong>Knockout Points:</strong></td>
+          <td class="text-right">{{ account.internalPoints | defaultZero}}</td>
+        </tr>
+        <tr>
+          <td><strong>Winnings:</strong></td>
+          <td class="text-right">0</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <table class="table borderless">
+      <tbody>
+        <tr>
+          <td><strong>Games Played:</strong></td>
+          <td class="text-right">{{ account.gamesPlayed }}</td>
+        </tr>
+        <tr>
+          <td><strong>Won:</strong></td>
+          <td class="text-right">{{ account.gamesWon }}</td>
+        </tr>
+        <tr>
+          <td><strong>Winnings:</strong></td>
+          <td class="text-right">${{ account.winnings | toDecimal }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+    <table class="table borderless">
+      <tbody>
+        <tr>
+          <td><strong>Games Played This Month:</strong></td>
+          <td class="text-right">{{ account.gamesPlayedThisMonth }}</td>
+        </tr>
+        <tr>
+          <td><strong>Total Wins This Month:</strong></td>
+          <td class="text-right">{{ account.gamesWonThisMonth }}</td>
+        </tr>
+        <tr>
+          <td><strong>Cash Won This Month:</strong></td>
+          <td class="text-right">${{ account.winningsThisMonth | toDecimal }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="text-center">
+      <a href="#/my-account?tab=cashier" class="btn btn-default">Withdraw</a>
+      <a href="#/my-account?tab=cashier" class="btn btn-green">Deposit</a>
+    </div>
+
+  </div>
+</div>

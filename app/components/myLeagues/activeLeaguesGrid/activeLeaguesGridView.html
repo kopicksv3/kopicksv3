@@ -1,0 +1,160 @@
+﻿<div ng-controller="activeLeaguesController">
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>Active Leagues</h3>
+            <!--<button class="btn btn-lg btn-primary">Day / Week</button> <button class="btn btn-lg btn-primary">Season</button>-->
+            <div class="row">
+                <div class="col-xs-12">
+                    <form name="activeLeaguesForm" class="form-inline top-buffer" novalidate>
+                        <div class="form-group">
+                            <select class="form-control" ng-model="activeLeaguesDurationValFilter" ng-options="duration.durationID as (duration.durationID | getDurationStr) for duration in durations track by duration.durationID">
+                                <option value="">Duration</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" ng-model="activeLeaguesGameTypeValFilter" ng-options="gameType.gameTypeValue as gameType.gameTypeName for gameType in gameTypes track by gameType.gameTypeValue">
+                                <option value="">Game Type</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" ng-model="activeLeaguesBetStyleValFilter" ng-options="betStyle.betStyleID as (betStyle.betStyleID | getBettingStr) for betStyle in betStyles track by betStyle.betStyleID">
+                                <option value="">League Style</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" ng-model="activeLeaguesNumPlayerValFilter" ng-options="numPlayer.numPlayerValue  as numPlayer.numPlayerName for numPlayer in numPlayers track by numPlayer.numPlayerValue">
+                                <option value=""># of Players</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" ng-model="activeLeaguesBuyInValFilter" ng-options="buyIn.buyInValue  as buyIn.buyInName for buyIn in buyIns track by buyIn.buyInValue">
+                                <option value="">Buy-In</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" ng-model="activeLeaguesStatusValFilter" ng-options="status.statusID  as status.statusName for status in statuses track by status.statusID">
+                                <option value="">Status</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <a ng-click="clear()"><span class="glyphicon icon-undo"></span></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="loading">
+        <div ng-include="'app/shared/spinner/spinner.html'"></div>
+    </div>
+    <div ng-show="!loading" class="top-buffer no-padding">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="nav nav-tabs" role="tablist" name="activeLeaguesTabs">
+                    <li ng-repeat="league in leagues | orderBy: 'startDate'" role="presentation" value="{{league.leagueID}}" ng-click="activeTab(league.leagueID)" class="{{league.tabClass}}"><a role=" tab" data-toggle="tab">{{league.leagueName}}</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade active in league-pane" id="activeLeaguesALL">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered table-striped table-td-center table-td-middle table-tabs">
+                                <thead>
+                                    <tr>
+                                        <th class="borderless text-center">
+                                            League ID#
+                                        </th>
+                                        <th class="borderless text-center">
+                                            Date/Time
+                                        </th>
+                                        <th class="borderless text-center">
+                                            Sport
+                                        </th>
+                                        <th class="borderless text-center">
+                                            Access
+                                        </th>
+                                        <th class="borderless text-center">
+                                            Draft
+                                        </th>
+                                        <th class="borderless text-center">
+                                            Buy-In
+                                        </th>
+                                        <th class="borderless text-center">
+                                            Duration
+                                        </th>
+                                        <th class="borderless text-center">
+                                            Prize
+                                        </th>
+                                        <th class="borderless text-center">
+                                            Place
+                                        </th>
+                                        <th class="borderless text-center">
+                                            Status
+                                        </th>
+                                        <th class="borderless text-center">
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="fantasyLeague in activeLeagues   | myLeaguesDurationFilter:activeLeaguesDurationValFilter
+                                                                                    | myLeaguesGameTypeFilter:activeLeaguesGameTypeValFilter
+                                                                                    | myLeaguesBetStyleFilter:activeLeaguesBetStyleValFilter
+                                                                                    | myLeaguesNumPlayerFilter:activeLeaguesNumPlayerValFilter
+                                                                                    | myLeaguesBuyInFilter:activeLeaguesBuyInValFilter
+                                                                                    | myLeaguesStatusFilter:activeLeaguesStatusValFilter
+                                                                                    | myLeaguesLeagueFilter:activeLeaguesLeagueValFilter"
+                                        ng-class="{'winningMoney' : fantasyLeague.wonPrizes }">
+                                        <td>
+                                            {{fantasyLeague.fantasyLeagueID}}
+                                        </td>
+                                        <td>
+                                            {{fantasyLeague.startDate | date:'M/d h:mm a' }}
+                                        </td>
+                                        <td>
+                                            {{fantasyLeague.leagueID | getLeagueStr}}
+                                        </td>
+                                        <td>
+                                            {{fantasyLeague.isPrivate | getPrivateStr}}
+                                        </td>
+                                        <td>
+                                            {{fantasyLeague.draftStyleID | getDraftStyleStr}}
+                                        </td>
+                                        <td>
+                                            {{fantasyLeague.entryFee | entryFeeTicketFilter}}
+                                        </td>
+                                        <td>
+                                            {{fantasyLeague.durationID | getDurationStr}}
+                                        </td>
+                                        <td>
+                                            {{ fantasyLeague.prize | getPrizeWithCurr:fantasyLeague.payoutCurrencyType:tenant.bonusPoints }}
+                                        </td>
+                                        <td>
+                                            {{fantasyLeague.place | undefinedZero}}/{{fantasyLeague.numPlayers | undefinedZero}}
+                                        </td>
+                                        <td>
+                                            {{fantasyLeague.statusID | getStatusStr}}
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-sm btn-default btn-action {{fantasyLeague.isValid | fantasyLeagueButtonClassFilter:fantasyLeague.statusID}}"
+                                               href="{{ fantasyLeague.path }}"
+                                               uib-tooltip="Invalid Lineup"
+                                               tooltip-placement="right"
+                                               tooltip-trigger="{{{true: 'mouseenter', false: 'never'}[!fantasyLeague.isValid]}}" >
+                                                {{ fantasyLeague.statusID | fantasyLeagueButtonTextFilter }}
+                                            </a>
+                                            <!--<button class="btn btn-sm btn-default btn-action {{fantasyLeague.isValid | fantasyLeagueButtonClassFilter:fantasyLeague.statusID}}" ng-click="setButtonPath(fantasyLeague.fantasyLeagueID, fantasyLeague.fantasyTeamID, fantasyLeague.statusID)">{{ fantasyLeague.statusID | fantasyLeagueButtonTextFilter }}</button>-->
+                                            <!--<a ng-show="canLeave({{fantasyLea
+                                            gue.statusID}})" class="glyphicon icon-cross-mark" href=""></a>-->
+                                            </td>
+                                        </td>
+
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

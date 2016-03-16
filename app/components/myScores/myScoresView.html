@@ -1,0 +1,36 @@
+﻿<div ng-include="'/app/shared/header/header.html'"></div>
+<main class="container container-body">
+
+  <h2 class="text-center bottom-buffer">My Scores</h2>
+
+  <div ng-include="'app/components/myScores/gameCenter/gameCenterView.html'"></div>
+
+  <div ng-hide="activeLeagues == null || activeLeagues.length == 0 " class="panel panel-default top-buffer">
+    <div class="panel-body">
+      <div class="row">
+          <div id="filtersection" class="col-sm-6">
+            <strong>Leagues</strong>: {{activeLeagues.length}} / <strong>Current Winnings</strong>: {{currentWinnings | currency}} / <strong>Leagues Winning</strong> {{leaguesWinning}}
+          </div>
+          <div class="col-sm-6 text-right">
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div ng-hide="completeLeagues.length == 0 && activeLeagues.length == 0" ng-include="'app/components/myScores/recentGames/recentView.html'"></div>
+
+  <div class="content padding-md" ng-show="completeLeagues.length == 0 && activeLeagues.length == 0">
+      <div class="row no-margin">
+          <div class="col-sm-6 padding-sm">
+              <h4>You have no live or recent Leagues.</h4>
+          </div>
+      </div>
+  </div>
+
+</main>
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>

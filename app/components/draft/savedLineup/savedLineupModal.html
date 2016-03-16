@@ -1,0 +1,18 @@
+﻿<!-- Export Lineup -->
+<script type="text/ng-template" id="savedLineups.html">    
+    <div class="modal-header" id="leagueInformation" tabindex="-1" role="dialog" aria-labelledby="leagueInformationLabel">
+        <button type="button" class="close" data-dismiss="modal" ng-click="cancel()" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+    </div>
+    <div class="modal-body modal-leagues">
+        <h2 class="text-center bottom-buffer">Your Lineup has been saved!</h2>
+        <p class="text-center bottom-buffer">What would you like to do next?</p>
+        <!--<div class="text-center top-buffer">
+            <a ng-click="exportLineupToOtherLeagues()" class="btn btn-lg btn-primary" data-dismiss="modal" data-toggle="modal">Enter More Leagues With This Lineup</a>
+        </div>
+        -->
+        <div class="text-center top-buffer">            
+            <a class="btn btn-lg btn-default" href="/#/lobby">Return To Lobby</a>
+            <a class="btn btn-lg btn-default" ng-click="cancel()" data-dismiss="modal" data-toggle="modal">Return To Lineup</a>
+        </div>
+    </div>
+</script>

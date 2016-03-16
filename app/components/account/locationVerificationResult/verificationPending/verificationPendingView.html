@@ -1,0 +1,43 @@
+﻿<div ng-include="'/app/shared/header/header.html'"></div>
+<main class="container container-body">
+    <div>
+        <div class="content content-header">
+            <h2 class="text-center">Account Status</h2>
+        </div>
+
+        <div class="content">
+
+            <div class="padding-lg">
+                <h4><strong>Your Registration is Almost Complete</strong></h4>
+
+                <p>
+                    <img src="/assets/images/idology.png">
+                </p>
+                <p>
+                    Thank you for registering at Knockout Picks
+                </p>
+                <p>
+                    Your signup could not be fully completed at this time due to failure to pass our age and ID verification filters.
+                </p>
+                <p>
+                    Knockout Picks has partnered with IDology to provide strong age, ID, and location verification services for our customers. If you believe you have received this message in error, please e-mail the Knockout Picks support team with the following information and we will be happy to review your registration.
+                </p>
+                <p>
+
+                    <ul>
+                        <li>Full Name</li>
+                        <li>Address</li>
+                        <li>Location of Signup, if different than address</li>
+                        <li>Date of Birth (Month, Day, Year)</li>
+                        <li>last 4 of social security number</li>
+                        <li>E-mail Address</li>
+                    </ul>
+                </p>
+
+                <p>
+                    Please <a data-toggle="modal" ng-controller="supportSharedPopupController" ng-click="displaySupportModal()">click here</a> to send a message to our support team, or e-mail <a href="mailto:support@knockoutpicks.com">support@knockoutpicks.com</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</main>

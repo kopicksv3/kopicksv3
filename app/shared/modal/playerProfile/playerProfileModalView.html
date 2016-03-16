@@ -1,0 +1,49 @@
+﻿  <!-- Player Profile Modal -->
+
+<script type="text/ng-template" id="playerProfileModalContent.html">
+    <!--
+    <div class="modal fade" id="playerProfileModal" tabindex="-1" role="dialog" aria-labelledby="playerProfileModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">-->
+                <div class="modal-header">
+                    <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+                </div>
+    <form>
+        <div class="modal-body">
+
+            <div class="row">
+                <div ng-controller="commonProfileSection" ng-include="'/app/shared/players/profile/commonProfileSection.html'"></div>    
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 top-buffer">
+
+                    <ul class="nav nav-tabs" role="tablist" id="editLeagues">
+                        <li role="presentation" class="active"><a ng-click="switchTab(BRIEF_OVERVIEW)" data-target="#brief" aria-controls="brief" role="tab" data-toggle="tab">Brief Overview</a></li>
+                        <li role="presentation"><a data-target="#gameLog" ng-click="switchTab(GAME_LOG)" aria-controls="gameLog" role="tab" data-toggle="tab">Game Log</a></li>
+                        <li role="presentation"><a data-target="#seasonSplits" ng-click="switchTab(SEASON_SPLITS)" aria-controls="seasonSplits" role="tab" data-toggle="tab">Season Splits</a></li>
+                        <li role="presentation"><a data-target="#career" ng-click="switchTab(CAREER)" aria-controls="career" role="tab" data-toggle="tab">Career</a></li>
+                        <!--<li role="presentation"><a data-target="#playerInfo" aria-controls="playerInfo" role="tab" data-toggle="tab">Player Info</a></li>-->
+                    </ul>
+
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade active in" id="brief">
+                            <div class="table-responsive">                                                                                                 
+                                <table class="table table-leagues table-hover table-bordered table-striped table-td-center table-td-middle">
+                                    <thead>
+                                        <tr id="statsHeader" profile-statsheader posid="{{activePlayer.positionID}}" optionalteamposid="{{activePlayer.teamPositionID}}" leagueid="{{league.leagueID}}" statstype="{{statType}}"></tr>
+                                    </thead>
+                                    <tbody profile-stats sport-id="activePlayer.sportID" league-id="league.leagueID" season="activePlayer.season" pos-id="activePlayer.positionID" optional-team-pos-id="activePlayer.teamPositionID" player-id="activePlayer.id" stats-type="{{statType}}"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="playerInfo">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</script>

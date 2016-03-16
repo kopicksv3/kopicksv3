@@ -1,0 +1,50 @@
+﻿<td>
+    <!-- Rank -->
+    <span>{{ ::p.ranking }}</span>
+</td>
+<td>
+    <!-- Name -->
+    {{ ::p.name }} ({{p.statistics.teamAlias | uppercase}} - {{p.position}})
+</td>
+<td>
+    <!-- Salary -->
+    {{ ::p.salary | currency:"$":0 }}
+</td>
+<td>
+    <!-- Matchup -->
+    {{ ::p.realMatchup }}
+</td>
+<td>
+    <!-- GP -->
+    {{ ::p.statistics.gamesPlayed | statFilter}}
+</td>
+
+<td>
+    <!-- PTS -->
+    {{ ::p.statistics.points | statFilter}}
+</td>
+<td>
+    <!-- REB -->
+    {{ ::p.statistics.rebounds | statFilter}}
+</td>
+<td>
+    <!-- AST -->
+    {{ ::p.statistics.assists | statFilter}}
+</td>
+<td>
+    <!-- BLK -->
+    {{ ::p.statistics.blocks | statFilter}}
+</td>
+<td>
+    <!-- STL -->
+    {{ ::p.statistics.steals | statFilter}}
+</td>
+<td>
+    <!-- TO -->
+    {{ ::p.statistics.turnovers | statFilter}}
+</td>
+
+<td>
+    <!-- FFPG -->
+    {{ ::p.statistics.averageFantasyPoints | currency:'':2}}
+</td>

@@ -1,0 +1,20 @@
+﻿<div id="{{carouselid}}" disable-animation='true' class="carousel slide" data-interval="false" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+      <div ng-repeat="nextIndex in listdata track by $index" ng-if="$index % limit == 0" ng-class="($index < limit) ? 'item active': 'item'">
+        <div class="row">
+          <div ng-class="parentclass">
+            <div class="row">
+              <div id="carouselElements" ng-transclude ng-repeat="nextResult in listdata.slice($index,$index + limit)" ng-class="elementclass">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="width:1.5em" ng-hide="(!dataProvided && curPage <= 0) || listdata.length == 0" click-and-disable="previousData();" class="left carousel-control" role="button">
+      <span class="glyphicon icon-left-open-big"></span>
+    </div>
+    <div style="width:1.5em" click-and-disable="nextData()" ng-hide="listdata.length == 0" class="right carousel-control" role="button">
+      <span class="glyphicon icon-right-open-big"></span>
+    </div>
+</div>

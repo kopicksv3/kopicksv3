@@ -1,0 +1,79 @@
+<div  uib-collapse="!(isShown === true && (myTeamClean === true && otherTeamClean === true))" class="collapse bottom-buffer" id="currentStandings2">
+    <div class="row" style="position: relative">
+
+      <div ng-if="myTeamData.fantasyTeamID && fantasyLeague.leagueID" class="col-xs-12 col-sm-12 col-md-6">
+        <div class="panel panel-default panel-fill no-margin">
+          <div class="panel-body">
+            <div class="row no-margin">
+              <div class="col-sm-8 no-padding">
+                <div class="row no-margin">
+                  <div class="col-xs-3 no-padding">
+                    <img class="avatar img-circle img-responsive" ng-src="{{myTeamData.teamPhotoUrl}}">
+                  </div>
+                  <div class="col-xs-9 no-padding">
+                    <h4>{{myTeamData.teamName}}</h4>
+                    <strong>Current Rank:</strong> {{myTeamData.rank}}<span ng-if="myTeamData.totalPoints - highTeamScore < 0" class="text-warning"><span ng-non-bindable> {</span>{{myTeamData.totalPoints - highTeamScore | number:2}}<span ng-non-bindable>}</span></span><br>
+                    <strong>YTP:</strong> {{myTeamData.ytp}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 text-center no-padding">
+                <h3 class="currency">{{myTeamData.totalPoints | number:2}}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <score-board-data ng-if="fantasyLeague" league-id="fantasyLeague.leagueID" sport-id="fantasyLeague.sportID" season-id="fantasyLeague.currentSeason" team-id="myTeamData.fantasyTeamID" pos="true" player-name="true" matchup="true" game-stats="true" points="true"></score-board-data>
+      </div>
+
+      <div class="vsicon">
+        <img class="img-responsive img-resp-center" src=/assets/images/vs-icon.png>
+      </div>
+
+      <div ng-if="otherTeamClean|| focusedVsPlayer.fantasyTeamID" class="col-xs-12 col-sm-12 col-md-6">
+        <div class="panel panel-default panel-fill no-margin">
+          <div class="panel-body">
+            <!-- Desktop -->
+            <div class="row no-margin visible-md visible-lg">
+              <div class="col-sm-4 text-center no-padding">
+                <h3 class="currency">{{opponentData.totalPoints | number:2}}</h3>
+              </div>
+              <div class="col-sm-8 no-padding">
+                <div class="row no-margin">
+                  <div class="col-xs-9 no-padding">
+                    <h4>{{opponentData.teamName}}</h4>
+                    <strong>Current Rank:</strong> {{opponentData.rank}}  <span ng-if="opponentData.totalPoints - highTeamScore    < 0" class="text-warning"><span ng-non-bindable>{</span>{{opponentData.totalPoints - highTeamScore | number:2}}<span ng-non-bindable>}</span></span><br>
+                    <strong>YTP:</strong> {{opponentData.ytp}}
+                  </div>
+                  <div class="col-xs-3 no-padding">
+                    <img class="avatar img-circle img-responsive" ng-src="{{opponentData.profilePic}}">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Mobile -->
+            <div class="row no-margin visible-xs visible-sm">
+              <div class="col-sm-8 no-padding">
+                <div class="row no-margin">
+                  <div class="col-xs-3 no-padding">
+                    <img class="avatar img-circle img-responsive" ng-src="{{opponentData.profilePic}}">
+                  </div>
+                  <div class="col-xs-9 no-padding">
+                    <h4>{{opponentData.teamName}}</h4>
+                    <strong>Current Rank:</strong> {{opponentData.rank}}  <span ng-if="opponentData.totalPoints - highTeamScore    < 0" class="text-warning"><span ng-non-bindable>{</span>{{opponentData.totalPoints - highTeamScore | number:2}}<span ng-non-bindable>}</span></span><br>
+                    <strong>YTP:</strong> {{opponentData.ytp}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 text-center no-padding">
+                <h3 class="currency">{{opponentData.totalPoints | number:2}}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <score-board-data ng-if="fantasyLeague" league-id="fantasyLeague.leagueID" sport-id="fantasyLeague.sportID" season-id="fantasyLeague.currentSeason" team-id="focusedVsPlayer.fantasyTeamID" pos="true" player-name="true" matchup="true" game-stats="true" points="true"></score-board-data>
+      </div>
+
+
+    </div>
+</div>

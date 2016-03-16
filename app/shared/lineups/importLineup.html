@@ -1,0 +1,86 @@
+﻿<script type="text/ng-template" id="importLineupID.html">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-click="cancel()" aria-label=" close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+    </div>
+    <!-- Import Lineup -->
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-8">
+                <h3 class="text-center">Select Lineup to Import</h3>
+                <div class="row">
+                    <div class="col-xs-12 top-buffer">
+                        <h4 class="text-center">{{ exportSportID | sportIcon | uppercase }} EDIT LINEUP <!-- <strong>Live In: 04:16:43</strong>--></h4>
+                        <p>Below are the leagues with lineups eligible for import. Lineups are only eligible if they share a common sport time, contest rules and contest start times. </p>
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="league in importableFantasyLeagues">
+                                <input type="radio" name="fantasyLeague" ng-model="form.league" ng-value="{{league}}">{{ league.entryFee | entryFeeTicketFilter }} - {{ league.fantasyLeagueName }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 text-right">
+                        <!--<button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">Cancel</button>-->
+                        <button type="button" class="btn btn-finance" ng-click="importLineup()">Import</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3 class="text-center">My Lineup</h3>
+
+                <div class="text-center">
+                    <strong>YTP:</strong> {{importFantasyTeamInfo.ytp}} &nbsp;|&nbsp;  <strong>Salary Left:</strong>&nbsp;{{salRemaining | currency:"$":0}}
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-leagues table-hover table-bordered table-striped table-td-center table-td-middle">
+                        <thead>
+                            <tr>
+                                <th class="borderless text-center">
+                                    POS
+                                </th>
+                                <th class="borderless text-center">
+                                    Player Name
+                                </th>
+                                <th class="borderless text-center">
+                                    Team
+                                </th>
+                                <th class="borderless text-center">
+                                    Salary
+                                </th>
+                                <!--<th class="borderless text-center">
+                                    FPPG
+                                </th>-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="player in importFantasyTeam">
+                                <td>
+                                    {{ player.position}}
+                                </td>
+                                <td>
+                                    {{ player.firstName }} {{ player.lastName}}
+                                </td>
+                                <td>
+                                    {{ player.playerTeamAlias | uppercase }}
+                                </td>
+                                <td>
+                                    {{ (player.salary != null && player.salary != 0) ? (player.salary | currency:"$":0) : ""  }}
+                                </td>
+                                <!--<td>
+                                    {{ (player.personID != 0) ? (player.averagePoints | toDecimal) : "" }}
+                                </td>-->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 top-buffer text-right">
+                        <button type="button" class="btn btn-default" ng-click="cancel()" data-dismiss="modal" aria-label="Close">Cancel</button>
+                        <button type="button" class="btn btn-finance" ng-click="saveLineup()">Save Lineup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

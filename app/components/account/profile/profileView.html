@@ -1,0 +1,123 @@
+﻿<div class="row">
+    <div class="col-sm-6">
+        <h3>Personal Information</h3>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="borderless">
+                        <strong>Username:</strong>
+                    </td>
+                    <td class="borderless">
+                        {{AccountInfo.userName}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="borderless">
+                        <strong>Email:</strong>
+                    </td>
+                    <td class="borderless">
+                        {{AccountInfo.email}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="borderless">
+                        <strong>First Name:</strong>
+                    </td>
+                    <td class="borderless">
+                        {{AccountInfo.firstName}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="borderless">
+                        <strong>Last Name:</strong>
+                    </td>
+                    <td class="borderless">
+                        {{AccountInfo.lastName}}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="borderless">
+                        <strong>Address:</strong>
+                    </td>
+                    <td class="borderless">
+                        <div>{{Address.addressOne}}</div>
+                        <div>{{Address.addressTwo}}</div>
+                        <div>{{Address.city}},  {{Address.state}} {{Address.zip}}</div>
+                        <div>{{Address.country}}</div>
+                    </td>
+                <tr>
+                    <td class="borderless">
+                        <strong>DOB:</strong>
+                    </td>
+                    <td class="borderless">
+                        {{AccountInfo.dob | date: "M/d/yyyy" }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="top-buffer">Notifications</h3>
+
+        <ul class="list-unstyled">
+            <li>
+                <label class="checkbox-inline">
+                    <input ng-model="PreferenceModel.newsletter" type="checkbox" id="newsletter"> Newsletters / Promos
+                </label>
+            </li>
+            <li>
+                <label class="checkbox-inline">
+                    <input ng-model="PreferenceModel.game" type="checkbox" id="newsletter"> Game Notifications
+                </label>
+            </li>
+            <li>
+                <label class="checkbox-inline">
+                    <input ng-model="PreferenceModel.referral" type="checkbox" id="newsletter"> Referral Notifications
+                </label>
+            </li>
+            <li>
+                <label class="checkbox-inline">
+                    <input ng-model="PreferenceModel.cashier" type="checkbox" id="newsletter"> Deposit / Withdrawal Confirmation
+                </label>
+            </li>
+            <li>
+                <label class="checkbox-inline">
+                    <input ng-model="PreferenceModel.seasonleague" type="checkbox" id="newsletter"> Season League Notifications
+                </label>
+            </li>
+        </ul>
+        <button ng-click="confirmNotificationChanges()" class="btn btn-red">Confirm Changes</button>
+
+    </div>
+    <div class="col-sm-6">
+
+        <h3>Player Picture</h3>
+        <!--<img class="avatar img-circle" src="/images/default-avatar.png">-->
+        <img class="avatar img-circle" ng-src="{{AccountInfo.profilePhotoUrl}}" onerror="if (!window.profilePhotoDefaultFailure) this.src = '/assets/images/default-avatar.png'; if (this.src.substr(this.src.length - ('/assets/images/default-avatar.png').length) == '/assets/images/default-avatar.png') window.profilePhotoDefaultFailure = true;" />
+        <!--&nbsp;<button class="btn btn-default">Edit Picture</button>-->
+
+        <h3 class="top-buffer">Security Details</h3>
+        <table class="table table-layout-auto">
+            <tbody>
+                <tr>
+                    <td class="borderless">
+                        <strong>Password:</strong>
+                    </td>
+                    <td class="borderless">
+                        *******
+                    </td>
+                </tr>
+                <tr>
+                    <td class="borderless">
+                        <strong>Password Question:</strong>
+                    </td>
+                    <td class="borderless">
+                        *******
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-default" data-toggle="modal" data-target="#editPassword">Edit Password</button>
+    </div>
+</div>
+
+<div ng-include="'app/shared/modal/genericModal/genericModal.html'"></div>

@@ -1,0 +1,1584 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bjqs-1.3.min.js"></script>
+    <script src="/js/jquery.countdown.js"></script>
+  </head>
+  <body>
+    <div class="header-background">
+      <!-- Mobile Navigation -->
+      <nav class="navbar navbar-static-top hidden-md hidden-lg">
+        <div class="navbar-header">
+          <div class="container">
+            <button type="button" class="navbar-icons left" data-toggle="collapse" data-target="#menuGeneral">
+              <span class="glyphicon icon-align-justify"></span>
+            </button>
+
+            <a class="sprite navbar-brand" href="/"></a>
+
+            <button type="button" class="navbar-icons right" data-toggle="collapse" data-target="#menuAccount">
+              <span class="glyphicon icon-user"></span>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <div class="collapse hidden-md hidden-lg" id="menuGeneral">
+        <div class="row">
+          <div class="col-sm-6">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="/">Lobby</a></li>
+              <li><a href="/leagues">Leagues</a></li>
+              <li><a href="/lineups">Lineups</a></li>
+              <li><a href="/scores">Scores</a></li>
+              <li><a href="/leaderboards">Leaderboards</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="/how-to-play">How to Play</a></li>
+              <li><a href="/rules">Rules</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a data-toggle="modal" data-target="#support">Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="collapse hidden-md hidden-lg" id="menuAccount">
+        <div class="row">
+          <div class="col-xs-12">
+            <ul class="nav nav-pills nav-stacked">
+              <li class="bal-points">
+                <strong>Balance:</strong> &dollar;500.00 <br>
+                <strong>Points:</strong> 700
+                <a href="/my-account" class="btn btn-default top-buffer">Add Funds</a>
+              </li>
+              <li><a href="/my-account">My Account</a></li>
+              <li><a href="/promotions">Promotions</a></li>
+              <li><a href="/logout">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop -->
+      <nav class="navbar navbar-default main-menu visible-md visible-lg" role="navigation">
+        <div class="container">
+          <!-- Top Menus -->
+          <div class="top-menu">
+            <div class="user-menu">
+              <ul class="list-inline">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img class="avatar img-circle" src="/images/default-avatar.png"> KnockoutDan <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="bal-points">
+                      <strong>Balance:</strong> &dollar;500.00 <br>
+                      <strong>Points:</strong> 700
+                    </li>
+                    <li><a href="/my-account">My Account</a></li>
+                    <li><a href="/promotions">Promotions</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="user-add-funds text-center">
+              <div class="col-xs-6 no-padding">
+                <a href="/my-account" class="btn btn-finance">Add Funds</a>
+              </div>
+            </div>
+          </div>
+          <!-- Main Menu -->
+          <div class="row">
+            <div class="col-md-5">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Lobby</a></li>
+                <li><a href="/leagues">Leagues</a></li>
+                <li><a href="/lineups">Lineups</a></li>
+                <li><a href="/scores">Scores</a></li>
+                <li><a href="/leaderboards">Leaderboards</a></li>
+              </ul>
+            </div>
+            <div class="col-md-2 no-padding">
+              <a class="header-logo" href="/"><img class="img-responsive" src="/images/logo-large.png"></a>
+            </div>
+            <div class="col-md-5">
+              <ul class="nav navbar-nav">
+                <li><a href="/how-to-play">How to Play</a></li>
+                <li><a href="/rules">Rules</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a data-toggle="modal" data-target="#support">Support</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    
+    <main class="container container-body">
+      <div class="content content-header">
+        <h2 class="text-center">League Lineup</h2>
+        <div class="content top-buffer">
+          <div class="row">
+            <div class="col-xs-12">
+              <h4>5 Man Daily NHL Salary Cap</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 text-left">
+              <table class="table table-layout-auto">
+                <tbody>
+                  <tr>
+                    <td class="borderless">
+                      <strong>League ID:</strong>
+                    </td>
+                    <td class="borderless">
+                      1059274
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="borderless">
+                      <strong>Team Name:</strong>
+                    </td>
+                    <td class="borderless">
+                      DanDan2
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="borderless">
+                      <strong>Starts:</strong>
+                    </td>
+                    <td class="borderless">
+                      10.09.2015 - 7:00 PM EST
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="borderless">
+                      <strong>Entries:</strong>
+                    </td>
+                    <td class="borderless">
+                      3/5
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="borderless">
+                      <strong>Buy-In:</strong>
+                    </td>
+                    <td class="borderless">
+                      FREE
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="borderless">
+                      <strong>Win:</strong>
+                    </td>
+                    <td class="borderless">
+                      15 KOP's
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-4">
+              <div class="top-buffer">
+                <ul class="list-unstyled">
+                  <li class="padding-xs">
+                    <button class="btn btn-block btn-primary">Leave League</button>
+                  </li>
+                  <li class="padding-xs">
+                    <a href="/" class="btn btn-block btn-default">Full League Details</a>
+                  </li>
+                  <li class="padding-xs">
+                    <a href="/" class="btn btn-block btn-default">NHL Scoring</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+
+        <div class="row">
+          <div class="col-md-8">
+
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-4">
+                    <img class="img-thumbnail img-responsive img-resp-center" src="/images/8328.png">
+                  </div>
+                  <div class="col-xs-12 col-sm-8">
+                    
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <h4><strong>Teemu Pulkkinen</strong></h4>
+                        <p class="text-muted no-margin">
+                          <strong>Detroit Red Wings</strong> { LW } #56
+                        </p>
+                        <small>5' 11" // 183 lbs</small>
+                        <ul class="list-unstyled top-buffer">
+                          <li class="small">
+                            <strong>Matchup:</strong> TOR @ <strong>DET</strong> ( Oct 9 · 19:30 EST )
+                          </li>
+                          <li class="small">
+                            Opposing Goalies: GAA: 2.77 // SV%: 0.92 // FPPG: 5.19
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-xs-12 text-center">
+                        <h4>2015 Season Overview</h4>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      
+                      <div class="col-xs-12">
+                        <div class="row no-margin">
+                          
+                          <div class="col-xs-2 padding-xs text-center">
+                            <div class="panel panel-default">
+                              <div class="panel-heading padding-xs">
+                                <strong><small>FPPG</small></strong>
+                              </div>
+                              <div class="panel-body padding-xs">
+                                <small>0.00</small>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-xs-2 padding-xs text-center">
+                            <div class="panel panel-default">
+                              <div class="panel-heading padding-xs">
+                                <strong><small>G</small></strong>
+                              </div>
+                              <div class="panel-body padding-xs">
+                                <small>0.00</small>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-xs-2 padding-xs text-center">
+                            <div class="panel panel-default">
+                              <div class="panel-heading padding-xs">
+                                <strong><small>A</small></strong>
+                              </div>
+                              <div class="panel-body padding-xs">
+                                <small>0.00</small>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-xs-2 padding-xs text-center">
+                            <div class="panel panel-default">
+                              <div class="panel-heading padding-xs">
+                                <strong><small>PTS</small></strong>
+                              </div>
+                              <div class="panel-body padding-xs">
+                                <small>0.00</small>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-xs-2 padding-xs text-center">
+                            <div class="panel panel-default">
+                              <div class="panel-heading padding-xs">
+                                <strong><small>+/-</small></strong>
+                              </div>
+                              <div class="panel-body padding-xs">
+                                <small>SOG</small>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-xs-2 padding-xs text-center padding-">
+                            <div class="panel panel-default">
+                              <div class="panel-heading padding-xs">
+                                <strong><small>SOG</small></strong>
+                              </div>
+                              <div class="panel-body padding-xs">
+                                <small>0.00</small>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+                <div class="row">
+                  
+                  <div class="col-md-4 text-center top-buffer">
+                    <div class="well padding-md" data-toggle="tooltip" data-placement="top" title="Season +/-:">
+                      <strong>$18,300</strong>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4 text-center top-buffer">
+                    <a href="#" class="btn btn-block btn-lg btn-finance">Add Player</a>
+                  </div>
+                  
+                  <div class="col-md-4 text-center top-buffer">
+                    <a href="#" class="btn btn-block btn-lg btn-default">View Profile</a>
+                  </div>
+                  
+                </div>
+
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-xs-12">
+                
+                <form class="bottom-buffer">
+                  <div class="row">
+                    <div class="col-md-10">
+                      
+                      <div class="col-md-3 padding-xs">
+                        <select class="form-control">
+                          <option>All Matchups</option>
+                          <option>Japan</option>
+                          <option>Germany</option>
+                        </select>
+                      </div>
+                      
+                      <div class="col-md-3 padding-xs">
+                        <select class="form-control">
+                          <option>All Teams</option>
+                          <option>Japan</option>
+                          <option>Germany</option>
+                        </select>
+                      </div>
+                      
+                      <div class="col-md-3 padding-xs">
+                        <select class="form-control">
+                          <option>2015 Stats</option>
+                          <option>Japan</option>
+                          <option>Germany</option>
+                        </select>
+                      </div>
+                      
+                      <div class="col-md-3 padding-xs">
+                        <input type="text" class="form-control" placeholder="Search Players">
+                      </div>
+                      
+                    </div>
+                    
+                    <div class="col-md-2">
+                      <a href="#"><span class="glyphicon icon-undo"></span></a>
+                      <a href="#"><span class="glyphicon icon-csv"></span></a>
+                    </div>
+
+                  </div>
+                </form>
+                <ul class="nav nav-tabs" role="tablist" id="editLeagues">
+                  <li role="presentation" class="active"><a href="#editLeaguesALL" aria-controls="editLeaguesALL" role="tab" data-toggle="tab">ALL</a></li>
+                  <li role="presentation"><a href="#editLeaguesQB" aria-controls="editLeaguesQB" role="tab" data-toggle="tab">QB</a></li>
+                  <li role="presentation"><a href="#editLeaguesRB" aria-controls="editLeaguesRB" role="tab" data-toggle="tab">RB</a></li>
+                  <li role="presentation"><a href="#editLeaguesWR" aria-controls="editLeaguesWR" role="tab" data-toggle="tab">WR</a></li>
+                  <li role="presentation"><a href="#editLeaguesTE" aria-controls="editLeaguesTE" role="tab" data-toggle="tab">TE</a></li>
+                  <li role="presentation"><a href="#editLeaguesDST" aria-controls="editLeaguesDST" role="tab" data-toggle="tab">DST</a></li>
+                  <li role="presentation"><a href="#editLeaguesFLEX" aria-controls="editLeaguesFLEX" role="tab" data-toggle="tab">FLEX</a></li>
+                </ul>
+
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane fade active in" id="editLeaguesALL">
+                    <div class="table-responsive">
+                      <table class="table table-leagues table-hover table-bordered table-striped table-td-center table-td-middle">
+                        <thead>
+                          <tr>
+                            <th class="borderless text-center">
+                              Rank
+                            </th>
+                            <th class="borderless text-center">
+                              Name
+                            </th>
+                            <th class="borderless text-center">
+                              Salary
+                            </th>
+                            <th class="borderless text-center">
+                              Matchup
+                            </th>
+                            <th class="borderless text-center">
+                              GP
+                            </th>
+                            <th class="borderless text-center">
+                              G
+                            </th>
+                            <th class="borderless text-center">
+                              A
+                            </th>
+                            <th class="borderless text-center">
+                              +/-
+                            </th>
+                            <th class="borderless text-center">
+                              SOG
+                            </th>
+                            <th class="borderless text-center">
+                              BS
+                            </th>
+                            <th class="borderless text-center">
+                              PIM
+                            </th>
+                            <th class="borderless text-center">
+                              W
+                            </th>
+                            <th class="borderless text-center">
+                              L
+                            </th>
+                            <th class="borderless text-center">
+                              GA
+                            </th>
+                            <th class="borderless text-center">
+                              FPPG
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                          <tr>
+                            <td>
+                              1
+                            </td>
+                            <td>
+                              Julio Jones(ATL-WR)
+                            </td>
+                            <td>
+                              $18,000
+                            </td>
+                            <td>
+                              NSH@NYI
+                            </td>
+                            <td>
+                              
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0.00
+                            </td>
+                          </tr>
+                          
+                          <tr>
+                            <td>
+                              1
+                            </td>
+                            <td>
+                              Julio Jones(ATL-WR)
+                            </td>
+                            <td>
+                              $18,000
+                            </td>
+                            <td>
+                              NSH@NYI
+                            </td>
+                            <td>
+                              
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0.00
+                            </td>
+                          </tr>
+                          
+                          <tr>
+                            <td>
+                              1
+                            </td>
+                            <td>
+                              Julio Jones(ATL-WR)
+                            </td>
+                            <td>
+                              $18,000
+                            </td>
+                            <td>
+                              NSH@NYI
+                            </td>
+                            <td>
+                              
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0.00
+                            </td>
+                          </tr>
+                          
+                          <tr>
+                            <td>
+                              1
+                            </td>
+                            <td>
+                              Julio Jones(ATL-WR)
+                            </td>
+                            <td>
+                              $18,000
+                            </td>
+                            <td>
+                              NSH@NYI
+                            </td>
+                            <td>
+                              
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0.00
+                            </td>
+                          </tr>
+                          
+                          <tr>
+                            <td>
+                              1
+                            </td>
+                            <td>
+                              Julio Jones(ATL-WR)
+                            </td>
+                            <td>
+                              $18,000
+                            </td>
+                            <td>
+                              NSH@NYI
+                            </td>
+                            <td>
+                              
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              -
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0.00
+                            </td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div role="tabpanel" class="tab-pane fade" id="editLeaguesQB">2</div>
+                  <div role="tabpanel" class="tab-pane fade" id="editLeaguesRB">3</div>
+                  <div role="tabpanel" class="tab-pane fade" id="editLeaguesWR">4</div>
+                  <div role="tabpanel" class="tab-pane fade" id="editLeaguesTE">5</div>
+                  <div role="tabpanel" class="tab-pane fade" id="editLeaguesDST">6</div>
+                  <div role="tabpanel" class="tab-pane fade" id="editLeaguesFLEX">7</div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-4">
+            <div class="well">
+              <h4 class="text-center">Invite friends to join this league!</h4>
+              <ul class="list-inline text-center social-media">
+                <li><a href="https://www.facebook.com/knockoutcasino" target="_blank"><span class="glyphicon icon-facebook-square"></span></a></li>
+                <li><a href="https://twitter.com/knockoutcasino" target="_blank"><span class="glyphicon icon-twitter-square"></span></a></li>
+              </ul>
+            </div>
+
+            <h2 class="text-center bottom-buffer">My Lineup</h2>
+            <div class="row">
+              <div class="col-xs-12 text-center padding-sm">
+                <button class="btn btn-primary">Universal Player Swap</button>
+              </div>
+              <div class="col-xs-6 text-right padding-sm">
+                <button class="btn btn-primary">Import</button>
+              </div>
+              <div class="col-xs-6 padding-sm">
+                <button class="btn btn-primary">Export</button> <span class="glyphicon icon-question" data-toggle="tooltip" data-placement="top" title="Help"></span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12 top-buffer">
+
+                <div class="list-group list-league-lineup">
+                  <a href="#" class="list-group-item added">
+                    <span class="badge"><span class="glyphicon icon-cross-mark"></span></span>
+                    <strong>SP</strong> Thomas Raffl / WPG-LW / $6,000
+                  </a>
+                  <a href="#" class="list-group-item active">
+                    <span class="badge"><span class="glyphicon icon-cross-mark"></span></span>
+                    <strong>SP</strong> Anthony Peluso / WPG-RW / $6,000
+                  </a>
+                  <a href="#" class="list-group-item added">
+                    <span class="badge"><span class="glyphicon icon-cross-mark"></span></span>
+                    <strong>C</strong> Jansen Harkins / WPG-C / $6,000
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge"><span class="glyphicon icon-cross-mark"></span></span>
+                    <strong>1B</strong>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge"><span class="glyphicon icon-cross-mark"></span></span>
+                    2B
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge"><span class="glyphicon icon-cross-mark"></span></span>
+                    <strong>SS</strong>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge"><span class="glyphicon icon-cross-mark"></span></span>
+                    <strong>3B</strong>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge"><span class="glyphicon icon-cross-mark"></span></span>
+                    <strong>OF</strong>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge"><span class="glyphicon icon-cross-mark"></span></span>
+                    <strong>OF</strong>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge"><span class="glyphicon icon-cross-mark"></span></span>
+                    <strong>OF</strong>
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge"><span class="glyphicon icon-cross-mark"></span></span>
+                    <strong>U</strong>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6 text-right padding-sm">
+                <button class="btn btn-primary">Save Lineup</button>
+              </div>
+              <div class="col-xs-6 padding-sm">
+                <button class="btn btn-default">Clear All</button>
+              </div>
+            </div>
+
+            <div class="panel panel-primary top-buffer">
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-xs-6 text-center">
+                    <p>
+                      Salary Remaining:
+                    </p>
+                    <span class="text-success"><strong>$83,900</strong></span>
+                  </div>
+                  <div class="col-xs-6 text-center">
+                    <p>
+                      Avg. Salary Remaining:
+                    </p>
+                    <span class="text-success"><strong>$8,390</strong></span>
+                  </div>
+                  <div class="col-xs-12">
+                    <input type="checkbox"> <span class="small">Filter Player Grid by Avg. Salary Remaining</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+    <footer class="top-buffer">
+      <div class="container top-buffer">
+        <div class="row">
+          <div class="col-xs-12 col-md-2 text-center">
+            <a class="sprite footer-logo" href="/"></a>
+          </div>
+          <div class="col-xs-12 col-md-10 footer-links">
+            <div class="col-xs-12 col-md-4 text-center">
+              <ul class="list-inline">
+                <li><a href="/lobby">Lobby</a></li>
+                <li><a href="/leagues">Leagues</a></li>
+                <li><a href="/lineups">Lineups</a></li>
+                <li><a href="/scores">Scores</a></li>
+                <li><a href="/leaderboards">Leaderboards</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-md-4 text-center">
+              <ul class="list-inline">
+                <li><a href="/how-to-play">How To Play</a></li>
+                <li><a href="/rules">Rules</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a data-toggle="modal" data-target="#support">Support</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-md-4 text-center">
+              <ul class="list-inline">
+                <li><a href="/">MLB</a></li>
+                <li><a href="/">NFL</a></li>
+                <li><a href="/">NBA</a></li>
+                <li><a href="/">NHL</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row top-buffer">
+          <div class="col-xs-12">
+            <ul class="list-inline text-center language">
+              <li><a class="sprite usa-flag" data-toggle="modal" data-target="#usaEligibility"></a><a data-toggle="modal" data-target="#usaEligibility">Eligibility</a></li>
+              <li><a class="sprite canada-flag" data-toggle="modal" data-target="#canadaEligibility"></a><a data-toggle="modal" data-target="#canadaEligibility">Eligibility</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row top-buffer" style="opacity: 0.4">
+          <div class="col-xs-12">
+            <ul class="list-inline text-center">
+              <li><a class="sprite stats-logo" href="/"></a></li>
+              <li><a class="sprite fsta-logo" href="/"></a></li>
+              <li><a class="sprite verisign-logo" href="/"></a></li>
+              <li><a class="sprite paypal-logo" href="/"></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <ul class="list-inline text-center social-media">
+              <li><a href="https://www.facebook.com/knockoutcasino" target="_blank"><span class="glyphicon icon-facebook-square"></span></a></li>
+              <li><a href="https://twitter.com/knockoutcasino" target="_blank"><span class="glyphicon icon-twitter-square"></span></a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 text-center copyright">
+            Copyright &copy; 2015 Knockout Picks. All Rights Reserved | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">About Us</a>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Player Profile Modal -->
+    <div class="modal fade" id="playerProfileModal" tabindex="-1" role="dialog" aria-labelledby="playerProfileModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body">
+              
+              <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                  <img class="img-thumbnail img-responsive img-resp-center" src="/images/8328.png">
+                </div>
+                <div class="col-xs-12 col-sm-8">
+
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <h4><strong>Teemu Pulkkinen</strong></h4>
+                      <p class="text-muted no-margin">
+                        <strong>Detroit Red Wings</strong> { LW } #56
+                      </p>
+                      <small>5' 11" // 183 lbs</small>
+                      <ul class="list-unstyled top-buffer">
+                        <li class="small">
+                          <strong>Matchup:</strong> TOR @ <strong>DET</strong> ( Oct 9 · 19:30 EST )
+                        </li>
+                        <li class="small">
+                          Opposing Goalies: GAA: 2.77 // SV%: 0.92 // FPPG: 5.19
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-xs-12 text-center">
+                      <h4>2015 Season Overview</h4>
+                    </div>
+                  </div>
+
+                  <div class="row">
+
+                    <div class="col-xs-12">
+                      <div class="row no-margin">
+
+                        <div class="col-xs-2 padding-xs text-center">
+                          <div class="panel panel-default">
+                            <div class="panel-heading padding-xs">
+                              <strong><small>FPPG</small></strong>
+                            </div>
+                            <div class="panel-body padding-xs">
+                              <small>0.00</small>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-xs-2 padding-xs text-center">
+                          <div class="panel panel-default">
+                            <div class="panel-heading padding-xs">
+                              <strong><small>G</small></strong>
+                            </div>
+                            <div class="panel-body padding-xs">
+                              <small>0.00</small>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-xs-2 padding-xs text-center">
+                          <div class="panel panel-default">
+                            <div class="panel-heading padding-xs">
+                              <strong><small>A</small></strong>
+                            </div>
+                            <div class="panel-body padding-xs">
+                              <small>0.00</small>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-xs-2 padding-xs text-center">
+                          <div class="panel panel-default">
+                            <div class="panel-heading padding-xs">
+                              <strong><small>PTS</small></strong>
+                            </div>
+                            <div class="panel-body padding-xs">
+                              <small>0.00</small>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-xs-2 padding-xs text-center">
+                          <div class="panel panel-default">
+                            <div class="panel-heading padding-xs">
+                              <strong><small>+/-</small></strong>
+                            </div>
+                            <div class="panel-body padding-xs">
+                              <small>SOG</small>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-xs-2 padding-xs text-center padding-">
+                          <div class="panel panel-default">
+                            <div class="panel-heading padding-xs">
+                              <strong><small>SOG</small></strong>
+                            </div>
+                            <div class="panel-body padding-xs">
+                              <small>0.00</small>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-xs-12 top-buffer">
+                  
+                  <ul class="nav nav-tabs" role="tablist" id="editLeagues">
+                    <li role="presentation" class="active"><a href="#brief" aria-controls="brief" role="tab" data-toggle="tab">Brief Overview</a></li>
+                    <li role="presentation"><a href="#gameLog" aria-controls="gameLog" role="tab" data-toggle="tab">Game Log</a></li>
+                    <li role="presentation"><a href="#seasonSplits" aria-controls="seasonSplits" role="tab" data-toggle="tab">Season Splits</a></li>
+                    <li role="presentation"><a href="#career" aria-controls="career" role="tab" data-toggle="tab">Career</a></li>
+                    <li role="presentation"><a href="#playerInfo" aria-controls="playerInfo" role="tab" data-toggle="tab">Player Info</a></li>
+                  </ul>
+
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade active in" id="brief">
+                      <div class="table-responsive">
+                        <table class="table table-leagues table-hover table-bordered table-striped table-td-center table-td-middle">
+                          <thead>
+                            <tr>
+                              <th class="borderless text-center">
+                                Statistics
+                              </th>
+                              <th class="borderless text-center">
+                                FPPG
+                              </th>
+                              <th class="borderless text-center">
+                                DEC
+                              </th>
+                              <th class="borderless text-center">
+                                W
+                              </th>
+                              <th class="borderless text-center">
+                                L
+                              </th>
+                              <th class="borderless text-center">
+                                OTL
+                              </th>
+                              <th class="borderless text-center">
+                                GA
+                              </th>
+                              <th class="borderless text-center">
+                                SA
+                              </th>
+                              <th class="borderless text-center">
+                                SV
+                              </th>
+                              <th class="borderless text-center">
+                                SV%
+                              </th>
+                              <th class="borderless text-center">
+                                GAA
+                              </th>
+                              <th class="borderless text-center">
+                                SO
+                              </th>
+                              <th class="borderless text-center">
+                                PIM
+                              </th>
+                              <th class="borderless text-center">
+                                ENGA
+                              </th>
+                              <th class="borderless text-center">
+                                GP
+                              </th>
+                              <th class="borderless text-center">
+                                GS
+                              </th>
+                              <th class="borderless text-center">
+                                TOI
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+
+                            <tr>
+                              <td>
+                                Last Game (10/13)
+                              </td>
+                              <td>
+                                8.10
+                              </td>
+                              <td>
+                                W
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                23
+                              </td>
+                              <td>
+                                22
+                              </td>
+                              <td>
+                                0.96
+                              </td>
+                              <td>
+                                1.00
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                60:00
+                              </td>
+                            </tr>
+                            
+                            <tr>
+                              <td>
+                                Last Game (10/13)
+                              </td>
+                              <td>
+                                8.10
+                              </td>
+                              <td>
+                                W
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                23
+                              </td>
+                              <td>
+                                22
+                              </td>
+                              <td>
+                                0.96
+                              </td>
+                              <td>
+                                1.00
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                60:00
+                              </td>
+                            </tr>
+                            
+                            <tr>
+                              <td>
+                                Last Game (10/13)
+                              </td>
+                              <td>
+                                8.10
+                              </td>
+                              <td>
+                                W
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                23
+                              </td>
+                              <td>
+                                22
+                              </td>
+                              <td>
+                                0.96
+                              </td>
+                              <td>
+                                1.00
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                60:00
+                              </td>
+                            </tr>
+                            
+                            <tr>
+                              <td>
+                                Last Game (10/13)
+                              </td>
+                              <td>
+                                8.10
+                              </td>
+                              <td>
+                                W
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                23
+                              </td>
+                              <td>
+                                22
+                              </td>
+                              <td>
+                                0.96
+                              </td>
+                              <td>
+                                1.00
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                60:00
+                              </td>
+                            </tr>
+                            
+                            <tr>
+                              <td>
+                                Last Game (10/13)
+                              </td>
+                              <td>
+                                8.10
+                              </td>
+                              <td>
+                                W
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                23
+                              </td>
+                              <td>
+                                22
+                              </td>
+                              <td>
+                                0.96
+                              </td>
+                              <td>
+                                1.00
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                0
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                1
+                              </td>
+                              <td>
+                                60:00
+                              </td>
+                            </tr>
+
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane fade" id="gameLog">3</div>
+                    <div role="tabpanel" class="tab-pane fade" id="seasonSplits">4</div>
+                    <div role="tabpanel" class="tab-pane fade" id="career">5</div>
+                    <div role="tabpanel" class="tab-pane fade" id="playerInfo">6</div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login -->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body">
+              <h2 class="text-center">Player Login</h2>
+                <div class="form-group">
+                  <label for="username">Username:</label>
+                  <input type="text" class="form-control" id="username">
+                </div>
+
+                <div class="form-group">
+                  <label for="password">Password:</label>
+                  <input type="password" class="form-control" id="password">
+                </div>
+
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="remember" value="remember"> Remember me
+                </label>
+                <br>
+                <a data-dismiss="modal" data-toggle="modal" href="#forgotPassword">Forgot your Password?</a><br>
+                <a data-dismiss="modal" data-toggle="modal" href="#forgotUsername">Forgot your Username?</a>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-block btn-lg btn-primary">Login</button>
+              <br>
+              <div class="text-center">
+                Don't have an account? <a data-dismiss="modal" data-toggle="modal" href="#register">Click Here</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Password -->
+    <div class="modal fade" id="forgotPassword" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body">
+              <h2 class="text-center">Recover Password?</h2>
+              <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username">
+              </div>
+              <img class="img-responsive" src="/images/captcha.gif">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-block btn-lg btn-primary">Send Password</button>
+              <br>
+              <div class="text-center sma">
+                <small>*Your password will be sent to your email address.</small>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Username -->
+    <div class="modal fade" id="forgotUsername" tabindex="-1" role="dialog" aria-labelledby="forgotUsernameLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body">
+              <h2 class="text-center">Recover Username?</h2>
+              <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username">
+              </div>
+              <img class="img-responsive" src="/images/captcha.gif">
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-block btn-lg btn-primary">Send Username</button>
+              <br>
+              <div class="text-center sma">
+                <small>*Your username will be sent to your email address.</small>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Support -->
+    <div class="modal fade" id="support" tabindex="-1" role="dialog" aria-labelledby="supportLabel">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body">
+              <h2 class="text-center bottom-buffer">Support</h2>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" class="form-control" id="email">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="subject">Subject:</label>
+                      <select class="form-control">
+                        <option>Choose</option>
+                        <option>General</option>
+                        <option>Lineups</option>
+                        <option>Scoring</option>
+                      </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" rows="3"></textarea>
+              </div>
+              <button type="button" class="btn btn-lg btn-primary">Submit</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- USA Eligibility Modal -->
+    <div class="modal fade" id="usaEligibility" tabindex="-1" role="dialog" aria-labelledby="usaEligibilityLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <div class="modal-body text-center">
+
+            <span class="sprite usa-flag"></span>
+            <h2>USA ELIGIBILITY</h2>
+            <p class="top-buffer">
+              The following states do not allow fantasy sports competition for cash: Arizona, Arkansas, Delaware, Iowa, Louisiana, Michigan, Montana, Tennessee, and Washington. Residents of Alabama and Nebraska must be 19 years of age to play in cash Daily Fantasy Sports contests.
+            </p>
+            <p>
+              If you fall outside these states and are still having trouble depositing, or have deposit questions in general please do not hesitate to <a href="#">contact us.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CANADA Eligibility Modal -->
+    <div class="modal fade" id="canadaEligibility" tabindex="-1" role="dialog" aria-labelledby="canadaEligibilityLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <div class="modal-body text-center">
+
+            <span class="sprite canada-flag"></span>
+            <h2>CANADA ELIGIBILITY</h2>
+            <p class="top-buffer">
+              The following provinces do not allow fantasy sports competition for cash: Prince Edward Island and Quebec are not eligible to participate. Residents of British Columbia must be 19 years of age to play in cash Daily Fantasy Sports contests.
+            </p>
+            <p>
+              If you fall outside these provinces and are still having trouble depositing, or have deposit questions in general please do not hesitate to <a href="#">contact us.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+        
+        $('#playerProfileModal').modal('show');
+        
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+
+<div ng-include="'/app/shared/header/header.html'"></div>
+<main ng-controller="draftController" class="container container-body">
+
+  <h2 class="text-center bottom-buffer">League Lineup</h2>
+
+  <div class="row">
+    <div class="col-md-9">
+      <div ng-include="'/app/components/draft/overview/draftOverview.html'"></div>
+      <div ng-include="'/app/components/draft/playerGrid/playerGridView.html'"></div>
+    </div>
+    <div class="col-md-3">
+
+      <div class="panel panel-default panel-fill no-margin">
+        <div class="panel-body" ng-show="activePlayer != null">
+
+          <div ng-controller="commonProfileSection" ng-include="'/app/shared/players/profile/commonProfileSection.html'"></div>
+
+          <div class="text-center">
+            <a ng-disabled="activePlayer == null || activePosName == 'DST'" ng-click="((activePlayer == null || activePosName == 'DST') || openPlayerProfile())" class=" btn btn-default">Profile</a>
+            <a href="" class="btn btn-green" ng-click="addPlayerToLineup(activePlayer)">Add Player</a>
+            <!--<a data-toggle="modal" data-target="#playerProfileModal" class="btn btn-block btn-lg btn-default">View Profile</a>-->
+          </div>
+
+          <h4 class="text-center">My Lineup</h4>
+
+        </div>
+      </div>
+      <div ng-controller="draftLineupController">
+        <!--
+              <div class="well">
+                  <h4 class="text-center">Invite friends to join this league!</h4>
+                  <ul class="list-inline text-center social-media">
+                      <li><a href="https://www.facebook.com/knockoutcasino" target="_blank"><span class="glyphicon icon-facebook-square"></span></a></li>
+                      <li><a href="https://twitter.com/knockoutcasino" target="_blank"><span class="glyphicon icon-twitter-square"></span></a></li>
+                  </ul>
+              </div>
+              -->
+        <div ng-include="'/app/components/draft/draftLineup/draftLineupView.html'"></div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div ng-include="'/app/shared/modal/playerProfile/playerProfileModalView.html'"></div>
+
+</main>
+
+<div ng-include="'app/components/draft/savedLineup/savedLineupModal.html'"></div>
+<div ng-include="'app/shared/lineups/exportLineups.html'"></div>
+<div ng-include="'app/shared/lineups/importLineup.html'"></div>
+<div ng-include="'app/shared/modal/genericModal/genericModal.html'"></div>

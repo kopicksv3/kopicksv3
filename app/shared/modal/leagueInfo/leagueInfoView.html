@@ -1,0 +1,202 @@
+﻿<!-- League Information -->
+<script type="text/ng-template" id="leagueInfoModalContent.html">
+
+    <div class="modal-header" id="leagueInformation" tabindex="-1" role="dialog" aria-labelledby="leagueInformationLabel">
+        <button type="button" class="close" data-dismiss="modal" ng-click="cancel()" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+        <div class="top-buffer" ng-show="loading">
+            <div ng-include="'app/shared/spinner/spinner.html'"></div>
+        </div>
+    </div>
+    <form ng-show="!loading">
+        <div class="modal-body modal-leagues">
+            <h2 class=" text-center">
+                League Information
+            </h2>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <!--ViewData["EntryFeeNoDecimalString"]%> - <%= ViewData["LeagueType"]%> - <%= ViewData["PrizePool"]%> IN PRIZES - STARTS AT <%= ViewData["StartTime2"] 8:25 PM EST 10/8/2015-->
+                    <h3 class="league-info bg-finance">{{ fantasyLeague.entryFee | entryFeeTicketFilter:fantasyLeague.canOnlyBeJoinedWithTickets }} - {{ fantasyLeague.leagueID | getLeagueStr }} {{ fantasyLeague.fantasyLeagueDurationID | getDurationStr }} {{ fantasyLeague.salaryCap | salCapInK }} {{ fantasyLeague.fantasyDraftStyleID | getDraftStyleStr }} - {{ fantasyLeague.sizeOfPrizePool | getPrizeFilter:fantasyLeague.payoutCurrencyType  }} IN PRIZES - STARTS AT {{ (fantasyLeague.scoringStartDate_ms | dateDiffInDays) > 0 ?  (fantasyLeague.scoringStartDate_ms | date:'EEE, MMM d @ h:mm a') : (fantasyLeague.scoringStartDate_ms | date:'h:mm a') }} EST</h3>
+
+                    <h4 class="text-center">
+                        <span ng-bind-html="fantasyLeague.guaranteed  | getGuaranteedIcon"></span>
+                        <span ng-bind-html="fantasyLeague.maxNumberEntriesPerUser | getMultiIconFilter"></span>
+                        <span ng-bind-html="fantasyLeague.fantasyDraftStyleID | getTurboIconFilter"></span>
+                        <span ng-bind-html="fantasyLeague.isQualifier | getQualIconFilter"></span>
+                        <span ng-bind-html="fantasyLeague.isSatellite | getSatIconFilter"></span>
+                        <span ng-bind-html="fantasyLeague.fantasyLeagueBettingStyleID | getBettingStyleIconFilter"></span>
+                        League Information
+                    </h4>
+
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered table-striped table-td-middle">
+                            <tbody>
+                                <tr ng-if="(fantasyLeague.fantasyLeagueID | getSubstring:4) != 'ALM_'">
+                                    <td>
+                                        League ID:
+                                    </td>
+                                    <td>
+                                        {{ fantasyLeague.fantasyLeagueID }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        League Type:
+                                    </td>
+                                    <td>
+                                        {{ fantasyLeague.leagueID | getLeagueStr }} {{ fantasyLeague.fantasyLeagueDurationID | getDurationStr }} {{ fantasyLeague.salaryCap | salCapInK }} {{ fantasyLeague.fantasyDraftStyleID | getDraftStyleStr }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Starts:
+                                    </td>
+                                    <td>
+                                        {{ fantasyLeague.scoringStartDate_ms | date:'EEE M/d/yyyy h:mm a' }} EST
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Entries:
+                                    </td>
+                                    <td>
+                                        {{fantasyLeague.currentNumberPlayers | numPlayersFilter:fantasyLeague.maxNumberPlayers}} {{ fantasyLeague.if_1_of_2_UserName_of_1 ? ("(Opponent - " + fantasyLeague.if_1_of_2_UserName_of_1 + " )") : "" }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Buy-In:
+                                    </td>
+                                    <td>
+                                        <!--<span class="text-success"></span>-->
+                                        {{ fantasyLeague.entryFee | entryFeeTicketFilter:fantasyLeague.canOnlyBeJoinedWithTickets }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4 class="text-center">
+                        Prize Pool: <span class="text-success">{{ fantasyLeague.sizeOfPrizePool | getPrizeFilter:fantasyLeague.payoutCurrencyType  }}</span>
+                        <br />
+                        <span class="text-muted x-small">
+                            <em ng-show="sizeOfCommissionInCashFromFantasyLeague != 0">
+                                Service Fee: {{ (sizeOfCommissionInCashFromFantasyLeague | currency:"$":2) }} ({{ sizeOfCommissionInCashPerUser | currency:"$":2 }} per entry)
+                            </em>
+                        </span>
+                    </h4>
+                    
+
+                    <ul class="list-unstyled">
+                        <li ng-repeat="prize in abbrevPrizeList">
+                            <strong>{{prize.startRank == prize.endRank ? prize.startRank : prize.startRank + "-" + prize.endRank}}:</strong> {{prize.prizeValue | getPrizeWithCurr:prize.prizeValueCurrency:tenant.bonusPoints }}
+                        </li>
+                    </ul>
+
+                    <h4 class="text-center">{{ tenant.bonusPoints | uppercase }}: <span class="text-warning">{{fantasyLeague.winSpecialPoints}}</span></h4>
+                    <p>Every entrant receives <span class="text-warning">{{fantasyLeague.winSpecialPoints}}</span> {{tenant.bonusPoints}}</p>
+                    <p><span class="text-warning">{{fantasyLeague.specialPointsEntryFee}}</span> points are required to join this league for free!</p>
+
+                    <a href="/#/rules">Rules and Scoring</a>
+
+                </div>
+                <div class="col-md-6">
+                    <!-- if ALM league -->
+                    <h3 ng-if="(fantasyLeague.fantasyLeagueID | getSubstring:4) == 'ALM_'" class="league-name bg-points">
+                        {{ fantasyLeague.entryFee | entryFeeTicketFilter:fantasyLeague.canOnlyBeJoinedWithTickets }} -
+                        {{ fantasyLeague.maxNumberPlayers}}-Man Daily 
+                        {{ fantasyLeague.leagueID | getLeagueStr }}
+                        Salary Cap
+                    </h3>
+                    <!--non ALM league-->
+                    <h3 ng-if="(fantasyLeague.fantasyLeagueID | getSubstring:4) != 'ALM_'" class="league-name bg-points">
+                        {{ fantasyLeague.entryFee | entryFeeTicketFilter:fantasyLeague.canOnlyBeJoinedWithTickets }} - {{fantasyLeague.name}}
+                    </h3>
+
+                    <table class="table table-leagues table-hover table-bordered table-td-middle">
+                        <thead>
+                            <tr>
+                                <th>
+                                    {{ fantasyLeague.leagueID | getLeagueStr }} Matchups ({{matchups.length}})
+                                </th>
+                                <th>
+                                    Salary Cap: <span class="text-success">{{ fantasyLeague.salaryCap | salCapInK }}</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="m in matchups track by $index">
+                                <td>
+                                    {{m.awayName}} @ {{m.homeName}}
+
+                                </td>
+                                <td>
+                                    {{m.startDateString}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Hide payment stuff if viewing from draft page -->
+                    <div ng-show="!leagueInfoButton">
+                        <div ng-if="fantasyLeague.entryFee == 0">
+                            <h4 class="text-center">FREE League</h4>
+                            <p>
+                                This is a free league!
+                            </p>
+                        </div>
+
+                        <!-- NEW BUY IN --->
+                        <div ng-if="!notEnoughMoney && account.accountID && fantasyLeague.entryFee > 0">
+                            <h4 class="text-center">{{ fantasyLeague.entryFee | entryFeeTicketFilter:fantasyLeague.canOnlyBeJoinedWithTickets }} Buy-In</h4>
+                            <p>
+                                <label class="radio-inline">
+                                    <input ng-disabled="notEnoughMoney" type="radio" name="entry" ng-click="onChangePayment('USD', fantasyLeague.entryFee)"> Deduct {{ fantasyLeague.entryFee | currency:'$':0 }} from my account
+                                </label>
+                            </p>
+
+                            <p>
+                                <label ng-if="tenant.bonusPoints != null || tenant.bonusPoints != ''" class="radio-inline">
+                                    <input ng-disabled="notEnoughPoints" type="radio" name="entry" ng-click="onChangePayment('SFP', fantasyLeague.specialPointsEntryFee)"> Use {{fantasyLeague.specialPointsEntryFee}} {{tenant.bonusPoints}}
+                                </label>
+                            </p>
+                            <!--<p>
+                                            TODO: TICKETS
+                                            <label class="radio-inline">
+                                <input type="radio"> Use a ticket: You have no eligible tickets.
+                            </label>
+                                        </p>-->
+                            <p class="text-muted small">
+                                <em ng-if="payment">By clicking 'JOIN LEAGUE', I authorize {{tenant.fullName}} to deduct {{$parent.payment}} from my account in order to join this league.</em>
+                            </p>
+                        </div>
+                        <p class="text-muted small">
+                            <em ng-if="errormsg != ''">{{errormsg}}</em>
+                        </p>
+                        <!-- NEW LOGIN -->
+                        <div ng-if="account.accountID == null || account.accountID == ''">
+                            <p class="text-center">
+                                Please <a>Login</a> or <a>Register</a> to join leagues!
+                            </p>
+                            <p class="text-right">
+                                <button type="button" class="btn btn-lg btn-default" ng-click="cancel()">Cancel</button>
+                            </p>
+                        </div>
+
+                        <div ng-if="account.accountID">
+                            <h4 class="text-center">My Current Balance</h4>
+                            <p>
+                                {{account.userBalance | currency:'$':2}} / {{account.internalPoints}} {{tenant.bonusPoints}} <a href="#/my-account?tab=cashier">Add Funds</a>
+                            </p>
+                            <div class="text-center top-buffer">
+                                <!--TODO: need to add variable if can play cash games from account-->
+                                <button ng-disabled="!showJoinBtn" type="button" class="btn btn-lg btn-primary" ng-click="joinLeague()">Join League</button> <button type="button" class="btn btn-lg btn-default" ng-click="cancel()">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div ng-include="'app/shared/modal/genericModal/genericModal.html'"></div>
+</script>

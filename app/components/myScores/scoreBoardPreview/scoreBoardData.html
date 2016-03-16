@@ -1,0 +1,68 @@
+
+<div class="table-responsive">
+  <table class="table table-leagues table-hover table-bordered table-striped table-td-center table-td-middle">
+    <thead>
+      <tr>
+        <th ng-show="pos" class="borderless text-center">
+          POS
+        </th>
+        <th ng-show="playerName" class="borderless text-center">
+          Player Name
+        </th>
+        <th ng-show="salary" class="borderless text-center">
+          Team (Salary)
+        </th>
+        <th ng-show="owned" class="borderless text-center">
+          % Owned
+        </th>
+        <th ng-show="matchup" class="borderless text-center">
+          Matchup
+        </th>
+        <th ng-show="gameStats" class="borderless text-center">
+          Game Stats
+        </th>
+        <th ng-show="points" class="borderless text-center">
+          PTS
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="player in focusedTeamData">
+        <td ng-show="pos">
+          {{player.pos}}
+        </td>
+        <td ng-show="playerName">
+          <span ng-click="(player.teamPos | uppercase) !== 'DST' && openPlayerProfile(player)">{{player.firstName}} {{player.lastName}}</span>
+        </td>
+        <td ng-show="salary">
+          {{player.teamN}} ({{player.salary | currency}})
+        </td>
+        <td ng-show="owned && player.percentageOwned !== 0">
+          {{player.percentageOwned| number:2}}%
+        </td>
+        <td ng-show="owned && player.percentageOwned === 0">
+          -
+        </td>
+        <td ng-show="matchup">
+          <span ng-show="player.gameTime == 'F'"> <span ng-class="{'text-muted': {{player.awayScore > player.homeScore}}}">{{player.homeScore}} {{player.homeAlias}}</span> <span class="text-info">{{player.gameTime}}</span> &nbsp; <span ng-class="{'text-muted': {{player.awayScore < player.homeScore}}}">{{player.awayAlias}} {{player.awayScore}}</span></span>
+          <span ng-show="!player.gameStarted && player.firstName == 'YTP'">-</span>
+          <span ng-show="player.homeAlias && player.awayAlias && player.firstName != 'YTP' && !player.gameStarted ">{{(player.homeAlias)}} Vs. {{player.awayAlias}}  {{player.gameTime}}</span>
+          <span ng-show="player.homeAlias && player.awayAlias && player.gameTime != 'F' && player.gameStarted">{{player.homeScore}} {{player.homeAlias}} &nbsp; {{player.gameTime}} &nbsp; {{player.awayAlias}} {{player.awayScore}}</span>
+        </td>
+        <td ng-show="gameStats">
+          <span ng-show="player.positiveStats.length > 0" class="text-success">+</span>
+          <span ng-repeat="stat in player.positiveStats">{{stat.scoreAmt}} {{stat.scoreName}}<span ng-show="!$last">,</span> </span>
+          <span ng-show="(player.positiveStats.length > 0) && (player.negativeStats.length > 0)">||</span>
+          <span ng-show="player.positiveStats.length > 0 && player.negativeStats.length > 0" class="text-danger">-</span>
+          <span ng-repeat="stat in player.negativeStats">{{stat.scoreAmt}} {{stat.scoreName}}<span ng-show="!$last">,</span> </span>
+        </td>
+        <td ng-show="points">
+          <span ng-show="player.firstName != 'YTP'">{{player.pts | number:2}}</span>
+          <span ng-show="player.firstName == 'YTP'">-</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div ng-include="'/app/shared/modal/playerProfile/playerProfileModalView.html'"></div>
+
+</div>

@@ -1,0 +1,23 @@
+﻿.flash {
+    -webkit-animation-name: flash-animation;
+    -webkit-animation-duration: 5.3s;
+
+    animation-name: flash-animation;
+    animation-duration: 5.3s;
+}
+
+
+@-webkit-keyframes flash-animation {  
+    from { color: #ff6a00; }
+    to   { color: default; }
+}
+
+@-moz-keyframes flash-animation {  
+    from {color: #ff6a00; }
+    to   { color: default; }
+}
+
+@keyframes flash-animation {  
+    from { color: #ff6a00; }
+    to   { color: default; }
+}

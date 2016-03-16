@@ -1,0 +1,2974 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bjqs-1.3.min.js"></script>
+    <script src="/js/jquery.countdown.js"></script>
+  </head>
+  <body class="home">
+    <div class="header-background">
+      <!-- Mobile Navigation -->
+      <nav class="navbar navbar-static-top hidden-md hidden-lg">
+        <div class="navbar-header">
+          <div class="container">
+            <button type="button" class="navbar-icons left" data-toggle="collapse" data-target="#menuGeneral">
+              <span class="glyphicon icon-align-justify"></span>
+            </button>
+
+            <a class="sprite navbar-brand" href="/"></a>
+
+            <button type="button" class="navbar-icons right" data-toggle="collapse" data-target="#menuAccount">
+              <span class="glyphicon icon-user"></span>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <div class="collapse hidden-md hidden-lg" id="menuGeneral">
+        <div class="row">
+          <div class="col-sm-6">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="/">Lobby</a></li>
+              <li><a href="/leagues">Leagues</a></li>
+              <li><a href="/lineups">Lineups</a></li>
+              <li><a href="/scores">Scores</a></li>
+              <li><a href="/leaderboards">Leaderboards</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="/how-to-play">How to Play</a></li>
+              <li><a href="/rules">Rules</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a data-toggle="modal" data-target="#support">Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="collapse hidden-md hidden-lg" id="menuAccount">
+        <div class="row">
+          <div class="col-xs-12">
+            <ul class="nav nav-pills nav-stacked">
+              <li class="bal-points">
+                <strong>Balance:</strong> &dollar;500.00 <br>
+                <strong>Points:</strong> 700
+                <a href="/my-account" class="btn btn-default top-buffer">Add Funds</a>
+              </li>
+              <li><a href="/my-account">My Account</a></li>
+              <li><a href="/promotions">Promotions</a></li>
+              <li><a href="/logout">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop -->
+      <nav class="navbar navbar-default main-menu visible-md visible-lg" role="navigation">
+        <div class="container">
+          <!-- Top Menus -->
+          <div class="top-menu">
+            <div class="user-menu">
+              <ul class="list-inline">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img class="avatar img-circle" src="/images/default-avatar.png"> KnockoutDan <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="bal-points">
+                      <strong>Balance:</strong> &dollar;500.00 <br>
+                      <strong>Points:</strong> 700
+                    </li>
+                    <li><a href="/my-account">My Account</a></li>
+                    <li><a href="/promotions">Promotions</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="user-add-funds text-center">
+              <div class="col-xs-6 no-padding">
+                <a href="/my-account" class="btn btn-finance">Add Funds</a>
+              </div>
+            </div>
+          </div>
+          <!-- Main Menu -->
+          <div class="row">
+            <div class="col-md-5">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Lobby</a></li>
+                <li><a href="/leagues">Leagues</a></li>
+                <li><a href="/lineups">Lineups</a></li>
+                <li><a href="/scores">Scores</a></li>
+                <li><a href="/leaderboards">Leaderboards</a></li>
+              </ul>
+            </div>
+            <div class="col-md-2 no-padding">
+              <a class="header-logo" href="/"><img class="img-responsive" src="/images/logo-large.png"></a>
+            </div>
+            <div class="col-md-5">
+              <ul class="nav navbar-nav">
+                <li><a href="/how-to-play">How to Play</a></li>
+                <li><a href="/rules">Rules</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a data-toggle="modal" data-target="#support">Support</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <main class="container container-body">
+      <div class="content content-header">
+        <h2 class="text-center bottom-buffer">My Lineups</h2>
+        <div class="text-center">
+          <button class="btn btn-lg btn-primary">Daily / Weekly</button> <button class="btn btn-lg btn-primary">Season</button>
+        </div>
+        <div class="content top-buffer padding-md">
+          <div class="row no-margin">
+            <div class="col-sm-6 padding-sm">
+              <a href="#"><strong>MLB:</strong></a> 1 | Filter by: <a href="#"><strong>UPCOMING:</strong></a> 1
+            </div>
+            <div class="col-sm-6 text-right">
+              <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#universalPlayerSwap">Universal Player Swap</a> <span class="glyphicon icon-question" data-toggle="tooltip" data-placement="top" title="Help"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="row">
+          <div class="col-sm-6 col-md-4 bottom-buffer">
+            <div class="content content-lineups no-padding">
+              <div class="lineups-header mlb-header">
+                <div class="lineups-status">
+                  <span class="glyphicon icon-television-tv"></span> <strong>Live!</strong>
+                </div>
+                <h4>MLB</h4>
+                <strong>Entries:</strong> 1 &nbsp; | &nbsp; <strong>YTP:</strong> 7 &nbsp; |&nbsp;  <strong>Salary left:</strong> $38,200
+              </div>
+              <div class="table-responsive">
+                <table class="table table-leagues table-hover table-bordered table-striped table-td-center table-td-middle">
+                  <thead>
+                    <tr>
+                      <th class="borderless text-center">
+                        POS
+                      </th>
+                      <th class="borderless text-center">
+                        Player Name
+                      </th>
+                      <th class="borderless text-center">
+                        FPPG
+                      </th>
+                      <th class="borderless text-center">
+                        Status
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="lineups-footer">
+                <div class="row">
+                  <div class="col-md-8">
+                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editLineup">Edit</button>
+                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exportLineup">Export</button>
+                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#leagues">Leagues</button>
+                    <a href="/scoreboard"><span>Scoreboard</span></a>
+                    <span class="small edited">Edited: 9-29-15 @ 15:17 EST</span>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <div class="total-points bg-points">
+                      <span>Total Points</span>
+                      <h3>2.80</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 bottom-buffer">
+            <div class="content content-lineups no-padding">
+              <div class="lineups-header nfl-header">
+                <div class="lineups-status final">
+                  <strong>Final</strong>
+                </div>
+                <h4>NFL</h4>
+                <strong>Entries:</strong> 1 &nbsp; | &nbsp; <strong>YTP:</strong> 7 &nbsp; |&nbsp;  <strong>Salary left:</strong> $38,200
+              </div>
+              <div class="table-responsive">
+                <table class="table table-leagues table-hover table-bordered table-striped table-td-center table-td-middle">
+                  <thead>
+                    <tr>
+                      <th class="borderless text-center">
+                        POS
+                      </th>
+                      <th class="borderless text-center">
+                        Player Name
+                      </th>
+                      <th class="borderless text-center">
+                        FPPG
+                      </th>
+                      <th class="borderless text-center">
+                        Status
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="lineups-footer">
+                <div class="row">
+                  <div class="col-md-8">
+                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editLineup">Edit</button>
+                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exportLineup">Export</button>
+                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#leagues">Leagues</button>
+                    <a class="top-buffer" href="/scoreboard"><span>Scoreboard</span></a>
+                    <span class="small edited">Edited: 9-29-15 @ 15:17 EST</span>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <div class="total-points bg-points">
+                      <span>Total Points</span>
+                      <h3>2.80</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 bottom-buffer">
+            <div class="content content-lineups no-padding">
+              <div class="lineups-header nba-header">
+                <div class="lineups-status final">
+                  <strong>Final</strong>
+                </div>
+                <h4>NBA</h4>
+                <strong>Entries:</strong> 1 &nbsp; | &nbsp; <strong>YTP:</strong> 7 &nbsp; |&nbsp;  <strong>Salary left:</strong> $38,200
+              </div>
+              <div class="table-responsive">
+                <table class="table table-leagues table-hover table-bordered table-striped table-td-center table-td-middle">
+                  <thead>
+                    <tr>
+                      <th class="borderless text-center">
+                        POS
+                      </th>
+                      <th class="borderless text-center">
+                        Player Name
+                      </th>
+                      <th class="borderless text-center">
+                        FPPG
+                      </th>
+                      <th class="borderless text-center">
+                        Status
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="lineups-footer">
+                <div class="row">
+                  <div class="col-md-8">
+                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editLineup">Edit</button>
+                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exportLineup">Export</button>
+                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#leagues">Leagues</button>
+                    <a class="top-buffer" href="/scoreboard"><span>Scoreboard</span></a>
+                    <span class="small edited">Edited: 9-29-15 @ 15:17 EST</span>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <div class="total-points bg-points">
+                      <span>Total Points</span>
+                      <h3>2.80</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4 bottom-buffer">
+            <div class="content content-lineups no-padding">
+              <div class="lineups-header nhl-header">
+                <div class="lineups-status final">
+                  <strong>Final</strong>
+                </div>
+                <h4>NHL</h4>
+                <strong>Entries:</strong> 1 &nbsp; | &nbsp; <strong>YTP:</strong> 7 &nbsp; |&nbsp;  <strong>Salary left:</strong> $38,200
+              </div>
+              <div class="table-responsive">
+                <table class="table table-leagues table-hover table-bordered table-striped table-td-center table-td-middle">
+                  <thead>
+                    <tr>
+                      <th class="borderless text-center">
+                        POS
+                      </th>
+                      <th class="borderless text-center">
+                        Player Name
+                      </th>
+                      <th class="borderless text-center">
+                        FPPG
+                      </th>
+                      <th class="borderless text-center">
+                        Status
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        SP
+                      </td>
+                      <td>
+                        Clayton Kershaw
+                      </td>
+                      <td>
+                        10.49
+                      </td>
+                      <td>
+                        <a href="#"><span class="glyphicon icon-switch"></span></a>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="lineups-footer">
+                <div class="row">
+                  <div class="col-md-8">
+                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editLineup">Edit</button>
+                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exportLineup">Export</button>
+                    <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#leagues">Leagues</button>
+                    <a class="top-buffer" href="/scoreboard"><span>Scoreboard</span></a>
+                    <span class="small edited">Edited: 9-29-15 @ 15:17 EST</span>
+                  </div>
+                  <div class="col-md-4 text-center">
+                    <div class="total-points bg-points">
+                      <span>Total Points</span>
+                      <h3>2.80</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+    <!-- Edit Lineup -->
+    <div class="modal fade" id="editLineup" tabindex="-1" role="dialog" aria-labelledby="editLineupLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <div class="modal-body">
+            <h2 class="text-center">Edit League Lineup</h2>
+
+            <div class="row">
+              <div class="col-md-8">
+                <h3 class="text-center">MLB Edit Lineup | <strong>Live In: 04:16:43</strong></h3>
+                <form class="bottom-buffer">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <div class="col-md-3 padding-xs">
+                        <select class="form-control">
+                          <option>All Matchups</option>
+                          <option>Japan</option>
+                          <option>Germany</option>
+                        </select>
+                      </div>
+                      <div class="col-md-3 padding-xs">
+                        <select class="form-control">
+                          <option>All Teams</option>
+                          <option>Japan</option>
+                          <option>Germany</option>
+                        </select>
+                      </div>
+                      <div class="col-md-3 padding-xs">
+                        <input type="text" class="form-control" placeholder="Search Players">
+                      </div>
+                      <div class="col-md-3 padding-xs">
+                        <button class="btn btn-block btn-primary">Search</button>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <a href="#"><span class="glyphicon icon-undo"></span></a>
+                      <a href="#"><span class="glyphicon icon-csv"></span></a>
+                    </div>
+
+                  </div>
+                </form>
+                <ul class="nav nav-tabs" role="tablist" id="editLeagues">
+                  <li role="presentation" class="active"><a href="#editLeaguesALL" aria-controls="editLeaguesALL" role="tab" data-toggle="tab">ALL</a></li>
+                  <li role="presentation"><a href="#editLeaguesQB" aria-controls="editLeaguesQB" role="tab" data-toggle="tab">QB</a></li>
+                  <li role="presentation"><a href="#editLeaguesRB" aria-controls="editLeaguesRB" role="tab" data-toggle="tab">RB</a></li>
+                  <li role="presentation"><a href="#editLeaguesWR" aria-controls="editLeaguesWR" role="tab" data-toggle="tab">WR</a></li>
+                  <li role="presentation"><a href="#editLeaguesTE" aria-controls="editLeaguesTE" role="tab" data-toggle="tab">TE</a></li>
+                  <li role="presentation"><a href="#editLeaguesDST" aria-controls="editLeaguesDST" role="tab" data-toggle="tab">DST</a></li>
+                  <li role="presentation"><a href="#editLeaguesFLEX" aria-controls="editLeaguesFLEX" role="tab" data-toggle="tab">FLEX</a></li>
+                  <li>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> <span class="small edited">Show Today's Probable SP</span> <span class="glyphicon icon-question" data-toggle="tooltip" data-placement="top" title="Help"></span>
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane fade active in" id="editLeaguesALL">
+                    <div class="table-responsive">
+                      <table class="table table-leagues table-hover table-bordered table-striped table-td-center table-td-middle">
+                        <thead>
+                          <tr>
+                            <th class="borderless text-center">
+                              Rank
+                            </th>
+                            <th class="borderless text-center">
+                              Name
+                            </th>
+                            <th class="borderless text-center">
+                              Salary
+                            </th>
+                            <th class="borderless text-center">
+                              OPP
+                            </th>
+                            <th class="borderless text-center">
+                              FPPG
+                            </th>
+                            <th class="borderless text-center">
+                              PAYD
+                            </th>
+                            <th class="borderless text-center">
+                              PAT
+                            </th>
+                            <th class="borderless text-center">
+                              INT
+                            </th>
+                            <th class="borderless text-center">
+                              RUYD
+                            </th>
+                            <th class="borderless text-center">
+                              RUTD
+                            </th>
+                            <th class="borderless"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                          <tr>
+                            <td>
+                              1
+                            </td>
+                            <td>
+                              Julio Jones(ATL-WR)
+                            </td>
+                            <td>
+                              $18,000
+                            </td>
+                            <td>
+                              HOU
+                            </td>
+                            <td>
+                              34.00
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              <a href="#"><span class="glyphicon icon-plus"></span></a>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              1
+                            </td>
+                            <td>
+                              Julio Jones(ATL-WR)
+                            </td>
+                            <td>
+                              $18,000
+                            </td>
+                            <td>
+                              HOU
+                            </td>
+                            <td>
+                              34.00
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              <a href="#"><span class="glyphicon icon-plus"></span></a>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              1
+                            </td>
+                            <td>
+                              Julio Jones(ATL-WR)
+                            </td>
+                            <td>
+                              $18,000
+                            </td>
+                            <td>
+                              HOU
+                            </td>
+                            <td>
+                              34.00
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              <a href="#"><span class="glyphicon icon-plus"></span></a>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              1
+                            </td>
+                            <td>
+                              Julio Jones(ATL-WR)
+                            </td>
+                            <td>
+                              $18,000
+                            </td>
+                            <td>
+                              HOU
+                            </td>
+                            <td>
+                              34.00
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              <a href="#"><span class="glyphicon icon-plus"></span></a>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              1
+                            </td>
+                            <td>
+                              Julio Jones(ATL-WR)
+                            </td>
+                            <td>
+                              $18,000
+                            </td>
+                            <td>
+                              HOU
+                            </td>
+                            <td>
+                              34.00
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              <a href="#"><span class="glyphicon icon-plus"></span></a>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              1
+                            </td>
+                            <td>
+                              Julio Jones(ATL-WR)
+                            </td>
+                            <td>
+                              $18,000
+                            </td>
+                            <td>
+                              HOU
+                            </td>
+                            <td>
+                              34.00
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              <a href="#"><span class="glyphicon icon-plus"></span></a>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              1
+                            </td>
+                            <td>
+                              Julio Jones(ATL-WR)
+                            </td>
+                            <td>
+                              $18,000
+                            </td>
+                            <td>
+                              HOU
+                            </td>
+                            <td>
+                              34.00
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              0
+                            </td>
+                            <td>
+                              <a href="#"><span class="glyphicon icon-plus"></span></a>
+                            </td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div role="tabpanel" class="tab-pane fade" id="editLeaguesQB">2</div>
+                  <div role="tabpanel" class="tab-pane fade" id="editLeaguesRB">3</div>
+                  <div role="tabpanel" class="tab-pane fade" id="editLeaguesWR">4</div>
+                  <div role="tabpanel" class="tab-pane fade" id="editLeaguesTE">5</div>
+                  <div role="tabpanel" class="tab-pane fade" id="editLeaguesDST">6</div>
+                  <div role="tabpanel" class="tab-pane fade" id="editLeaguesFLEX">7</div>
+                </div>
+
+              </div>
+              <div class="col-md-4">
+                <h3 class="text-center">My Lineup</h3>
+                <div class="text-center">
+                  <strong>Entries:</strong> 1 &nbsp;|&nbsp; <strong>YTP:</strong> 7 &nbsp;|&nbsp;  <strong>Salary Left:</strong> $38,200
+                </div>
+                <div class="checkbox text-center">
+                  <label>
+                    <input type="checkbox">Avg. Salary Remaining: $0
+                  </label>
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-leagues table-hover table-bordered table-striped table-td-center table-td-middle">
+                    <thead>
+                      <tr>
+                        <th class="borderless text-center">
+                          POS
+                        </th>
+                        <th class="borderless text-center">
+                          Player Name
+                        </th>
+                        <th class="borderless text-center">
+                          OPP
+                        </th>
+                        <th class="borderless text-center">
+                          Salary
+                        </th>
+                        <th class="borderless text-center">
+                          FPPG
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td>
+                          SS
+                        </td>
+                        <td>
+                          Clint Barmes
+                        </td>
+                        <td>
+                          MIA
+                        </td>
+                        <td>
+                          $3,500
+                        </td>
+                        <td>
+                          0.39
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          SS
+                        </td>
+                        <td>
+                          Clint Barmes
+                        </td>
+                        <td>
+                          MIA
+                        </td>
+                        <td>
+                          $3,500
+                        </td>
+                        <td>
+                          0.39
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          SS
+                        </td>
+                        <td>
+                          Clint Barmes
+                        </td>
+                        <td>
+                          MIA
+                        </td>
+                        <td>
+                          $3,500
+                        </td>
+                        <td>
+                          0.39
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          SS
+                        </td>
+                        <td>
+                          Clint Barmes
+                        </td>
+                        <td>
+                          MIA
+                        </td>
+                        <td>
+                          $3,500
+                        </td>
+                        <td>
+                          0.39
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          SS
+                        </td>
+                        <td>
+                          Clint Barmes
+                        </td>
+                        <td>
+                          MIA
+                        </td>
+                        <td>
+                          $3,500
+                        </td>
+                        <td>
+                          0.39
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="text-center top-buffer">
+                  <button class="btn btn-sm btn-default" data-dismiss="modal" data-toggle="modal" href="#register">Clear Lineup</button> <button class="btn btn-sm btn-default" data-dismiss="modal" data-toggle="modal" href="#register">Import</button>
+                </div>
+                <div class="text-center top-buffer">
+                  <button type="button" class="btn btn-lg btn-finance">Save Lineup</button> <button type="button" class="btn btn-lg btn-default" data-dismiss="modal" aria-label="Close">Cancel</button>
+                  <span class="small edited">Edited: 7-30-15 @ 17:04 EST</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Export Lineup -->
+    <div class="modal fade" id="exportLineup" tabindex="-1" role="dialog" aria-labelledby="exportLineupLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <div class="modal-body text-center">
+            <a href="#exportLineupJoin" class="btn btn-block btn-primary" data-dismiss="modal" data-toggle="modal">Enter More Leagues</a>
+            <a href="#exportLineupLeagues" class="btn btn-block btn-default" data-dismiss="modal" data-toggle="modal">Export To Other Leagues</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Join Other Leagues -->
+    <div class="modal fade" id="exportLineupJoin" tabindex="-1" role="dialog" aria-labelledby="exportLineupJoinLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <div class="modal-body">
+            <h2 class="bottom-buffer text-center">Join Other Leagues</h2>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <p>
+                      Select a league below to join that league with the lineup you've just created!
+                    </p>
+                  </div>
+                  <div class="col-xs-6">
+                    <p>
+                      <strong>Total Leagues Selected:</strong> 0 <br>
+                      <strong>Total League Cost:</strong> $0.00 <br>
+                      <span class="text-danger"><em>You must select at least one league.</em></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <strong>My Current Balance</strong>
+                $0.00 <a href="#"><strong>Add Funds</strong></a><br>
+                0 Knockout Points
+              </div>
+              <div class="col-md-2">
+                <button class="btn btn-block btn-primary">Submit</button>
+                <button class="btn btn-block btn-default" data-dismiss="modal" aria-label="Close">Cancel</button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-leagues table-hover table-bordered table-striped table-td-first-left-align table-td-center table-td-middle">
+                <thead>
+                  <tr>
+                    <th class="borderless text-center">
+                      Tournament Name
+                    </th>
+                    <th class="borderless text-center">
+                      Draft
+                    </th>
+                    <th class="borderless text-center">
+                      Buy-In
+                    </th>
+                    <th class="borderless text-center">
+                      League
+                    </th>
+                    <th class="borderless text-center">
+                      Prize
+                    </th>
+                    <th class="borderless text-center">
+                      Entries
+                    </th>
+                    <th class="borderless text-center">
+                      Live In
+                    </th>
+                    <th class="borderless text-center">
+                      <button type="button" class="btn btn-key-sm btn-key btn-me" data-toggle="tooltip" data-placement="top" title="Multi-Entry">M</button>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr>
+                    <td>
+                      <input type="checkbox">
+                      <span class="sprite sports-icons nfl"></span>
+                      <button type="button" class="btn btn-key btn-key-sm btn-gl" data-toggle="tooltip" data-placement="top" title="Guaranteed League">G</button>
+                      <button type="button" class="btn btn-key btn-key-sm btn-me" data-toggle="tooltip" data-placement="top" title="Multi-Entry">M</button>
+                      $100 - SFFC Qualifier #8
+                    </td>
+                    <td>
+                      Salary <button type="button" class="btn btn-key btn-key-sm btn-dup" data-toggle="tooltip" data-placement="top" title="Double-Up Payout">2<sub>x</sub></button>
+                    </td>
+                    <td>
+                      $100
+                    </td>
+                    <td>
+                      Weekly
+                    </td>
+                    <td>
+                      $6,000
+                    </td>
+                    <td>
+                      16 / 68
+                    </td>
+                    <td>
+                      Sun 10:00 am
+                    </td>
+                    <td>
+                      1 <span class="glyphicon icon-arrow-combo"></span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <input type="checkbox">
+                      <span class="sprite sports-icons nfl"></span>
+                      <button type="button" class="btn btn-key btn-key-sm btn-gl" data-toggle="tooltip" data-placement="top" title="Guaranteed League">G</button>
+                      <button type="button" class="btn btn-key btn-key-sm btn-me" data-toggle="tooltip" data-placement="top" title="Multi-Entry">M</button>
+                      $100 - SFFC Qualifier #8
+                    </td>
+                    <td>
+                      Salary <button type="button" class="btn btn-key btn-key-sm btn-dup" data-toggle="tooltip" data-placement="top" title="Double-Up Payout">2<sub>x</sub></button>
+                    </td>
+                    <td>
+                      $100
+                    </td>
+                    <td>
+                      Weekly
+                    </td>
+                    <td>
+                      $6,000
+                    </td>
+                    <td>
+                      16 / 68
+                    </td>
+                    <td>
+                      Sun 10:00 am
+                    </td>
+                    <td>
+                      1 <span class="glyphicon icon-arrow-combo"></span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <input type="checkbox">
+                      <span class="sprite sports-icons nfl"></span>
+                      <button type="button" class="btn btn-key btn-key-sm btn-gl" data-toggle="tooltip" data-placement="top" title="Guaranteed League">G</button>
+                      <button type="button" class="btn btn-key btn-key-sm btn-me" data-toggle="tooltip" data-placement="top" title="Multi-Entry">M</button>
+                      $100 - SFFC Qualifier #8
+                    </td>
+                    <td>
+                      Salary <button type="button" class="btn btn-key btn-key-sm btn-dup" data-toggle="tooltip" data-placement="top" title="Double-Up Payout">2<sub>x</sub></button>
+                    </td>
+                    <td>
+                      $100
+                    </td>
+                    <td>
+                      Weekly
+                    </td>
+                    <td>
+                      $6,000
+                    </td>
+                    <td>
+                      16 / 68
+                    </td>
+                    <td>
+                      Sun 10:00 am
+                    </td>
+                    <td>
+                      1 <span class="glyphicon icon-arrow-combo"></span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <input type="checkbox">
+                      <span class="sprite sports-icons nfl"></span>
+                      <button type="button" class="btn btn-key btn-key-sm btn-gl" data-toggle="tooltip" data-placement="top" title="Guaranteed League">G</button>
+                      <button type="button" class="btn btn-key btn-key-sm btn-me" data-toggle="tooltip" data-placement="top" title="Multi-Entry">M</button>
+                      $100 - SFFC Qualifier #8
+                    </td>
+                    <td>
+                      Salary <button type="button" class="btn btn-key btn-key-sm btn-dup" data-toggle="tooltip" data-placement="top" title="Double-Up Payout">2<sub>x</sub></button>
+                    </td>
+                    <td>
+                      $100
+                    </td>
+                    <td>
+                      Weekly
+                    </td>
+                    <td>
+                      $6,000
+                    </td>
+                    <td>
+                      16 / 68
+                    </td>
+                    <td>
+                      Sun 10:00 am
+                    </td>
+                    <td>
+                      1 <span class="glyphicon icon-arrow-combo"></span>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <input type="checkbox">
+                      <span class="sprite sports-icons nfl"></span>
+                      <button type="button" class="btn btn-key btn-key-sm btn-gl" data-toggle="tooltip" data-placement="top" title="Guaranteed League">G</button>
+                      <button type="button" class="btn btn-key btn-key-sm btn-me" data-toggle="tooltip" data-placement="top" title="Multi-Entry">M</button>
+                      $100 - SFFC Qualifier #8
+                    </td>
+                    <td>
+                      Salary <button type="button" class="btn btn-key btn-key-sm btn-dup" data-toggle="tooltip" data-placement="top" title="Double-Up Payout">2<sub>x</sub></button>
+                    </td>
+                    <td>
+                      $100
+                    </td>
+                    <td>
+                      Weekly
+                    </td>
+                    <td>
+                      $6,000
+                    </td>
+                    <td>
+                      16 / 68
+                    </td>
+                    <td>
+                      Sun 10:00 am
+                    </td>
+                    <td>
+                      1 <span class="glyphicon icon-arrow-combo"></span>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Show Lineup Leagues -->
+    <div class="modal fade" id="leagues" tabindex="-1" role="dialog" aria-labelledby="leaguesLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <div class="modal-body">
+            <h2 class="bottom-buffer text-center">Leagues with your Lineup</h2>
+
+            <div class="table-responsive">
+              <table class="table table-leagues table-hover table-bordered table-striped table-td-center table-td-middle">
+                <thead>
+                  <tr>
+                    <th class="borderless text-center">
+                      Buy-In
+                    </th>
+                    <th class="borderless text-center">
+                      Entries
+                    </th>
+                    <th class="borderless text-center">
+                      Type
+                    </th>
+                    <th class="borderless text-center">
+                      Prize
+                    </th>
+                    <th class="borderless text-center">
+                      Status
+                    </th>
+                    <th class="borderless text-center">
+                      <button type="button" class="btn btn-key-sm btn-key btn-me" data-toggle="tooltip" data-placement="top" title="Multi-Entry">M</button>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr>
+                    <td>
+                      FREE
+                    </td>
+                    <td>
+                      97-Man
+                    </td>
+                    <td>
+                      Top 20%
+                    </td>
+                    <td>
+                      $10
+                    </td>
+                    <td>
+                      Final
+                    </td>
+                    <td>
+                      1
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      FREE
+                    </td>
+                    <td>
+                      97-Man
+                    </td>
+                    <td>
+                      Top 20%
+                    </td>
+                    <td>
+                      $10
+                    </td>
+                    <td>
+                      Final
+                    </td>
+                    <td>
+                      1
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      FREE
+                    </td>
+                    <td>
+                      97-Man
+                    </td>
+                    <td>
+                      Top 20%
+                    </td>
+                    <td>
+                      $10
+                    </td>
+                    <td>
+                      Final
+                    </td>
+                    <td>
+                      1
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Export Lineup To Other Leagues -->
+    <div class="modal fade" id="exportLineupLeagues" tabindex="-1" role="dialog" aria-labelledby="exportLineupLeaguesLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <div class="modal-body">
+
+            <div class="row">
+              <div class="col-md-8">
+                <h3 class="text-center">NFL Export Lineup | <strong>Live In: 04:16:43</strong></h3>
+                <form>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <h3>Lineup Export</h3>
+                      <p>
+                        Please verify your lineup to the right, then select the leagues you would like to export to.
+                      </p>
+                      <p>
+                        Leagues in <span class="text-success">green</span> have the same lineup as the lineup you selected, and are selected by default.
+                      </p>
+                    </div>
+                    <div class="col-sm-8 top-buffer">
+                      <ul class="list-group">
+                        <li class="list-group-item text-success">
+                          <input type="checkbox" checked> FREE - Top 20% $100 GTD
+                        </li>
+                        <li class="list-group-item">
+                          <input type="checkbox"> FREE - Top 20% $100 GTD
+                        </li>
+                        <li class="list-group-item">
+                          <input type="checkbox"> FREE - Top 20% $100 GTD
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12 text-right">
+                      <button type="button" class="btn btn-finance">Save Lineup</button>
+                      <button type="button" class="btn btn-primary">Revise</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col-md-4">
+                <h3 class="text-center">My Lineup</h3>
+
+                <div class="table-responsive">
+                  <table class="table table-leagues table-hover table-bordered table-striped table-td-center table-td-middle">
+                    <thead>
+                      <tr>
+                        <th class="borderless text-center">
+                          POS
+                        </th>
+                        <th class="borderless text-center">
+                          Player Name
+                        </th>
+                        <th class="borderless text-center">
+                          OPP
+                        </th>
+                        <th class="borderless text-center">
+                          Salary
+                        </th>
+                        <th class="borderless text-center">
+                          FPPG
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td>
+                          SS
+                        </td>
+                        <td>
+                          Clint Barmes
+                        </td>
+                        <td>
+                          MIA
+                        </td>
+                        <td>
+                          $3,500
+                        </td>
+                        <td>
+                          0.39
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          SS
+                        </td>
+                        <td>
+                          Clint Barmes
+                        </td>
+                        <td>
+                          MIA
+                        </td>
+                        <td>
+                          $3,500
+                        </td>
+                        <td>
+                          0.39
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          SS
+                        </td>
+                        <td>
+                          Clint Barmes
+                        </td>
+                        <td>
+                          MIA
+                        </td>
+                        <td>
+                          $3,500
+                        </td>
+                        <td>
+                          0.39
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          SS
+                        </td>
+                        <td>
+                          Clint Barmes
+                        </td>
+                        <td>
+                          MIA
+                        </td>
+                        <td>
+                          $3,500
+                        </td>
+                        <td>
+                          0.39
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          SS
+                        </td>
+                        <td>
+                          Clint Barmes
+                        </td>
+                        <td>
+                          MIA
+                        </td>
+                        <td>
+                          $3,500
+                        </td>
+                        <td>
+                          0.39
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Universal Player Swap -->
+    <div class="modal fade" id="universalPlayerSwap" tabindex="-1" role="dialog" aria-labelledby="universalPlayerSwapLabel">
+      <div class="modal-dialog modal-lg modal-" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <div class="modal-body">
+            <h2 class="text-center">Universal Player Swap</h2>
+
+            <div class="row">
+              <div class="col-md-7">
+                <h3 class="text-center">Available Players</h3>
+
+                <form class="bottom-buffer">
+                  <div class="row no-margin">
+                    <div class="col-md-3 padding-xs">
+                      <select class="form-control">
+                        <option>All Matchups</option>
+                        <option>Japan</option>
+                        <option>Germany</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3 padding-xs">
+                      <select class="form-control">
+                        <option>All Teams</option>
+                        <option>Japan</option>
+                        <option>Germany</option>
+                      </select>
+                    </div>
+                    <div class="col-md-3 padding-xs">
+                      <input type="text" class="form-control" placeholder="Search Players">
+                    </div>
+                    <div class="col-md-3 padding-xs">
+                      <button class="btn btn-primary">Search</button> <a href="#"><span class="glyphicon icon-undo"></span></a>
+                    </div>
+
+                  </div>
+                </form>
+
+                <div class="table-responsive">
+                  <table class="table table-leagues table-hover table-bordered table-striped table-td-center table-td-middle">
+                    <thead>
+                      <tr>
+                        <th class="borderless text-center">
+                          Rank
+                        </th>
+                        <th class="borderless text-center">
+                          Name
+                        </th>
+                        <th class="borderless text-center">
+                          Salary
+                        </th>
+                        <th class="borderless text-center">
+                          OPP
+                        </th>
+                        <th class="borderless text-center">
+                          FPPG
+                        </th>
+                        <th class="borderless text-center">
+                          TD
+                        </th>
+                        <th class="borderless text-center">
+                          RTD
+                        </th>
+                        <th class="borderless text-center">
+                          INT
+                        </th>
+                        <th class="borderless text-center">
+                          FR
+                        </th>
+                        <th class="borderless text-center">
+                          Sack
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td>
+                          1
+                        </td>
+                        <td>
+                          Julio Jones(ATL-WR)
+                        </td>
+                        <td>
+                          $18,000
+                        </td>
+                        <td>
+                          @ IND
+                        </td>
+                        <td>
+                          1.00
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          1
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          6
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          1
+                        </td>
+                        <td>
+                          Julio Jones(ATL-WR)
+                        </td>
+                        <td>
+                          $18,000
+                        </td>
+                        <td>
+                          @ IND
+                        </td>
+                        <td>
+                          1.00
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          1
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          6
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          1
+                        </td>
+                        <td>
+                          Julio Jones(ATL-WR)
+                        </td>
+                        <td>
+                          $18,000
+                        </td>
+                        <td>
+                          @ IND
+                        </td>
+                        <td>
+                          1.00
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          1
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          6
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          1
+                        </td>
+                        <td>
+                          Julio Jones(ATL-WR)
+                        </td>
+                        <td>
+                          $18,000
+                        </td>
+                        <td>
+                          @ IND
+                        </td>
+                        <td>
+                          1.00
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          1
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          6
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          1
+                        </td>
+                        <td>
+                          Julio Jones(ATL-WR)
+                        </td>
+                        <td>
+                          $18,000
+                        </td>
+                        <td>
+                          @ IND
+                        </td>
+                        <td>
+                          1.00
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          1
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          6
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          1
+                        </td>
+                        <td>
+                          Julio Jones(ATL-WR)
+                        </td>
+                        <td>
+                          $18,000
+                        </td>
+                        <td>
+                          @ IND
+                        </td>
+                        <td>
+                          1.00
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          1
+                        </td>
+                        <td>
+                          0
+                        </td>
+                        <td>
+                          6
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6 top-buffer">
+                    <div class="bg-dark padding-sm">
+                       <span class="small"><strong>Swap Criteria:</strong> SS //  $3,500 or Less</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 top-buffer text-right">
+                    <div class="bg-dark padding-sm">
+                       <span class="small"><strong>Christian Colon:</strong></span> <span class="text-success">IN</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-md-5">
+                <h3 class="text-center">My Lineup</h3>
+
+                <form class="bottom-buffer">
+                  <div class="row no-margin">
+                    <div class="col-md-6 col-md-offset-3 padding-xs">
+                      <select class="form-control">
+                        <option>NFL</option>
+                        <option>Japan</option>
+                        <option>Germany</option>
+                      </select>
+                    </div>
+                  </div>
+                </form>
+
+                <div class="table-responsive">
+                  <table class="table table-leagues table-hover table-bordered table-striped table-td-center table-td-middle">
+                    <thead>
+                      <tr>
+                        <th class="borderless">
+                          POS
+                        </th>
+                        <th class="borderless text-center">
+                          Player Name
+                        </th>
+                        <th class="borderless text-center">
+                          OPP
+                        </th>
+                        <th class="borderless text-center">
+                          Salary
+                        </th>
+                        <th class="borderless text-center">
+                          FPPG
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td>
+                          SS
+                        </td>
+                        <td>
+                          Clint Barmes
+                        </td>
+                        <td>
+                          MIA
+                        </td>
+                        <td>
+                          $3,500
+                        </td>
+                        <td>
+                          0.39
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          SS
+                        </td>
+                        <td>
+                          Clint Barmes
+                        </td>
+                        <td>
+                          MIA
+                        </td>
+                        <td>
+                          $3,500
+                        </td>
+                        <td>
+                          0.39
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          SS
+                        </td>
+                        <td>
+                          Clint Barmes
+                        </td>
+                        <td>
+                          MIA
+                        </td>
+                        <td>
+                          $3,500
+                        </td>
+                        <td>
+                          0.39
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          SS
+                        </td>
+                        <td>
+                          Clint Barmes
+                        </td>
+                        <td>
+                          MIA
+                        </td>
+                        <td>
+                          $3,500
+                        </td>
+                        <td>
+                          0.39
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          SS
+                        </td>
+                        <td>
+                          Clint Barmes
+                        </td>
+                        <td>
+                          MIA
+                        </td>
+                        <td>
+                          $3,500
+                        </td>
+                        <td>
+                          0.39
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td>
+                          SS
+                        </td>
+                        <td>
+                          Clint Barmes
+                        </td>
+                        <td>
+                          MIA
+                        </td>
+                        <td>
+                          $3,500
+                        </td>
+                        <td>
+                          0.39
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 top-buffer">
+                    <div class="bg-dark padding-sm">
+                       <span class="small text-danger"><strong>OUT:</strong></span> <span class="small"><strong>Steve Clevenger</strong></span>
+                    </div>
+                  </div>
+                  <div class="col-md-6 top-buffer text-right">
+                    <button type="button" class="btn btn-finance">Apply</button> <button type="button" class="btn btn-default" data-dismiss="modal" aria-label="Close">Cancel</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="top-buffer">
+      <div class="container top-buffer">
+        <div class="row">
+          <div class="col-xs-12 col-md-2 text-center">
+            <a class="sprite footer-logo" href="/"></a>
+          </div>
+          <div class="col-xs-12 col-md-10 footer-links">
+            <div class="col-xs-12 col-md-4 text-center">
+              <ul class="list-inline">
+                <li><a href="/lobby">Lobby</a></li>
+                <li><a href="/leagues">Leagues</a></li>
+                <li><a href="/lineups">Lineups</a></li>
+                <li><a href="/scores">Scores</a></li>
+                <li><a href="/leaderboards">Leaderboards</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-md-4 text-center">
+              <ul class="list-inline">
+                <li><a href="/how-to-play">How To Play</a></li>
+                <li><a href="/rules">Rules</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a data-toggle="modal" data-target="#support">Support</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-md-4 text-center">
+              <ul class="list-inline">
+                <li><a href="/">MLB</a></li>
+                <li><a href="/">NFL</a></li>
+                <li><a href="/">NBA</a></li>
+                <li><a href="/">NHL</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row top-buffer">
+          <div class="col-xs-12">
+            <ul class="list-inline text-center language">
+              <li><a class="sprite usa-flag" data-toggle="modal" data-target="#usaEligibility"></a><a data-toggle="modal" data-target="#usaEligibility">Eligibility</a></li>
+              <li><a class="sprite canada-flag" data-toggle="modal" data-target="#canadaEligibility"></a><a data-toggle="modal" data-target="#canadaEligibility">Eligibility</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row top-buffer" style="opacity: 0.4">
+          <div class="col-xs-12">
+            <ul class="list-inline text-center">
+              <li><a class="sprite stats-logo" href="/"></a></li>
+              <li><a class="sprite fsta-logo" href="/"></a></li>
+              <li><a class="sprite verisign-logo" href="/"></a></li>
+              <li><a class="sprite paypal-logo" href="/"></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <ul class="list-inline text-center social-media">
+              <li><a href="https://www.facebook.com/knockoutcasino" target="_blank"><span class="glyphicon icon-facebook-square"></span></a></li>
+              <li><a href="https://twitter.com/knockoutcasino" target="_blank"><span class="glyphicon icon-twitter-square"></span></a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 text-center copyright">
+            Copyright &copy; 2015 Knockout Picks. All Rights Reserved | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">About Us</a>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+    <!-- Register -->
+    <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="registerLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body text-center">
+              <h2>Create Your Account</h2>
+              <div class="row">
+                <div class="col-md-7 text-left">
+                  <div class="row">
+
+                    <div class="col-md-12">
+                      <label class="col-xs-12 no-padding" for="username">Username:</label>
+                      <div class="col-xs-4 no-padding">
+                        <div class="form-group">
+                          <input type="text" class="form-control" id="username">
+                        </div>
+                      </div>
+                      <div class="col-xs-8">
+                        <span class="glyphicon icon-question"></span>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input type="password" class="form-control" id="confirmPassword">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" class="form-control" id="email">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="confirmEmail">Confirm Email Address:</label>
+                        <input type="email" class="form-control" id="confirmEmail">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="country">Country:</label>
+                        <select class="form-control">
+                          <option>United States</option>
+                          <option>Japan</option>
+                          <option>Germany</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="state">State:</label>
+                        <select class="form-control">
+                          <option>Arizona</option>
+                          <option>California</option>
+                          <option>Texas</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="col-xs-12 no-padding">
+                        <label for="dob">Date of Birth:</label>
+                      </div>
+                      <div class="col-xs-4 no-padding">
+                        <div class="form-group">
+                          <select class="form-control">
+                            <option>Month</option>
+                            <option>January</option>
+                            <option>February</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-xs-4">
+                        <div class="form-group">
+                          <select class="form-control">
+                            <option>Day</option>
+                            <option>January</option>
+                            <option>February</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-xs-4 no-padding">
+                        <div class="form-group">
+                          <select class="form-control">
+                            <option>Year</option>
+                            <option>January</option>
+                            <option>February</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="passwordQuestion">Password Question:</label>
+                        <select class="form-control">
+                          <option>Choose Question</option>
+                          <option>January</option>
+                          <option>February</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="passwordAnswer">Password Answer:</label>
+                        <input type="text" class="form-control" id="passwordAnswer">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="promoCode">Promo Code:</label>
+                        <input type="text" class="form-control" id="promoCode">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <label class="checkbox-inline">
+                        <input type="checkbox" id="terms" value="terms"> <strong>I agree to the <a href="#">Terms of Use.</a></strong>
+                      </label>
+                      <br>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" id="specialOffers" value="specialOffers"> <strong>Send me special offers and bonuses!</strong>
+                      </label>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-5 visible-md visible-lg">
+                  <h3><strong>Why Knockout Picks?</strong></h3>
+                  <p class="text-center">
+                    We cater to your fantasy sports experience, with first-class customer service.
+                  </p>
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/xPubMOh_Tw8"></iframe>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-lg btn-primary">Continue</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login -->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body">
+              <h2 class="text-center">Player Login</h2>
+                <div class="form-group">
+                  <label for="username">Username:</label>
+                  <input type="text" class="form-control" id="username">
+                </div>
+
+                <div class="form-group">
+                  <label for="password">Password:</label>
+                  <input type="password" class="form-control" id="password">
+                </div>
+
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="remember" value="remember"> Remember me
+                </label>
+                <br>
+                <a data-dismiss="modal" data-toggle="modal" href="#forgotPassword">Forgot your Password?</a><br>
+                <a data-dismiss="modal" data-toggle="modal" href="#forgotUsername">Forgot your Username?</a>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-block btn-lg btn-primary">Login</button>
+              <br>
+              <div class="text-center">
+                Don't have an account? <a data-dismiss="modal" data-toggle="modal" href="#register">Click Here</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Password -->
+    <div class="modal fade" id="forgotPassword" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body">
+              <h2 class="text-center">Recover Password?</h2>
+              <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username">
+              </div>
+              <img class="img-responsive" src="/images/captcha.gif">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-block btn-lg btn-primary">Send Password</button>
+              <br>
+              <div class="text-center sma">
+                <small>*Your password will be sent to your email address.</small>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Username -->
+    <div class="modal fade" id="forgotUsername" tabindex="-1" role="dialog" aria-labelledby="forgotUsernameLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body">
+              <h2 class="text-center">Recover Username?</h2>
+              <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username">
+              </div>
+              <img class="img-responsive" src="/images/captcha.gif">
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-block btn-lg btn-primary">Send Username</button>
+              <br>
+              <div class="text-center sma">
+                <small>*Your username will be sent to your email address.</small>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Support -->
+    <div class="modal fade" id="support" tabindex="-1" role="dialog" aria-labelledby="supportLabel">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body">
+              <h2 class="text-center bottom-buffer">Support</h2>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" class="form-control" id="email">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="subject">Subject:</label>
+                      <select class="form-control">
+                        <option>Choose</option>
+                        <option>General</option>
+                        <option>Lineups</option>
+                        <option>Scoring</option>
+                      </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" rows="3"></textarea>
+              </div>
+              <button type="button" class="btn btn-lg btn-primary">Submit</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- USA Eligibility Modal -->
+    <div class="modal fade" id="usaEligibility" tabindex="-1" role="dialog" aria-labelledby="usaEligibilityLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <div class="modal-body text-center">
+
+            <span class="sprite usa-flag"></span>
+            <h2>USA ELIGIBILITY</h2>
+            <p class="top-buffer">
+              The following states do not allow fantasy sports competition for cash: Arizona, Arkansas, Delaware, Iowa, Louisiana, Michigan, Montana, Tennessee, and Washington. Residents of Alabama and Nebraska must be 19 years of age to play in cash Daily Fantasy Sports contests.
+            </p>
+            <p>
+              If you fall outside these states and are still having trouble depositing, or have deposit questions in general please do not hesitate to <a href="#">contact us.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CANADA Eligibility Modal -->
+    <div class="modal fade" id="canadaEligibility" tabindex="-1" role="dialog" aria-labelledby="canadaEligibilityLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <div class="modal-body text-center">
+
+            <span class="sprite canada-flag"></span>
+            <h2>CANADA ELIGIBILITY</h2>
+            <p class="top-buffer">
+              The following provinces do not allow fantasy sports competition for cash: Prince Edward Island and Quebec are not eligible to participate. Residents of British Columbia must be 19 years of age to play in cash Daily Fantasy Sports contests.
+            </p>
+            <p>
+              If you fall outside these provinces and are still having trouble depositing, or have deposit questions in general please do not hesitate to <a href="#">contact us.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $('#editLeagues a').click(function (e) {
+          e.preventDefault()
+          $(this).tab('show')
+        });
+      });
+    </script>
+  </body>
+</html>

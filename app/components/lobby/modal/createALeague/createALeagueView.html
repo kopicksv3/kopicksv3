@@ -1,0 +1,182 @@
+﻿<script type="text/ng-template" id="createALeagueModalContent.html">
+    <!-- Create A League -->
+    <div class="modal-header" id="createLeague" tabindex="-1" role="dialog" aria-labelledby="leagueInformationLabel">
+        <button type="button" class="close" data-dismiss="modal" ng-click="cancel()" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+    </div>
+    <form>
+        <div class="modal-body modal-leagues">
+            <h2 class="text-center bottom-buffer">Create A League</h2>
+
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Select League Type:</label>
+                    <div class="col-md-9">
+                        <button type="button" class="btn" ng-class="{'btn-primary' : !showPrivate, 'btn-default' : showPrivate}" ng-click="showPrivate = false; checkPassword();">Custom</button>
+                        <button type="button" class="btn" ng-class="{'btn-primary' : showPrivate, 'btn-default' : !showPrivate}" ng-click="showPrivate = true; checkPassword();">Private</button>
+                        Custom leagues will be shown in the lobby and anyone may join!
+                    </div>
+                </div>
+            </form>
+
+            <div class="row">
+                <div class="col-md-6">
+
+                    <h4 class="text-center">League Information</h4>
+
+                    <div class="row">
+                        <div class="col-sm-4 bottom-buffer">
+                            <label class="control-label">League:</label>
+                            <select ng-model="selectedLeague" ng-change="leagueOnChange()" class="form-control">
+                                <option>League</option>
+                                <option ng-repeat="league in availLeagues" value="{{league.leagueID}}">{{league.abbreviation}}</option>
+
+                            </select>
+                        </div>
+                        <div class="col-sm-4 bottom-buffer">
+                            <label class="control-label">Start Date + Time:</label>
+                            <select ng-model="selectedMatchupDT" ng-change="matchupsOnChange()" class="form-control">
+                                <option>Game Date</option>
+                                <option ng-repeat="match in upcomingMatchups | unique:'startDate'" value="{{match.startDate | date:'yyyy-MM-dd HH:mm:ss Z' }}">{{match.startDate | date:'EEE MMM d // h:mm a'}}</option>
+
+                            </select>
+                        </div>
+                        <div class="col-sm-4 bottom-buffer">
+                            <label class="control-label">Draft:</label>
+                            <!-- hard coding Salary draft style (Standard) so it matches the MVC site TODO: change eventually? -->
+                            <select ng-model="selectedDraftStyle" class="form-control">
+                                <option>Draft Style</option>
+                                <option value="1">Standard</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 bottom-buffer">
+                            <label class="control-label">Entries:</label>
+                            <select class="form-control" ng-change="numEntriesOnChange()" ng-model="selectedNumEntries">
+                                <option>-</option>
+                                <option ng-repeat="ent in entriesList track by $index" ng-if="ent">{{ent}}</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 bottom-buffer">
+                            <label class="control-label">Buy-In:</label>
+                            <input type="text" min="1" step="1" ng-change="buyInIsValid()" ng-model="selectedBuyIn" class="form-control" value="{{selectedBuyIn | number:0}}">
+                        </div>
+                        <div class="col-sm-4 bottom-buffer">
+                            <label class="control-label">Game Type:</label>
+                            <select class="form-control" ng-change="gameTypeOnChange()" ng-model="selectedGameType">
+                                <option>Game Type</option>
+                                <option ng-repeat="bs in betStyles track by $index" ng-disabled="bs.disable" value="{{bs.betStyleID}}">{{bs.betStyleID | getBettingStr}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" ng-show="showPrivate">
+                        <div class="col-sm-6 bottom-buffer">
+                            <label class="control-label">Password:</label>
+                            <input type="password" ng-model="password" ng-change="checkPassword()" class="form-control">
+                        </div>
+                        <div class="col-sm-6 bottom-buffer">
+                            <label class="control-label">Confirm Password:</label>
+                            <input type="password" ng-model="confirmPassword" ng-change="checkPassword()" class="form-control">
+                        </div>
+                    </div>
+
+
+                    <p class="small">
+                        <em><strong>NOTE:</strong> If your league does not fill by game time, it will be cancelled and entry fees will be refunded to your account. </em>
+                    </p>
+
+                    <div ng-show="showPrizeStruct">
+                        <h4 class="text-center">Prize Pool: <span class="text-success">{{ prizeStruct.sizeOfPrizePool | currency:'$':2 }}</span></h4>
+
+                        <ul class="list-unstyled">
+                            <li ng-repeat="prize in abbrevPrizeList">
+                                <strong>{{prize.startRank == prize.endRank ? prize.startRank : prize.startRank + "-" + prize.endRank}}:</strong> {{prize.prizeValue | getPrizeWithCurr:prize.prizeValueCurrency:tenant.bonusPoints }}
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+
+                    <table class="table table-leagues table-hover table-bordered table-td-middle">
+                        <thead>
+                            <tr>
+                                <th>
+                                    {{ selectedLeague | getLeagueStr }} Matchups ({{selectedMatchups.length}})
+                                </th>
+                                <th>
+                                    Salary Cap: <span class="text-success">$100k</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="selMatch in selectedMatchups track by $index">
+                                <td>
+                                    {{selMatch.homeName}} @ {{selMatch.awayName}}
+                                </td>
+                                <td>
+                                    {{selMatch.startDateString}}
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <!-- NEW BUY IN --->
+                    <div ng-if="prizeStruct && (!notEnoughMoney || !notEnoughPoints) && account.accountID && selectedBuyIn > 0">
+                        <h4 class="text-center">{{ selectedBuyIn | currency:'$':0 }} Buy-In</h4>
+                        <p>
+                            <label class="radio-inline">
+                                <input ng-disabled="notEnoughMoney" type="radio" ng-model="$parent.payment" value="{{ selectedBuyIn | currency:'$':0 }}" name="entry" ng-click="checkIfJoin();$parent.payWithStarPoints = false;"> Deduct {{ selectedBuyIn | currency:'$':0 }} from my account
+                            </label>
+                        </p>
+
+                        <p>
+                            <label ng-if="tenant.bonusPoints != null || tenant.bonusPoints != ''" class="radio-inline">
+                                <input ng-disabled="notEnoughPoints" type="radio" ng-model="$parent.payment" value=" points" name="entry" ng-click="checkIfJoin();$parent.payWithStarPoints = true;"> Use {{specialPointsEntryFee}} {{tenant.bonusPoints}}
+                            </label>
+                        </p>
+                        <!--<p>
+                        TODO: TICKETS
+                        <label class="radio-inline">
+            <input type="radio"> Use a ticket: You have no eligible tickets.
+        </label>
+                    </p>-->
+                        <p class="text-muted small">
+                            <em ng-if="payment != ''">By clicking 'JOIN LEAGUE', I authorize {{tenant.fullName}} to deduct {{$parent.payment}} from my account in order to join this league.</em>
+                        </p>
+                    </div>
+                    <p class="text-muted small">
+                        <em ng-if="errormsg != ''">{{errormsg}}</em>
+                    </p>
+                        <!-- NEW LOGIN -->
+                        <div ng-if="account.accountID == null || account.accountID == ''">
+<p class="text-center">
+                            Please <a>Login</a> or <a>Register</a> to join leagues!
+                        </p>
+                        <p class="text-right">
+                            <button type="button" class="btn btn-lg btn-default" ng-click="cancel()">Cancel</button>
+                        </p>
+                    </div>
+
+                    <div ng-if="account.accountID">
+                        <h4 class="text-center">My Current Balance</h4>
+                        <p>
+                            {{account.userBalance | currency:'$':2}} / {{account.internalPoints}} {{tenant.bonusPoints}} <a href="#/my-account?tab=cashier">Add Funds</a>
+                        </p>
+                        <div class="text-center top-buffer">
+                            <!--TODO: need to add variable if can play cash games from account -->
+                            <button ng-disabled="!showJoinBtn" type="button" class="btn btn-lg btn-primary" ng-click="createTheLeague()">Create &amp; Join League</button> <button type="button" class="btn btn-lg btn-default" ng-click="cancel()">Cancel</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+    <div ng-include="'app/shared/modal/genericModal/genericModal.html'"></div>
+       
+</script>

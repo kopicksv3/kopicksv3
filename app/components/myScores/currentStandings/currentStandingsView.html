@@ -1,0 +1,77 @@
+
+<div ng-hide="myTeamData == null || flteams.length == 0" ng-controller="currentStandingsController">
+
+  <h4 class="top-buffer">Current Standings</h4>
+  <div ng-hide="flteams.length == 0 " class="row">
+
+    <div class="col-sm-12 col-md-3">
+      <p ng-show="isMyTeam">My Team</p>
+      <p ng-show="!isMyTeam">Selected Team</p>
+
+      <div class="panel panel-default panel-fill" ng-click="swapVsPlayer(myTeamData)" data-toggle="collapse" data-target="#currentStandings" aria-expanded="false" aria-controls="currentStandings">
+        <div class="panel-body">
+          <div class="row no-margin">
+            <div class="col-xs-3 padding-sm">
+              <img class="avatar img-circle img-responsive" ng-src="{{myTeamData.teamPhotoUrl}}" onerror="if(!window.profilePhotoDefaultFailure) this.src = '/assets/images/default-avatar.png'; if (this.src.substr(this.src.length - ('/assets/images/default-avatar.png').length) == '/assets/images/default-avatar.png') window.profilePhotoDefaultFailure = true;" />
+            </div>
+            <div class="col-xs-9 padding-sm">
+              <strong>{{myTeamData.name}}</strong>
+              <small><strong>Current Rank:</strong> #{{myTeamData.ranking}}</small>
+              <br>
+              <small><strong>YTP:</strong> {{myTeamData.ytp}}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-sm-12 col-md-9">
+      <p>All Teams ({{totalResults}})</p>
+      <div class="row">
+        <div class="carousel-light" pagedcarousel interval-update=30000 limit="3" dataload-fn='nextData' parentclass="'col-sm-10 col-xs-offset-1'" elementclass="'col-xs-12 col-sm-6 col-md-4'">
+          <div class="panel panel-default" ng-click="swapVsPlayer($parent.nextResult)" aria-expanded="false" aria-controls="currentStandings2">
+            <div class="panel-body" ng-class="{'class-one': $parent.nextResult.ranking == 1, 'class-two':  $parent.nextResult.ranking !== 1}">
+              <div class="row no-margin">
+                <div class="col-xs-3 padding-sm">
+                  <img class="avatar img-circle img-responsive" ng-src="{{$parent.nextResult.teamPhotoUrl}}" onerror="if(!window.profilePhotoDefaultFailure) this.src = '/assets/images/default-avatar.png'; if (this.src.substr(this.src.length - ('/assets/images/default-avatar.png').length) == '/assets/images/default-avatar.png') window.profilePhotoDefaultFailure = true;" />
+                </div>
+                <div class="col-xs-9 padding-sm">
+                  <strong>{{$parent.nextResult.name}}</strong>
+                  <small><strong>Current Rank:</strong> #{{$parent.nextResult.ranking}}</small>
+                  <br>
+                  <small><strong>YTP:</strong> {{$parent.nextResult.ytp}}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div ng-controller="LeagueInfoController" class="col-sm-4 col-md-3 no-padding">
+        <a class="btn btn-red" ng-click="openLeagueInfo(myTeamData.fantasyLeagueID, false, true)">Full League Details</a>
+      </div>
+      <div class="col-sm-5 col-md-6 padding-sm">
+        <strong>Pool:</strong> <span class="text-success">{{focusedPreviewTeamData.sizeOfPrizePool | getPrizeFilter:focusedPreviewTeamData.payoutCurrencyType }}</span>
+        <strong>Payouts:</strong> <span class="text-warning">{{focusedPreviewTeamData.fantasyLeagueBettingStyleID |getBettingStr}}</span>
+      </div>
+      <div class="col-sm-3 col-md-3 no-padding text-right">
+        <div ng-controller="sportsScoringController">
+          <button ng-click="openSportsScoring(myTeamData.leagueID)" data-target="#sportScoring" class="btn btn-default">{{myTeamData.leagueID | getLeagueStr}} Scoring</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <score-board-preview-vs focused-vs-player="focusedVsPlayer" my-team-data="myTeamData"> </score-board-preview-vs>
+
+  <div ng-include="'app/shared/modal/leagueInfo/leagueInfoView.html'"></div>
+  <div ng-include="'app/shared/modal/sportsScoringModals/mlb/sportsScoring.html'"></div>
+  <div ng-include="'app/shared/modal/sportsScoringModals/nba/sportsScoring.html'"></div>
+  <div ng-include="'app/shared/modal/sportsScoringModals/nfl/sportsScoring.html'"></div>
+  <div ng-include="'app/shared/modal/sportsScoringModals/nhl/sportsScoring.html'"></div>

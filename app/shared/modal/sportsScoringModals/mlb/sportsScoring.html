@@ -1,0 +1,336 @@
+﻿<script type="text/ng-template" id="mlb.html">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content scoring mlb-header">
+            <div id="sportScoring" class="modal-header">
+                <button ng-click="cancel()" type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+            </div>
+            <form>
+                <div class="modal-body text-center">
+                    <h2>MLB Scoring</h2>
+
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1 top-buffer">
+
+                            <h3>Batting</h3>
+                            <table class="table table-leagues table-hover table-striped">
+                                <thead>
+                                <th class="borderless text-center">
+                                    Statistic
+                                </th>
+                                <th class="borderless text-center">
+                                    Abrv
+                                </th>
+                                <th class="borderless text-center">
+                                    Pts.
+                                </th>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>
+                                            Single
+                                        </td>
+                                        <td>
+                                            1B
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">1.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Double
+                                        </td>
+                                        <td>
+                                            2B
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">2.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Triple
+                                        </td>
+                                        <td>
+                                            3B
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">3.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Home Run
+                                        </td>
+                                        <td>
+                                            HR
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">4.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Walk
+                                        </td>
+                                        <td>
+                                            BB
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">0.75</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Run
+                                        </td>
+                                        <td>
+                                            R
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">1.50</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Run Batted In
+                                        </td>
+                                        <td>
+                                            RBI
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">1.50</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Stolen Base
+                                        </td>
+                                        <td>
+                                            SB
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">2.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Caught Stealing
+                                        </td>
+                                        <td>
+                                            CS
+                                        </td>
+                                        <td>
+                                            <span class="text-danger">-1.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Strikeout
+                                        </td>
+                                        <td>
+                                            KO
+                                        </td>
+                                        <td>
+                                            <span class="text-danger">-0.75</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Sacrifice
+                                        </td>
+                                        <td>
+                                            SAC
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">0.75</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Hit By Pitch
+                                        </td>
+                                        <td>
+                                            HP
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">0.75</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4 top-buffer">
+
+                            <h3>Pitching</h3>
+                            <table class="table table-leagues table-hover table-striped">
+                                <thead>
+                                <th class="borderless text-center">
+                                    Statistic
+                                </th>
+                                <th class="borderless text-center">
+                                    Abrv
+                                </th>
+                                <th class="borderless text-center">
+                                    Pts.
+                                </th>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>
+                                            Walk
+                                        </td>
+                                        <td>
+                                            BB
+                                        </td>
+                                        <td>
+                                            <span class="text-danger">-0.25</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Hit allowed
+                                        </td>
+                                        <td>
+                                            HA
+                                        </td>
+                                        <td>
+                                            <span class="text-danger">-0.25</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Hit Batter
+                                        </td>
+                                        <td>
+                                            HB
+                                        </td>
+                                        <td>
+                                            <span class="text-danger">-0.25</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Earned Run
+                                        </td>
+                                        <td>
+                                            ER
+                                        </td>
+                                        <td>
+                                            <span class="text-danger">-0.75</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Inning Pitched
+                                        </td>
+                                        <td>
+                                            IP
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">0.90</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Strikeout
+                                        </td>
+                                        <td>
+                                            K
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">0.70</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Loss
+                                        </td>
+                                        <td>
+                                            L
+                                        </td>
+                                        <td>
+                                            <span class="text-danger">-0.75</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Win
+                                        </td>
+                                        <td>
+                                            W
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">1.50</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Save
+                                        </td>
+                                        <td>
+                                            S
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">3.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Blown Save
+                                        </td>
+                                        <td>
+                                            BS
+                                        </td>
+                                        <td>
+                                            <span class="text-danger">-1.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Complete game
+                                        </td>
+                                        <td>
+                                            CG
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">2.00</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</script>

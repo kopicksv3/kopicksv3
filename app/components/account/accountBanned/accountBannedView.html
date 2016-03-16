@@ -1,0 +1,24 @@
+﻿<div ng-include="'/app/shared/header/header.html'"></div>
+<main class="container container-body">
+    <div>
+        <div class="content content-header">
+            <h2 class="text-center">Account Banned</h2>
+        </div>
+
+        <div class="content">
+
+            <div class="bg-warning padding-lg">
+                <h4><strong>Your account is currently banned</strong></h4>
+
+                <p>
+                    Your account has been banned by our administrative staff.
+                </p>
+
+                <p>
+                    Please contact <a data-toggle="modal" ng-controller="supportSharedPopupController" ng-click="displaySupportModal()">Support</a> for information.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</main>

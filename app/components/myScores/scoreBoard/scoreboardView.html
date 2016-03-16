@@ -1,0 +1,25 @@
+<div ng-include="'/app/shared/header/header.html'"></div>
+<main class="container container-body">
+  <h2 class="text-center bottom-buffer">Scoreboard</h2>
+  <div ng-include="'app/components/myScores/gameCenter/gameCenterView.html'"></div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="text-center" ng-hide="focusedPreviewTeamData == null">
+        <h4> SCOREBOARD - {{ undefined | getLeagueName:focusedPreviewTeamData.entryFee:focusedPreviewTeamData.canOnlyBeJoinedWithTickets:focusedPreviewTeamData.sizeOfPrizePool:focusedPreviewTeamData.payoutCurrencyType:focusedPreviewTeamData.maxNumberPlayers:focusedPreviewTeamData.if_1_of_2_UserName_of_1:focusedPreviewTeamData.H2H_FLIDS_Of_Group.length:focusedPreviewTeamData.fantasyLeagueBettingStyleID:focusedPreviewTeamData.isQualifier:focusedPreviewTeamData.maxNumberEntriesPerUser}} </h4>
+        <h4> LEAGUE #{{focusedPreviewTeamData.fantasyLeagueID}} - STARTS {{ focusedPreviewTeamData.startDate | formatDateTime: 'dddd, MMM DD @ hh:mm A' }} </h4>
+      </div>
+    </div>
+  </div>
+
+  <div ng-hide="focusedPreviewTeamData == null" ng-include="'app/components/myScores/currentStandings/currentStandingsView.html'"></div>
+  <div ng-hide="focusedPreviewTeamData == null" ng-include="'app/components/myScores/scoreBoardPreview/scoreBoardPreview.html'"></div>
+  <div ng-include="'app/shared/modal/genericModal/genericModal.html'"></div>
+
+</main>
+
+<script>
+  $(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+</script>

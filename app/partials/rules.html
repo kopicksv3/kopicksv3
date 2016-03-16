@@ -1,0 +1,1770 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bjqs-1.3.min.js"></script>
+    <script src="/js/jquery.countdown.js"></script>
+  </head>
+  <body class="home">
+    <div class="header-background">
+      <!-- Mobile Navigation -->
+      <nav class="navbar navbar-static-top hidden-md hidden-lg">
+        <div class="navbar-header">
+          <div class="container">
+            <button type="button" class="navbar-icons left" data-toggle="collapse" data-target="#menuGeneral">
+              <span class="glyphicon icon-align-justify"></span>
+            </button>
+
+            <a class="sprite navbar-brand" href="/"></a>
+
+            <button type="button" class="navbar-icons right" data-toggle="collapse" data-target="#menuAccount">
+              <span class="glyphicon icon-user"></span>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <div class="collapse hidden-md hidden-lg" id="menuGeneral">
+        <div class="row">
+          <div class="col-sm-6">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="/">Lobby</a></li>
+              <li><a href="/leagues">Leagues</a></li>
+              <li><a href="/lineups">Lineups</a></li>
+              <li><a href="/scores">Scores</a></li>
+              <li><a href="/leaderboards">Leaderboards</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="/how-to-play">How to Play</a></li>
+              <li><a href="/rules">Rules</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a data-toggle="modal" data-target="#support">Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="collapse hidden-md hidden-lg" id="menuAccount">
+        <div class="row">
+          <div class="col-xs-12">
+            <ul class="nav nav-pills nav-stacked">
+              <li class="bal-points">
+                <strong>Balance:</strong> &dollar;500.00 <br>
+                <strong>Points:</strong> 700
+                <a href="/my-account" class="btn btn-default top-buffer">Add Funds</a>
+              </li>
+              <li><a href="/my-account">My Account</a></li>
+              <li><a href="/promotions">Promotions</a></li>
+              <li><a href="/logout">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop -->
+      <nav class="navbar navbar-default main-menu visible-md visible-lg" role="navigation">
+        <div class="container">
+          <!-- Top Menus -->
+          <div class="top-menu">
+            <div class="user-menu">
+              <ul class="list-inline">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img class="avatar img-circle" src="/images/default-avatar.png"> KnockoutDan <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="bal-points">
+                      <strong>Balance:</strong> &dollar;500.00 <br>
+                      <strong>Points:</strong> 700
+                    </li>
+                    <li><a href="/my-account">My Account</a></li>
+                    <li><a href="/promotions">Promotions</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="user-add-funds text-center">
+              <div class="col-xs-6 no-padding">
+                <a href="/my-account" class="btn btn-finance">Add Funds</a>
+              </div>
+            </div>
+          </div>
+          <!-- Main Menu -->
+          <div class="row">
+            <div class="col-md-5">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Lobby</a></li>
+                <li><a href="/leagues">Leagues</a></li>
+                <li><a href="/lineups">Lineups</a></li>
+                <li><a href="/scores">Scores</a></li>
+                <li><a href="/leaderboards">Leaderboards</a></li>
+              </ul>
+            </div>
+            <div class="col-md-2 no-padding">
+              <a class="header-logo" href="/"><img class="img-responsive" src="/images/logo-large.png"></a>
+            </div>
+            <div class="col-md-5">
+              <ul class="nav navbar-nav">
+                <li><a href="/how-to-play">How to Play</a></li>
+                <li><a href="/rules">Rules</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a data-toggle="modal" data-target="#support">Support</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <main class="container container-body">
+
+      <div class="content content-header">
+        <h2 class="text-center">Rules And Scoring</h2>
+      </div>
+
+      <div class="content content-rules-feed">
+
+        <div class="row">
+          <div class="col-xs-12">
+            <h2 class="text-center bottom-buffer">Rules</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+
+            <div class="panel-group" id="rules1" role="tablist" aria-multiselectable="true">
+
+              <div class="panel panel-rules" id="eligibility">
+                <div class="panel-heading" role="tab" id="eligibility-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules1" href="#eligibility-collapse" aria-expanded="false" aria-controls="eligibility-collapse">
+                      Eligibility
+                    </a>
+                  </h4>
+                </div>
+                <div id="eligibility-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="eligibility-heading">
+                  <div class="panel-body">
+                    <p>
+                      The following states do not allow fantasy sports competition for cash: Arizona, Arkansas, Delaware, Iowa, Louisiana, Michigan, Montana, Tennessee, and Washington.
+                    </p>
+                    <p>
+                      Residents of Alabama and Nebraska must be 19 years of age to play in cash Daily Fantasy Sports contests.
+                    </p>
+                    <p>
+                      In Canada, residents of British Columbia must be 19 years of age to play in cash Daily Fantasy Sports contests. Residents of Prince Edward Island and Quebec are not eligible to participate.
+                    </p>
+                    <p>
+                      If you fall outside these areas and are still having trouble depositing, or have deposit questions in general please do not hesitate to <a data-toggle="modal" data-target="#support">contact us</a>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="Suspension-of-Accounts">
+                <div class="panel-heading" role="tab" id="Suspension-of-Accounts-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules1" href="#Suspension-of-Accounts-collapse" aria-expanded="false" aria-controls="Suspension-of-Accounts-collapse">
+                      Suspension of Accounts
+                    </a>
+                  </h4>
+                </div>
+                <div id="Suspension-of-Accounts-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="Suspension-of-Accounts-heading">
+                  <div class="panel-body">
+                    <p>
+                      Knockout Picks is a user-friendly site that is designed for an enjoyable and rewarding experience. Conduct that is detrimental to this experience can be due to several different bad behaviors and it is the responsibility of Knockout Picks to deal with any such problems in an appropriate manner. This can result in suspension or termination of a user’s account.
+                    </p>
+                    <p>
+                      Players who experience such reprimands can contact our support team by email ONLY at <a href="mailto:support@knockoutpicls.com">support@KnockoutPicks.com</a> to attempt to have their website privileges restored.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="usernames">
+                <div class="panel-heading" role="tab" id="usernames-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules1" href="#usernames-collapse" aria-expanded="false" aria-controls="usernames-collapse">
+                      Usernames
+                    </a>
+                  </h4>
+                </div>
+                <div id="usernames-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="usernames-heading">
+                  <div class="panel-body">
+                    <p>
+                      Knockout Picks will allow new sign-ups to select any username (that is not already in use) they desire, as long as it is not inappropriate, offensive, or commercially competitive in nature.
+                    </p>
+                    <p>
+                      In such situations, Knockout will ask the user to provide us with an alternative username, which we will then update in our system.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="unjoining-tournaments">
+                <div class="panel-heading" role="tab" id="unjoining-tournaments-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules1" href="#unjoining-tournaments-collapse" aria-expanded="false" aria-controls="unjoining-tournaments-collapse">
+                      Unjoining Tournaments/Leagues
+                    </a>
+                  </h4>
+                </div>
+                <div id="unjoining-tournaments-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="unjoining-tournaments-heading">
+                  <div class="panel-body">
+                    <p>
+                      Players will be allowed to unjoin any daily or weekly tournament , provided that the league has not yet filled. Once a contest is full or has begun, players are no longer allowed to withdraw from the contest.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="postponed-games">
+                <div class="panel-heading" role="tab" id="postponed-games-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules1" href="#postponed-games-collapse" aria-expanded="false" aria-controls="postponed-games-collapse">
+                      Postponed, Suspended, or Cancelled Games
+                    </a>
+                  </h4>
+                </div>
+                <div id="postponed-games-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="postponed-games-heading">
+                  <div class="panel-body">
+                    <p>
+                      If a game is postponed or cancelled, no points will be counted from that game and any players included in such lineups will receive a zero in their fantasy stats column.
+                    </p>
+                    <p>
+                      If a game is suspended, then the statistics that are generated the day the game is originally scheduled WILL be used. However, any stats recorded after the scoring period (when the suspended game is being finished on a later date) will NOT count.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="mlb-doubleheaders">
+                <div class="panel-heading" role="tab" id="mlb-doubleheaders-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules1" href="#mlb-doubleheaders-collapse" aria-expanded="false" aria-controls="mlb-doubleheaders-collapse">
+                      MLB Doubleheaders
+                    </a>
+                  </h4>
+                </div>
+                <div id="mlb-doubleheaders-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="mlb-doubleheaders-heading">
+                  <div class="panel-body">
+                    <p>
+                      Whichever start time that Knockout Picks has listed for a doubleheader, the stats will apply for that game only.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="depositing-funds">
+                <div class="panel-heading" role="tab" id="depositing-funds-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules1" href="#depositing-funds-collapse" aria-expanded="false" aria-controls="depositing-funds-collapse">
+                      Depositing Funds
+                    </a>
+                  </h4>
+                </div>
+                <div id="depositing-funds-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="depositing-funds-heading">
+                  <div class="panel-body">
+                    <p>
+                      Members are able to deposit funds easily via PayPal or Visa, MasterCard, American Express and Discover credit cards. If your bank does not allow deposits into our site, you can use PayPal for a very smooth and easy deposit process.
+                    </p>
+                    <p>
+                      Our 'Cashier' section is designed for the easiest deposit and withdrawal experience possible. Feel free to contact us here or at <a href="mailto:support@knockoutpicks.com">support@KnockoutPicks.com</a> with any problems!
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="payouts">
+                <div class="panel-heading" role="tab" id="payouts-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules1" href="#payouts-collapse" aria-expanded="false" aria-controls="payouts-collapse">
+                      Payouts
+                    </a>
+                  </h4>
+                </div>
+                <div id="payouts-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="payouts-heading">
+                  <div class="panel-body">
+                    <p>
+                      Knockout Picks will attempt to issue payments as soon as possible, most often within an hour of contests end, providing that stats have been made final. Once the funds are present in users’ accounts, they will then be able to join new games immediately or withdraw their winnings!
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-sm-6">
+            <div class="panel-group" id="rules2" role="tablist" aria-multiselectable="true">
+
+              <div class="panel panel-rules" id="multiple-accounts">
+                <div class="panel-heading" role="tab" id="multiple-accounts-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules2" href="#multiple-accounts-collapse" aria-expanded="false" aria-controls="multiple-accounts-collapse">
+                      Multiple Accounts
+                    </a>
+                  </h4>
+                </div>
+                <div id="multiple-accounts-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="multiple-accounts-heading">
+                  <div class="panel-body">
+                    <p>
+                      Knockout Picks only allows one account per user, no exceptions. If your account is being tampered with and resetting your password does not solve the issue, you may <a data-toggle="modal" data-target="#support">contact our support team</a> to have your account closed and you may reopen a new one.
+                    </p>
+                    <p>
+                      Knockout Picks has the sole right to close, or withhold cash from any accounts that it believes has operated in a fraudulent or inappropriate manner.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="chat-room">
+                <div class="panel-heading" role="tab" id="chat-room-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules2" href="#chat-room-collapse" aria-expanded="false" aria-controls="chat-room-collapse">
+                      Knockout Chat Room
+                    </a>
+                  </h4>
+                </div>
+                <div id="chat-room-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="chat-room-heading">
+                  <div class="panel-body">
+                    <p>
+                      Knockout Picks designed a chat room to allow players a fun and enjoyable back-and-forth experience before, during, and after gameplay.
+                    </p>
+                    <p>
+                      Players may have disciplinary action taken on their account if they use offensive language/content, harass, threaten or verbally abuse other members of Knockout Picks. Similarly, spamming, advertising other sites, or sharing unique promotional information is strictly prohibited.
+                    </p>
+                    <p>
+                      The consequences of ANY of these inappropriate actions can result, at Knockout Picks discretion, in content deletion, account suspension or account termination.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="unfilled-contests">
+                <div class="panel-heading" role="tab" id="unfilled-contests-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules2" href="#unfilled-contests-collapse" aria-expanded="false" aria-controls="unfilled-contests-collapse">
+                      Unfilled Contests
+                    </a>
+                  </h4>
+                </div>
+                <div id="unfilled-contests-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="unfilled-contests-heading">
+                  <div class="panel-body">
+                    <p>
+                      Any multi-player daily tournaments that come with a guaranteed prize pool will run regardless of whether they are filled.
+                    </p>
+                    <p>
+                      However, any daily or weekly tournaments that are not filled at their start-time will be cancelled with the buy-ins returning to all participants accounts.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="traded-players">
+                <div class="panel-heading" role="tab" id="traded-players-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules2" href="#traded-players-collapse" aria-expanded="false" aria-controls="traded-players-collapse">
+                      Traded Players
+                    </a>
+                  </h4>
+                </div>
+                <div id="traded-players-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="traded-players-heading">
+                  <div class="panel-body">
+                    <p>
+                      If a player has been traded to another team after the daily players’ stats have been decided upon, players will still receive the fantasy points for that player if they play in that day/night’s game for another team – even if Knockout Picks’ stats provider has yet to change the team name of that player.
+                    </p>
+                    <p>
+                      However, in many cases, traded players do not end up playing in that day/night’s game due to travel or circumstances coinciding with the transaction. In this situation, participants will receive a zero for that player if they are in their lineup.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="withdrawing-funds">
+                <div class="panel-heading" role="tab" id="withdrawing-funds-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules2" href="#withdrawing-funds-collapse" aria-expanded="false" aria-controls="withdrawing-funds-collapse">
+                      Withdrawing Funds
+                    </a>
+                  </h4>
+                </div>
+                <div id="withdrawing-funds-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="withdrawing-funds-heading">
+                  <div class="panel-body">
+                    <p>
+                      Users can withdraw through PayPal, or request a check. There will be no fees charged on withdrawals.
+                    </p>
+                    <p>
+                      Knockout Picks is not responsible for checks lost in the mail or any such similar circumstances. Any checks sent back to Knockout Picks due to an address error will be re-sent upon confirmation of correct address.
+                    </p>
+                    <p>
+                      For withdrawals over $600 members will be required to enter their social security number in order to file appropriate tax forms at year end.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="knockout-points">
+                <div class="panel-heading" role="tab" id="knockout-points-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules2" href="#knockout-points-collapse" aria-expanded="false" aria-controls="knockout-points-collapse">
+                      Knockout Points
+                    </a>
+                  </h4>
+                </div>
+                <div id="knockout-points-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="knockout-points-heading">
+                  <div class="panel-body">
+                    <p>
+                      When a member enters any contest or league with cash they will receive a certain number of Knockout points. Knockout points accumulate in your account until you choose to use them for something.
+                    </p>
+                    <p>
+                      Knockout points can be used to play tournaments/leagues or to get prizes. Knockout Picks will also be running Knockout multi-player tournaments for buy-ins to bigger daily/weekly tournaments.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="referral-payments">
+                <div class="panel-heading" role="tab" id="referral-payments-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules2" href="#referral-payments-collapse" aria-expanded="false" aria-controls="referral-payments-collapse">
+                      Referral Payments
+                    </a>
+                  </h4>
+                </div>
+                <div id="referral-payments-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="referral-payments-heading">
+                  <div class="panel-body">
+                      You will receive a referral bonus from players that you refer that:
+                      <ul>
+                        <li>
+                          Enters and plays in any Leagues/Tournament that has an entry fee and does not cancel.
+                        </li>
+                        <li>
+                          Enters and plays in any Guaranteed Leagues/Tournament that has an entry fee ONLY if the league fills.
+                        </li>
+                      </ul>
+                    <p>
+                       You will not receive a referral bonus from players that you refer that play in Freeroll Leagues/Tournaments or in any League/Tournament that does not have a U.S. Dollar entry fee.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="tie-breakers">
+                <div class="panel-heading" role="tab" id="tie-breakers-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules2" href="#tie-breakers-collapse" aria-expanded="false" aria-controls="tie-breakers-collapse">
+                      Tie-Breakers
+                    </a>
+                  </h4>
+                </div>
+                <div id="tie-breakers-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="tie-breakers-heading">
+                  <div class="panel-body">
+                    <p>
+                      Knockout Picks does not have a system for determining tie-breakers in daily/weekly games. If a contest is tied, contestants will split the prizes.
+                    </p>
+                    <p>
+                      Ex: If there is a two-way tie for first place in a 10-player league, the two contestants will split the prizes for first and second place.
+                    </p>
+                    <p>
+                      Ex: If there is a three-way tie for second in a multi-player league, the contestants will split the combined prizes of second, third and fourth place.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <h2 class="text-center bottom-buffer">Gameplay Styles</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+
+            <div class="panel-group" id="gameplay-styles1" role="tablist" aria-multiselectable="true">
+
+              <div class="panel panel-rules" id="daily-weekly-contests">
+                <div class="panel-heading" role="tab" id="daily-weekly-contests-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules1" href="#daily-weekly-contests-collapse" aria-expanded="false" aria-controls="daily-weekly-contests-collapse">
+                      Daily/Weekly Contest Types
+                    </a>
+                  </h4>
+                </div>
+                <div id="daily-weekly-contests-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="daily-weekly-contests-heading">
+                  <div class="panel-body">
+
+                    <button type="button" class="btn btn-key btn-hu" data-toggle="tooltip" data-placement="top" title="Heads Up">H</button>
+                    <strong>Heads-Up</strong>
+                    <p>
+                      Play an opponent in a 1-on-1 contest to double your buy-in.
+                    </p>
+
+                    <button type="button" class="btn btn-key btn-dup" data-toggle="tooltip" data-placement="top" title="Double-Up Payout">2<sub>x</sub></button>
+                    <strong>Double-Up</strong>
+                    <p>
+                      Finish in the top 50% of any Double-Up contest and double your buy-in.
+                    </p>
+
+                    <button type="button" class="btn btn-key btn-tup" data-toggle="tooltip" data-placement="top" title="Triple-Up Payout">3<sub>x</sub></button>
+                    <strong>Triple-Up</strong>
+                    <p>
+                      Finish in the top 33% of any Triple-Up contest and triple your buy-in.
+                    </p>
+
+                    <button type="button" class="btn btn-key btn-wta" data-toggle="tooltip" data-placement="top" title="Winner Take All">W</button>
+                    <strong>Winner Take All</strong>
+                    <p>
+                      The first place finisher in Winner-Take-All wins the entire prize pool.
+                    </p>
+
+                    <button type="button" class="btn btn-key btn-gl" data-toggle="tooltip" data-placement="top" title="Guaranteed League">G</button>
+                    <strong>GPP (Guaranteed Prize Pools)</strong>
+                    <p>
+                      GPP contests will run for the designating prize pool whether they fill to the maximum number of entries or not.
+                    </p>
+
+                    <button type="button" class="btn btn-key btn-me" data-toggle="tooltip" data-placement="top" title="Multi-Entry">M</button>
+                    <strong>Multi-Entry</strong>
+                    <p>
+                      Most commonly used in GPP’s, Multi-Entry contests allow players to enter more than one lineup in an individual contest.
+                    </p>
+
+                    <button type="button" class="btn btn-key btn-turbo" data-toggle="tooltip" data-placement="top" title="Turbo">T</button>
+                    <strong>Turbo</strong>
+                    <p>
+                      Consolidated contests with less players making up the total roster.
+                    </p>
+
+                    <button type="button" class="btn btn-key btn-qualifier" data-toggle="tooltip" data-placement="top" title="Qualifier">Q</button>
+                    <strong>Qualifier</strong>
+                    <p>
+                      Use Knockout Points or cash to win entries into higher level contests.
+                    </p>
+
+                    <button type="button" class="btn btn-key btn-satellite" data-toggle="tooltip" data-placement="top" title="Satellite">S</button>
+                    <strong>Satellite</strong>
+                    <p>
+                      Use Knockout Points or cash to win entries into Qualifier contests.
+                    </p>
+
+                    <p>
+                      <strong>Free</strong> – Play for free for Knockout points and work your way up to playing in a real cash contests.
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="user-created-leagues">
+                <div class="panel-heading" role="tab" id="user-created-leagues-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#rules1" href="#user-created-leagues-collapse" aria-expanded="false" aria-controls="user-created-leagues-collapse">
+                      User Created Leagues
+                    </a>
+                  </h4>
+                </div>
+                <div id="user-created-leagues-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="user-created-leagues-heading">
+                  <div class="panel-body">
+                    <p>
+                      Players are able to create private and custom leagues for daily/weekly salary drafts. Players can invite friends and acquaintances to both private and public games.
+                    </p>
+                    <p>
+                      Players can create custom leagues at any time. Only games that start at least 15 minutes after the league creation time can be included. If the league does not fill by the close time (5 minutes before the first game starts), it will be cancelled and each players' buy-ins will be refunded.
+                    </p>
+                    <p>
+                      Private leagues are required to have a password. Only players with the password can join the league.
+                    </p>
+                    <p>
+                      Players can make their league public if they don't believe it will fill by the designated draft time (It can be made public on the draft page).
+                    </p>
+                    <p>
+                      Leaving your own private league will cancel that league. All players will have their buy-ins refunded.
+                    </p>
+                    <p>
+                      Players may have up to 3 open custom leagues at any time. Those leagues must be filled or cancelled before a player can create another custom league.
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-sm-6">
+
+            <div class="panel-group" id="gameplay-styles2" role="tablist" aria-multiselectable="true">
+
+              <div class="panel panel-rules" id="multi-player-tournaments">
+                <div class="panel-heading" role="tab" id="multi-player-tournaments-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#gameplay-styles2" href="#multi-player-tournaments-collapse" aria-expanded="false" aria-controls="multi-player-tournaments-collapse">
+                      Multi-Player Tournaments
+                    </a>
+                  </h4>
+                </div>
+                <div id="multi-player-tournaments-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="multi-player-tournaments-heading">
+                  <div class="panel-body">
+                    <p>
+                      Multi-Player tournaments are salary games created by Knockout Picks built for a great number of players and bigger prize pools.
+                    </p>
+                    <p>
+                      Multi-Player roster rules are the same as regular salary cap tournaments but can range from over twenty players to hundreds of players.
+                    </p>
+                    <p>
+                      The prize pools for Multi-Player tournaments are scaled based on the number of predetermined entries.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="salary-cap-leagues">
+                <div class="panel-heading" role="tab" id="salary-cap-leagues-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#gameplay-styles2" href="#salary-cap-leagues-collapse" aria-expanded="false" aria-controls="salary-cap-leagues-collapse">
+                      Salary Cap Leagues
+                    </a>
+                  </h4>
+                </div>
+                <div id="salary-cap-leagues-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="salary-cap-leagues-heading">
+                  <div class="panel-body">
+                    <p>
+                      Salary cap leagues are available in both daily and weekly formats.
+                    </p>
+                    <p>
+                      The salary cap format is designed to allow players to immediately create a team of chosen players under a $100,000 salary cap. The combined fantasy salaries must not exceed this cap. Fantasy salaries are selected by the Knockout Picks team.
+                    </p>
+                    <p>
+                      Contestants are allowed to switch their players at any time before the scoring period begins. If your roster is over the salary cap or incomplete you will be disqualified from the contest and your buy-in will be forfeited.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <h2 class="text-center bottom-buffer">Scoring</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+
+            <div class="panel-group" id="scoring" role="tablist" aria-multiselectable="true">
+
+              <div class="panel panel-rules" id="nfl-scoring">
+                <div class="panel-heading" role="tab" id="nfl-scoring-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#scoring" href="#nfl-scoring-collapse" aria-expanded="false" aria-controls="nfl-scoring-collapse">
+                      NFL Scoring
+                    </a>
+                  </h4>
+                </div>
+                <div id="nfl-scoring-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="nfl-scoring-heading">
+                  <div class="panel-body">
+
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="table-responsive">
+                          <table class="table table-hover table-bordered table-striped table-td-center table-td-middle">
+                            <thead>
+                              <tr>
+                                <th class="borderless text-center">
+                                  Offense
+                                </th>
+                                <th class="borderless text-center">
+                                  ABRV
+                                </th>
+                                <th class="borderless text-center">
+                                  Points
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-danger">-4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="table-responsive">
+                          <table class="table table-hover table-bordered table-striped table-td-center table-td-middle">
+                            <thead>
+                              <tr>
+                                <th class="borderless text-center">
+                                  Defense
+                                </th>
+                                <th class="borderless text-center">
+                                  ABRV
+                                </th>
+                                <th class="borderless text-center">
+                                  Points
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-danger">-4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="nba-scoring">
+                <div class="panel-heading" role="tab" id="nba-scoring-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#scoring" href="#nba-scoring-collapse" aria-expanded="false" aria-controls="nba-scoring-collapse">
+                      NBA Scoring
+                    </a>
+                  </h4>
+                </div>
+                <div id="nba-scoring-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="nba-scoring-heading">
+                  <div class="panel-body">
+
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <div class="table-responsive">
+                          <table class="table table-hover table-bordered table-striped table-td-center table-td-middle">
+                            <thead>
+                              <tr>
+                                <th class="borderless text-center"></th>
+                                <th class="borderless text-center">
+                                  ABRV
+                                </th>
+                                <th class="borderless text-center">
+                                  Points
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-danger">-4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="mlb-scoring">
+                <div class="panel-heading" role="tab" id="mlb-scoring-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#scoring" href="#mlb-scoring-collapse" aria-expanded="false" aria-controls="mlb-scoring-collapse">
+                      MLB Scoring
+                    </a>
+                  </h4>
+                </div>
+                <div id="mlb-scoring-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="mlb-scoring-heading">
+                  <div class="panel-body">
+
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="table-responsive">
+                          <table class="table table-hover table-bordered table-striped table-td-center table-td-middle">
+                            <thead>
+                              <tr>
+                                <th class="borderless text-center">
+                                  Hitting
+                                </th>
+                                <th class="borderless text-center">
+                                  ABRV
+                                </th>
+                                <th class="borderless text-center">
+                                  Points
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-danger">-4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="table-responsive">
+                          <table class="table table-hover table-bordered table-striped table-td-center table-td-middle">
+                            <thead>
+                              <tr>
+                                <th class="borderless text-center">
+                                  Pitching
+                                </th>
+                                <th class="borderless text-center">
+                                  ABRV
+                                </th>
+                                <th class="borderless text-center">
+                                  Points
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-danger">-4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-rules" id="nhl-scoring">
+                <div class="panel-heading" role="tab" id="nhl-scoring-heading">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#scoring" href="#nhl-scoring-collapse" aria-expanded="false" aria-controls="nhl-scoring-collapse">
+                      NHL Scoring
+                    </a>
+                  </h4>
+                </div>
+                <div id="nhl-scoring-collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="nhl-scoring-heading">
+                  <div class="panel-body">
+
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="table-responsive">
+                          <table class="table table-hover table-bordered table-striped table-td-center table-td-middle">
+                            <thead>
+                              <tr>
+                                <th class="borderless text-center">
+                                  Skating
+                                </th>
+                                <th class="borderless text-center">
+                                  ABRV
+                                </th>
+                                <th class="borderless text-center">
+                                  Points
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-danger">-4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="table-responsive">
+                          <table class="table table-hover table-bordered table-striped table-td-center table-td-middle">
+                            <thead>
+                              <tr>
+                                <th class="borderless text-center">
+                                  Goaltending
+                                </th>
+                                <th class="borderless text-center">
+                                  ABRV
+                                </th>
+                                <th class="borderless text-center">
+                                  Points
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-danger">-4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
+                                  Passing Touchdowns
+                                </td>
+                                <td>
+                                  PaTD
+                                </td>
+                                <td>
+                                  <span class="text-primary">4.00</span>
+                                </td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+    <footer class="top-buffer">
+      <div class="container top-buffer">
+        <div class="row">
+          <div class="col-xs-12 col-md-2 text-center">
+            <a class="sprite footer-logo" href="/"></a>
+          </div>
+          <div class="col-xs-12 col-md-10 footer-links">
+            <div class="col-xs-12 col-md-4 text-center">
+              <ul class="list-inline">
+                <li><a href="/lobby">Lobby</a></li>
+                <li><a href="/leagues">Leagues</a></li>
+                <li><a href="/lineups">Lineups</a></li>
+                <li><a href="/scores">Scores</a></li>
+                <li><a href="/leaderboards">Leaderboards</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-md-4 text-center">
+              <ul class="list-inline">
+                <li><a href="/how-to-play">How To Play</a></li>
+                <li><a href="/rules">Rules</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a data-toggle="modal" data-target="#support">Support</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-md-4 text-center">
+              <ul class="list-inline">
+                <li><a href="/">MLB</a></li>
+                <li><a href="/">NFL</a></li>
+                <li><a href="/">NBA</a></li>
+                <li><a href="/">NHL</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row top-buffer">
+          <div class="col-xs-12">
+            <ul class="list-inline text-center language">
+              <li><a class="sprite usa-flag" data-toggle="modal" data-target="#usaEligibility"></a><a data-toggle="modal" data-target="#usaEligibility">Eligibility</a></li>
+              <li><a class="sprite canada-flag" data-toggle="modal" data-target="#canadaEligibility"></a><a data-toggle="modal" data-target="#canadaEligibility">Eligibility</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row top-buffer" style="opacity: 0.4">
+          <div class="col-xs-12">
+            <ul class="list-inline text-center">
+              <li><a class="sprite stats-logo" href="/"></a></li>
+              <li><a class="sprite fsta-logo" href="/"></a></li>
+              <li><a class="sprite verisign-logo" href="/"></a></li>
+              <li><a class="sprite paypal-logo" href="/"></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <ul class="list-inline text-center social-media">
+              <li><a href="https://www.facebook.com/knockoutcasino" target="_blank"><span class="glyphicon icon-facebook-square"></span></a></li>
+              <li><a href="https://twitter.com/knockoutcasino" target="_blank"><span class="glyphicon icon-twitter-square"></span></a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 text-center copyright">
+            Copyright &copy; 2015 Knockout Picks. All Rights Reserved | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">About Us</a>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+    <!-- Register -->
+    <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="registerLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body text-center">
+              <h2>Create Your Account</h2>
+              <div class="row">
+                <div class="col-md-7 text-left">
+                  <div class="row">
+
+                    <div class="col-md-12">
+                      <label class="col-xs-12 no-padding" for="username">Username:</label>
+                      <div class="col-xs-4 no-padding">
+                        <div class="form-group">
+                          <input type="text" class="form-control" id="username">
+                        </div>
+                      </div>
+                      <div class="col-xs-8">
+                        <span class="glyphicon icon-question"></span>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="confirmPassword">Confirm Password:</label>
+                        <input type="password" class="form-control" id="confirmPassword">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" class="form-control" id="email">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="confirmEmail">Confirm Email Address:</label>
+                        <input type="email" class="form-control" id="confirmEmail">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="country">Country:</label>
+                        <select class="form-control">
+                          <option>United States</option>
+                          <option>Japan</option>
+                          <option>Germany</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="state">State:</label>
+                        <select class="form-control">
+                          <option>Arizona</option>
+                          <option>California</option>
+                          <option>Texas</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="col-xs-12 no-padding">
+                        <label for="dob">Date of Birth:</label>
+                      </div>
+                      <div class="col-xs-4 no-padding">
+                        <div class="form-group">
+                          <select class="form-control">
+                            <option>Month</option>
+                            <option>January</option>
+                            <option>February</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-xs-4">
+                        <div class="form-group">
+                          <select class="form-control">
+                            <option>Day</option>
+                            <option>January</option>
+                            <option>February</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-xs-4 no-padding">
+                        <div class="form-group">
+                          <select class="form-control">
+                            <option>Year</option>
+                            <option>January</option>
+                            <option>February</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="passwordQuestion">Password Question:</label>
+                        <select class="form-control">
+                          <option>Choose Question</option>
+                          <option>January</option>
+                          <option>February</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="passwordAnswer">Password Answer:</label>
+                        <input type="text" class="form-control" id="passwordAnswer">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="promoCode">Promo Code:</label>
+                        <input type="text" class="form-control" id="promoCode">
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <label class="checkbox-inline">
+                        <input type="checkbox" id="terms" value="terms"> <strong>I agree to the <a href="#">Terms of Use.</a></strong>
+                      </label>
+                      <br>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" id="specialOffers" value="specialOffers"> <strong>Send me special offers and bonuses!</strong>
+                      </label>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-md-5 visible-md visible-lg">
+                  <h3><strong>Why Knockout Picks?</strong></h3>
+                  <p class="text-center">
+                    We cater to your fantasy sports experience, with first-class customer service.
+                  </p>
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/xPubMOh_Tw8"></iframe>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-lg btn-primary">Continue</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login -->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body">
+              <h2 class="text-center">Player Login</h2>
+                <div class="form-group">
+                  <label for="username">Username:</label>
+                  <input type="text" class="form-control" id="username">
+                </div>
+
+                <div class="form-group">
+                  <label for="password">Password:</label>
+                  <input type="password" class="form-control" id="password">
+                </div>
+
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="remember" value="remember"> Remember me
+                </label>
+                <br>
+                <a data-dismiss="modal" data-toggle="modal" href="#forgotPassword">Forgot your Password?</a><br>
+                <a data-dismiss="modal" data-toggle="modal" href="#forgotUsername">Forgot your Username?</a>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-block btn-lg btn-primary">Login</button>
+              <br>
+              <div class="text-center">
+                Don't have an account? <a data-dismiss="modal" data-toggle="modal" href="#register">Click Here</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Password -->
+    <div class="modal fade" id="forgotPassword" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body">
+              <h2 class="text-center">Recover Password?</h2>
+              <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username">
+              </div>
+              <img class="img-responsive" src="/images/captcha.gif">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-block btn-lg btn-primary">Send Password</button>
+              <br>
+              <div class="text-center sma">
+                <small>*Your password will be sent to your email address.</small>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Username -->
+    <div class="modal fade" id="forgotUsername" tabindex="-1" role="dialog" aria-labelledby="forgotUsernameLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body">
+              <h2 class="text-center">Recover Username?</h2>
+              <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username">
+              </div>
+              <img class="img-responsive" src="/images/captcha.gif">
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-block btn-lg btn-primary">Send Username</button>
+              <br>
+              <div class="text-center sma">
+                <small>*Your username will be sent to your email address.</small>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Support -->
+    <div class="modal fade" id="support" tabindex="-1" role="dialog" aria-labelledby="supportLabel">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body">
+              <h2 class="text-center bottom-buffer">Support</h2>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" class="form-control" id="email">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="subject">Subject:</label>
+                      <select class="form-control">
+                        <option>Choose</option>
+                        <option>General</option>
+                        <option>Lineups</option>
+                        <option>Scoring</option>
+                      </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" rows="3"></textarea>
+              </div>
+              <button type="button" class="btn btn-lg btn-primary">Submit</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- USA Eligibility Modal -->
+    <div class="modal fade" id="usaEligibility" tabindex="-1" role="dialog" aria-labelledby="usaEligibilityLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <div class="modal-body text-center">
+
+            <span class="sprite usa-flag"></span>
+            <h2>USA ELIGIBILITY</h2>
+            <p class="top-buffer">
+              The following states do not allow fantasy sports competition for cash: Arizona, Arkansas, Delaware, Iowa, Louisiana, Michigan, Montana, Tennessee, and Washington. Residents of Alabama and Nebraska must be 19 years of age to play in cash Daily Fantasy Sports contests.
+            </p>
+            <p>
+              If you fall outside these states and are still having trouble depositing, or have deposit questions in general please do not hesitate to <a href="#">contact us.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CANADA Eligibility Modal -->
+    <div class="modal fade" id="canadaEligibility" tabindex="-1" role="dialog" aria-labelledby="canadaEligibilityLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <div class="modal-body text-center">
+
+            <span class="sprite canada-flag"></span>
+            <h2>CANADA ELIGIBILITY</h2>
+            <p class="top-buffer">
+              The following provinces do not allow fantasy sports competition for cash: Prince Edward Island and Quebec are not eligible to participate. Residents of British Columbia must be 19 years of age to play in cash Daily Fantasy Sports contests.
+            </p>
+            <p>
+              If you fall outside these provinces and are still having trouble depositing, or have deposit questions in general please do not hesitate to <a href="#">contact us.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function() {
+        $('.rules1').on('shown hidden', function () {
+            $('body').scrollspy('refresh');
+        });
+      });
+    </script>
+  </body>
+</html>

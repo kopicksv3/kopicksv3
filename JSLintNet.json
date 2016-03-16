@@ -1,0 +1,17 @@
+﻿{
+    "version": "2.0.4",
+    "ignore": [
+        "\\assets\\"
+    ],
+  "options": {
+    "browser": true,
+    "white": true
+  },
+  "globalVariables": [
+    "FlowerCityGaming",
+    "window",
+    "angular",
+    "console"
+  ],
+  "runOnBuild": true
+}

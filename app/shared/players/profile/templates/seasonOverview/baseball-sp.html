@@ -1,0 +1,65 @@
+﻿<div class="col-xs-2 padding-xs text-center">
+    <div class="panel panel-default">
+        <div class="panel-heading padding-xs">
+            <strong><small>FPPG</small></strong>
+        </div>
+        <div class="panel-body padding-xs">
+            <small>{{data.fantasyPoints | statFilter:true | currency:'':2}}</small>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-2 padding-xs text-center">
+    <div class="panel panel-default">
+        <div class="panel-heading padding-xs">
+            <strong><small>ERA</small></strong>
+        </div>
+        <div class="panel-body padding-xs">
+            <small>{{data.earnedRunAverage  | currency:'':2 }}</small>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-2 padding-xs text-center">
+    <div class="panel panel-default">
+        <div class="panel-heading padding-xs">
+            <strong><small>W-L</small></strong>
+        </div>
+        <div class="panel-body padding-xs">
+            <small>{{ data.wins }} &ndash; {{ data.losses }}</small>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-2 padding-xs text-center">
+    <div class="panel panel-default">
+        <div class="panel-heading padding-xs">
+            <strong><small>S</small></strong>
+        </div>
+        <div class="panel-body padding-xs">
+            <small>{{ data.saves }}</small>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-2 padding-xs text-center">
+    <div class="panel panel-default">
+        <div class="panel-heading padding-xs">
+            <strong><small>SO</small></strong>
+        </div>
+        <div class="panel-body padding-xs">
+            <small>{{data.strikeouts }}</small>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-2 padding-xs text-center">
+    <div class="panel panel-default">
+        <div class="panel-heading padding-xs">
+            <strong><small>WHIP</small></strong>
+        </div>
+        <div class="panel-body padding-xs">
+            <small>{{data.walksAndHitsPerInning  | currency:'':2}}</small>
+        </div>
+    </div>
+</div>

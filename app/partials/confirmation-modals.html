@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bjqs-1.3.min.js"></script>
+    <script src="/js/jquery.countdown.js"></script>
+  </head>
+  <body class="home">
+    <div class="header-background">
+      <!-- Mobile Navigation -->
+      <nav class="navbar navbar-static-top hidden-md hidden-lg">
+        <div class="navbar-header">
+          <div class="container">
+            <button type="button" class="navbar-icons left" data-toggle="collapse" data-target="#menuGeneral">
+              <span class="glyphicon icon-align-justify"></span>
+            </button>
+
+            <a class="sprite navbar-brand" href="/"></a>
+
+            <button type="button" class="navbar-icons right" data-toggle="collapse" data-target="#menuAccount">
+              <span class="glyphicon icon-user"></span>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <div class="collapse hidden-md hidden-lg" id="menuGeneral">
+        <div class="row">
+          <div class="col-sm-6">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="/">Lobby</a></li>
+              <li><a href="/leagues">Leagues</a></li>
+              <li><a href="/lineups">Lineups</a></li>
+              <li><a href="/scores">Scores</a></li>
+              <li><a href="/leaderboards">Leaderboards</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="/how-to-play">How to Play</a></li>
+              <li><a href="/rules">Rules</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a data-toggle="modal" data-target="#support">Support</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="collapse hidden-md hidden-lg" id="menuAccount">
+        <div class="row">
+          <div class="col-xs-12">
+            <ul class="nav nav-pills nav-stacked">
+              <li class="bal-points">
+                <strong>Balance:</strong> &dollar;500.00 <br>
+                <strong>Points:</strong> 700
+                <a href="/my-account" class="btn btn-default top-buffer">Add Funds</a>
+              </li>
+              <li><a href="/my-account">My Account</a></li>
+              <li><a href="/promotions">Promotions</a></li>
+              <li><a href="/logout">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop -->
+      <nav class="navbar navbar-default main-menu visible-md visible-lg" role="navigation">
+        <div class="container">
+          <!-- Top Menus -->
+          <div class="top-menu">
+            <div class="user-menu">
+              <ul class="list-inline">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img class="avatar img-circle" src="/images/default-avatar.png"> KnockoutDan <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="bal-points">
+                      <strong>Balance:</strong> &dollar;500.00 <br>
+                      <strong>Points:</strong> 700
+                    </li>
+                    <li><a href="/my-account">My Account</a></li>
+                    <li><a href="/promotions">Promotions</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="user-add-funds text-center">
+              <div class="col-xs-6 no-padding">
+                <a href="/my-account" class="btn btn-finance">Add Funds</a>
+              </div>
+            </div>
+          </div>
+          <!-- Main Menu -->
+          <div class="row">
+            <div class="col-md-5">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="/">Lobby</a></li>
+                <li><a href="/leagues">Leagues</a></li>
+                <li><a href="/lineups">Lineups</a></li>
+                <li><a href="/scores">Scores</a></li>
+                <li><a href="/leaderboards">Leaderboards</a></li>
+              </ul>
+            </div>
+            <div class="col-md-2 no-padding">
+              <a class="header-logo" href="/"><img class="img-responsive" src="/images/logo-large.png"></a>
+            </div>
+            <div class="col-md-5">
+              <ul class="nav navbar-nav">
+                <li><a href="/how-to-play">How to Play</a></li>
+                <li><a href="/rules">Rules</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a data-toggle="modal" data-target="#support">Support</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <main class="container container-body">
+
+      <div class="content content-header">
+        <h2 class="text-center">Confirmation Modals</h2>
+      </div>
+
+      <div class="content">
+  
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <button type="button" class="btn btn-lg btn-default btn-block bottom-buffer" data-toggle="modal" data-target="#alreadyJoinedLeague">Already Joined League</button>
+            
+            <button type="button" class="btn btn-lg btn-default btn-block bottom-buffer" data-toggle="modal" data-target="#leaveLeague">Leave League</button>
+            
+            <button type="button" class="btn btn-lg btn-default btn-block bottom-buffer" data-toggle="modal" data-target="#limitedFreePlay">Limited Free Play</button>
+
+            <button type="button" class="btn btn-lg btn-default btn-block bottom-buffer" data-toggle="modal" data-target="#savedLineup">Saved Lineup</button>
+            
+          </div>
+
+        </div>
+        
+      </div>
+
+    </main>
+    <footer class="top-buffer">
+      <div class="container top-buffer">
+        <div class="row">
+          <div class="col-xs-12 col-md-2 text-center">
+            <a class="sprite footer-logo" href="/"></a>
+          </div>
+          <div class="col-xs-12 col-md-10 footer-links">
+            <div class="col-xs-12 col-md-4 text-center">
+              <ul class="list-inline">
+                <li><a href="/lobby">Lobby</a></li>
+                <li><a href="/leagues">Leagues</a></li>
+                <li><a href="/lineups">Lineups</a></li>
+                <li><a href="/scores">Scores</a></li>
+                <li><a href="/leaderboards">Leaderboards</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-md-4 text-center">
+              <ul class="list-inline">
+                <li><a href="/how-to-play">How To Play</a></li>
+                <li><a href="/rules">Rules</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a data-toggle="modal" data-target="#support">Support</a></li>
+              </ul>
+            </div>
+            <div class="col-xs-12 col-md-4 text-center">
+              <ul class="list-inline">
+                <li><a href="/">MLB</a></li>
+                <li><a href="/">NFL</a></li>
+                <li><a href="/">NBA</a></li>
+                <li><a href="/">NHL</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row top-buffer">
+          <div class="col-xs-12">
+            <ul class="list-inline text-center language">
+              <li><a class="sprite usa-flag" data-toggle="modal" data-target="#usaEligibility"></a><a data-toggle="modal" data-target="#usaEligibility">Eligibility</a></li>
+              <li><a class="sprite canada-flag" data-toggle="modal" data-target="#canadaEligibility"></a><a data-toggle="modal" data-target="#canadaEligibility">Eligibility</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row top-buffer" style="opacity: 0.4">
+          <div class="col-xs-12">
+            <ul class="list-inline text-center">
+              <li><a class="sprite stats-logo" href="/"></a></li>
+              <li><a class="sprite fsta-logo" href="/"></a></li>
+              <li><a class="sprite verisign-logo" href="/"></a></li>
+              <li><a class="sprite paypal-logo" href="/"></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <ul class="list-inline text-center social-media">
+              <li><a href="https://www.facebook.com/knockoutcasino" target="_blank"><span class="glyphicon icon-facebook-square"></span></a></li>
+              <li><a href="https://twitter.com/knockoutcasino" target="_blank"><span class="glyphicon icon-twitter-square"></span></a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 text-center copyright">
+            Copyright &copy; 2015 Knockout Picks. All Rights Reserved | <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a> | <a href="#">About Us</a>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Already Joined League -->
+    <div class="modal fade" id="alreadyJoinedLeague" tabindex="-1" role="dialog" aria-labelledby="alreadyJoinedLeagueLabel">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body text-center">
+              <h3>You've already joined this league</h3>
+              
+              <div class="row">
+                <div class="col-md-6 top-buffer">
+                  <a href="#" class="btn btn-block btn-primary">Return to Lobby</a> 
+                </div>
+                <div class="col-md-6 top-buffer">
+                  <a href="#" class="btn btn-block btn-primary">Return to Lineup</a> 
+                </div>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Leave League -->
+    <div class="modal fade" id="leaveLeague" tabindex="-1" role="dialog" aria-labelledby="leaveLeagueLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body text-center">
+              <h3>Are you sure you want to leave this league?</h3>
+              
+              <div class="row">
+                <div class="col-md-6 top-buffer">
+                  <a href="#" class="btn btn-block btn-primary">Yes</a> 
+                </div>
+                <div class="col-md-6 top-buffer">
+                  <a href="#" class="btn btn-block btn-primary">No - Go back</a> 
+                </div>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- Limited to Free Play -->
+    <div class="modal fade" id="limitedFreePlay" tabindex="-1" role="dialog" aria-labelledby="limitedFreePlayLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body text-center">
+              <h3>Limited to Free Play</h3>
+              <p>
+                You have been restricted from playing real money games. Please contact support for more information.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Saved Lineup -->
+    <div class="modal fade" id="savedLineup" tabindex="-1" role="dialog" aria-labelledby="savedLineupLabel">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+          </div>
+          <form>
+            <div class="modal-body text-center">
+              <h3>Your Lineup Has Been Saved!</h3>
+              <p>
+                What would you like to do next?
+              </p>
+              
+              <div class="row">
+                <div class="col-xs-12 top-buffer">
+                  <a href="#" class="btn btn-block btn-primary">Enter More Leagues With This Lineup</a> 
+                </div>
+                <div class="col-md-12 top-buffer">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <a href="#" class="btn btn-block btn-primary">Return To Lobby</a> 
+                    </div>
+                    <div class="col-md-6">
+                      <a href="#" class="btn btn-block btn-primary">Return To lineup</a> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    
+  </body>
+</html>

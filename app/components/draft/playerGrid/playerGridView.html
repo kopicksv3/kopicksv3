@@ -1,0 +1,65 @@
+<div ng-controller="playerGridController">
+
+  <form class="bottom-buffer">
+    <div class="row">
+      <div class="col-md-10">
+
+        <div class="col-md-3 padding-xs">
+          <select class="form-control" ng-model="matchupSelected" ng-change="onChangePlayerFilter(matchupSelected,teamSelected, searchPlayer)">
+            <option value="">All Matchups</option>
+            <option ng-repeat="match in matchups" value="{{match.homeAlias}},{{match.awayAlias}}">{{match.awayAlias}} @ {{match.homeAlias}}</option>
+          </select>
+        </div>
+
+        <div class="col-md-3 padding-xs">
+          <select class="form-control" ng-model="teamSelected" ng-change="onChangePlayerFilter(matchupSelected,teamSelected, searchPlayer)">
+            <option value="">All Teams</option>
+            <option ng-repeat="team in teams" value="{{team.name}}">{{team.name}}</option>
+
+          </select>
+        </div>
+
+        <div class="col-md-3 padding-xs">
+          <select ng-model="yearSelected" class="form-control" ng-change="onChangeYear(yearSelected)">
+            <option ng-repeat="statYear in statYears" value={{statYear.year}}>{{statYear.year}}</option>
+          </select>
+        </div>
+
+        <div class="col-md-3 padding-xs">
+          <input type="text" ng-model="searchPlayer" class="form-control" placeholder="Search Players" ng-change="onChangePlayerFilter(matchupSelected,teamSelected, searchPlayer)">
+        </div>
+
+      </div>
+
+      <div class="col-md-2">
+        <a ng-click="clear()"><span class="glyphicon icon-undo"></span></a>
+        <!--<a href="#"><span class="glyphicon icon-csv"></span></a>-->
+      </div>
+
+    </div>
+  </form>
+  <div ng-show="loading" class="row">
+    <div ng-include="'app/shared/spinner/spinner.html'"></div>
+  </div>
+  <div ng-show="!loading">
+    <ul class="nav nav-tabs" role="tablist" id="editLeagues">
+      <li ng-repeat="pos in positions" ng-class="{'active': $first}">
+        <a ng-click="filterPos(pos.values, pos.id)" ng-class="{'hide' : pos.hideThis}" aria-controls='{{"editLeagues" + pos.id}}' role="tab" data-toggle="tab" alt="{{ pos.desc }}">{{pos.id}}</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane league-pane fade active in" id="editLeaguesALL">
+        <div class="table-responsive">
+          <table class="table table-hover table-bordered table-striped table-td-center table-td-middle table-tabs">
+            <thead stats-header league="{{league.leagueID}}" active-pos-name="activePosName">
+            </thead>
+            <tbody player-row league="league.leagueID" sort-type="usedSortType" sort-reverse="sortReverse" active-pos-name="activePosName" players="players" avg-salary="avgSalary" active-player="activePlayer" lineup="lineup" class='list-players'></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>

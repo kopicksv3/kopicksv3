@@ -1,0 +1,14 @@
+﻿<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+</div>
+<div class="modal-body">
+    <iframe src="{{idServerEndpoint}}" id="loginIFrame" style="width: 100%; border: none; margin: 0; padding: 0;" scrolling="no"></iframe>
+    <script type="text/javascript">
+        $("#loginIFrame").bind("load", function (evt) {
+            $(this).iFrameResize({
+                checkOrigin: false,
+                heightCalculationMethod: 'lowestElement'
+            });
+        });
+    </script>
+</div>

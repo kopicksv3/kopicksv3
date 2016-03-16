@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script src="/assets/scripts/lib/jquery.min.js"></script>
+    <script src="/assets/scripts/lib/jquery.cookie.min.js"></script>
+    <script src="/assets/scripts/lib/jwt-decode.min.js"></script>
+    <script src="/assets/scripts/api/FlowerCityGaming.min.js"></script>
+    <script type="text/javascript">
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+        FlowerCityGaming.V1.IdentityServer.configuration = new FlowerCityGaming.V1.Models.IdentityServerConfiguration(
+            'http://idsvr.starfantasyleagues.com',
+            'http://localstatic.knockoutpicks.com',
+            '/auth_refresh_complete.html',
+            900 /* 15 minutes */);
+
+        var LoginSpecialStatus = getParameterByName('LoginSpecialStatus');
+
+        if (LoginSpecialStatus != null && LoginSpecialStatus != ""
+            && (LoginSpecialStatus == "ACCOUNT_LOCKED"
+                || LoginSpecialStatus == "USER_BANNED"
+                || LoginSpecialStatus == "EMAIL_NOT_VERIFIED")) {
+
+            var userName = getParameterByName("Username");
+            FlowerCityGaming.V1.IdentityServer.processLoginFailedSpecialCallback(LoginSpecialStatus, userName);
+        } else if (LoginSpecialStatus == "REGISTER_REQUESTED") {
+            FlowerCityGaming.V1.CrossDocumentMessaging.broadcast(
+                            new FlowerCityGaming.V1.Models.CrossDocumentMessage(
+                                FlowerCityGaming.V1.Constants.ClientConstants.CrossDocumentMessageType.RegisterRequested,
+                                null),
+                            FlowerCityGaming.V1.IdentityServer.configuration.callbackHost);
+        } else {
+            var invalidLocationDetected = (LoginSpecialStatus != null && LoginSpecialStatus != "" && LoginSpecialStatus == "SUCCESS_BUT_DETECTED_LOCATION_INVALID");
+            FlowerCityGaming.V1.IdentityServer.processCallback(true, invalidLocationDetected);
+        }        
+    </script>
+</body>
+</html>

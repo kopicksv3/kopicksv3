@@ -1,0 +1,42 @@
+﻿<div class="row">
+    <div ng-controller="activeLeaguesController" class="col-xs-12 text-center bottom-buffer">
+        <div class="content-active-leagues" ng-show="acctid">
+            <h2>Active Leagues</h2>
+            <div class="top-buffer" ng-show="loading">
+                <div ng-include="'app/shared/spinner/spinner.html'"></div>
+            </div>
+            <div ng-show="!loading">
+                Active Games: <span class="activeGames">{{ activeGames }}</span> // Currently Winning: $<span class="winnings">{{ curWin }}</span>
+                <form class="form-inline top-buffer">
+                    <div class="form-group">
+                        <select class="form-control" onchange="window.location.href=this.value">
+                            <option>Daily / Weekly</option>
+                            <option ng-repeat="league in activeLeagues | orderBy: 'startDate'" value="{{league.path}}">
+
+                                <span class="UserActiveLeagueQtipLeague">{{ league.leagueID | getLeagueStr }}</span>
+                                <span class="UserActiveLeagueQtipFee">${{ league.entryFee }}</span>
+                                <span class="UserActiveLeagueQtipStartTime">{{ league.startDate | date:'M/d h:mm a' }}</span>
+                                <span class="UserActiveLeagueQtipEntries"> {{ league.place | undefinedZero  }}/{{ league.numPlayers }}</span>
+                                <!-- figure out how to wire in link to lineup -->
+                                <span class="UserActiveLeagueQtipAction">Lineup</span>
+
+                            </option>
+                        </select>
+                    </div>
+                    <!--
+            <div id="UserActiveLeagueDataDailyWeekly">
+                <div ng-repeat="league in activeLeagues" class="UserActiveLeagueQtipRow" data-ftid="461443" data-dataid="0">
+
+                </div>
+            </div>
+            -->
+
+                    <div class="form-group form-block top-buffer">
+                        <a class="btn btn-primary" href="#/myLineups">My Lineups</a>
+                        <a href="#/myScores" class="btn btn-primary">My Scores</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

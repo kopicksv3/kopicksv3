@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script src="/assets/scripts/lib/jquery.min.js"></script>
+    <script src="/assets/scripts/lib/jquery.cookie.min.js"></script>
+    <script src="/assets/scripts/lib/jwt-decode.min.js"></script>
+    <script src="/assets/scripts/api/FlowerCityGaming.min.js"></script>
+    <script type="text/javascript">
+        $.cookie("login_after_email_verify_complete", true);
+        FlowerCityGaming.V1.IdentityServer.configuration = new FlowerCityGaming.V1.Models.IdentityServerConfiguration(
+            'http://idsvr.starfantasyleagues.com',
+            'http://localstatic.knockoutpicks.com',
+            '/auth_refresh_complete.html',
+            900 /* 15 minutes */);
+        FlowerCityGaming.V1.IdentityServer.processCallback(true);
+
+    </script>
+</body>
+</html>

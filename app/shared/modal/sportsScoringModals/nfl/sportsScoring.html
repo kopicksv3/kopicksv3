@@ -1,0 +1,419 @@
+﻿<script type="text/ng-template" id="nfl.html">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content scoring nfl-header">
+            <div id="sportscoring" class="modal-header">
+                <button ng-click="cancel()" type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon icon-cross-mark" aria-hidden="true"></span></button>
+            </div>
+            <form>
+                <div class="modal-body text-center">
+                    <h2>NFL Scoring</h2>
+
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1 top-buffer">
+                            <h3>Offense</h3>
+                            <table class="table table-leagues table-hover table-striped">
+                                <thead>
+                                <th class="borderless text-center">
+                                    Statistic
+                                </th>
+                                <th class="borderless text-center">
+                                    Abrv
+                                </th>
+                                <th class="borderless text-center">
+                                    Pts.
+                                </th>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>
+                                            Passing Touchdowns
+                                        </td>
+                                        <td>
+                                            PATD
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">4.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Interceptions
+                                        </td>
+                                        <td>
+                                            INT
+                                        </td>
+                                        <td>
+                                            <span class="text-danger">-1.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Passing Yards
+                                        </td>
+                                        <td>
+                                            PAYD
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">0.04</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Rushing Yards
+                                        </td>
+                                        <td>
+                                            RUYD
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">0.10</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Rushing Touchdowns
+                                        </td>
+                                        <td>
+                                            RUTD
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">6.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Reception Yards
+                                        </td>
+                                        <td>
+                                            RECYD
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">0.10</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Reception Touchdowns
+                                        </td>
+                                        <td>
+                                            RECTD
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">6.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Receptions
+                                        </td>
+                                        <td>
+                                            REC
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">1.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Return Touchdowns
+                                        </td>
+                                        <td>
+                                            RTD
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">6.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            2-Point Conversions
+                                        </td>
+                                        <td>
+                                            2PT
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">2.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Fumbles Lost
+                                        </td>
+                                        <td>
+                                            FL
+                                        </td>
+                                        <td>
+                                            <span class="text-danger">-1.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Field Goals 0-39 Yards
+                                        </td>
+                                        <td>
+                                            FG
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">3.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Field Goals 40-49 Yards
+                                        </td>
+                                        <td>
+                                            FG
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">4.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Field Goals 50+
+                                        </td>
+                                        <td>
+                                            FG
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">5.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Point After Attempt Made
+                                        </td>
+                                        <td>
+                                            XPM
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">1.00</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4 top-buffer">
+                            <h3>Defense</h3>
+                            <table class="table table-leagues table-hover table-striped">
+                                <thead>
+                                <th class="borderless text-center">
+                                    Statistic
+                                </th>
+                                <th class="borderless text-center">
+                                    Abrv
+                                </th>
+                                <th class="borderless text-center">
+                                    Pts.
+                                </th>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>
+                                            Touchdown
+                                        </td>
+                                        <td>
+                                            DTD
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">6.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Return Touchdowns
+                                        </td>
+                                        <td>
+                                            RTD
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">6.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Interception
+                                        </td>
+                                        <td>
+                                            DINT
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">1.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Sack
+                                        </td>
+                                        <td>
+                                            SACK
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">0.50</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Safety
+                                        </td>
+                                        <td>
+                                            SFTY
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">2.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Fumble Recovery
+                                        </td>
+                                        <td>
+                                            FR
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">1.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Blocked Kick
+                                        </td>
+                                        <td>
+                                            BK
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">2.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Points Allowed 0-2 pts
+                                        </td>
+                                        <td>
+                                            DPA
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">10.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Points Allowed 3-6 pts
+                                        </td>
+                                        <td>
+                                            DPA
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">7.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Points Allowed 7-10 pts
+                                        </td>
+                                        <td>
+                                            DPA
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">4.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Points Allowed 11-15 pts
+                                        </td>
+                                        <td>
+                                            DPA
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">2.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Points Allowed 16-25 pts
+                                        </td>
+                                        <td>
+                                            DPA
+                                        </td>
+                                        <td>
+                                            <span class="text-mute">0.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            Points Allowed 25+ pts
+                                        </td>
+                                        <td>
+                                            DPA
+                                        </td>
+                                        <td>
+                                            <span class="text-danger">-3.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            DeF 2-Point Conversion
+                                        </td>
+                                        <td>
+                                            D2PT
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">2.00</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            2-Point Conversions
+                                        </td>
+                                        <td>
+                                            2PT
+                                        </td>
+                                        <td>
+                                            <span class="text-primary">2.00</span>
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    </script>

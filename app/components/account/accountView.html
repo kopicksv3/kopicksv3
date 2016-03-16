@@ -1,0 +1,39 @@
+﻿<div ng-include="'/app/shared/header/header.html'"></div>
+
+<main class="container container-body">
+  <h2 class="text-center bottom-buffer">My Account</h2>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="panel panel-default">
+        <ul class="nav nav-tabs" role="tablist" id="account">
+          <li role="presentation" class="active"><a data-target="#profile" aria-controls="account" role="tab" data-toggle="tab">Profile</a></li>
+
+          <!-- For testing
+          <li role="presentation"><a data-target="#s" aria-controls="account" role="tab" data-toggle="tab">Cashier</a><li>
+          <li role="presentation"><a data-target="#2" aria-controls="account" role="tab" data-toggle="tab">Bonuses</a><li>
+          <li role="presentation"><a data-target="#a" aria-controls="account" role="tab" data-toggle="tab">Referrals</a><li>
+          -->
+
+          <li role="presentation"><a data-target="#cashier" aria-controls="account" role="tab" data-toggle="tab" ng-show="allowCash">Cashier</a></li>
+          <li role="presentation"><a data-target="#bonuses" aria-controls="account" role="tab" data-toggle="tab" ng-show="allowCash">Bonuses</a></li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in padding-md" id="profile">
+              <div ng-include="'/app/components/account/profile/profileView.html'"></div>
+            </div>
+            <div role="tabpanel" class="tab-pane fade padding-md" id="cashier" ng-show="allowCash" style="height: 100%;">
+              <iframe id="cashierInnerFrame" scrolling="no" frameborder="0" style="height: 100%; width: 100%;" height="100%" width="100%" src=""></iframe>
+            </div>
+            <div role="tabpanel" class="tab-pane fade padding-md" ng-show="allowCash" id="bonuses">
+                <div ng-include="'/app/components/account/bonuses/bonusView.html'"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div ng-include="'/app/shared/account/accountOverviewView.html'"></div>
+    </div>
+  </div>
+</main>
+
+<div ng-include="'/app/components/account/modal/changePasswordModal.html'"></div>

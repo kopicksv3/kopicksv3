@@ -1,0 +1,95 @@
+﻿<td>
+    <!--Rank-->
+    <span>{{ ::p.statistics.ranking }}</span>
+</td>
+<td>
+    <!--Name-->
+    {{ ::p.name }} ({{p.statistics.teamAlias | uppercase}} - {{p.position}})
+</td>
+<td>
+    <!--Salary-->
+    <span>{{ ::p.salary | currency:"$":0 }}</span>
+</td>
+<td>
+    <!--Matchup-->
+    <span>{{ ::p.statistics.matchup }}</span>
+</td>
+<td>
+    <!--G-->
+    <span>{{ ::p.statistics.gamesPlayed | statFilter }}</span>
+</td>
+
+
+<!--NON DEFENSE TAB-->
+<td ng-show="['DST'].indexOf(activePosName) < 0">
+    <!--PAYD-->
+    <span>{{ ::p.statistics.passingYards | statFilter }}</span>
+</td>
+<td ng-show="['DST'].indexOf(activePosName) < 0">
+    <!--PATD-->
+    <span>{{ ::p.statistics.passingTouchdowns | statFilter }}</span>
+</td>
+<td ng-show ="['DST'].indexOf(activePosName) < 0">
+    <!--RUYD-->
+    <span>{{ ::p.statistics.rushingYards | statFilter }}</span>
+    </td>
+<td ng-show="['DST'].indexOf(activePosName) < 0">
+    <!--RUTD-->
+    <span>{{ ::p.statistics.rushingTouchdowns | statFilter }}</span>
+</td>
+<td ng-show="['DST'].indexOf(activePosName) < 0">
+    <!--REC-->
+    <span>{{ ::p.statistics.receptions | statFilter }}</span>
+</td>
+<td ng-show="['DST'].indexOf(activePosName) < 0">
+    <!--REYD-->
+    <span>{{ ::p.statistics.receivingYards | statFilter }}</span>
+</td>
+<td ng-show="['DST'].indexOf(activePosName) < 0">
+    <!--RETD-->
+    <span>{{ ::p.statistics.receivingTouchdowns | statFilter }}</span>
+</td>
+<td ng-show="['DST'].indexOf(activePosName) < 0">
+    <!--INT-->
+    <span>{{ ::p.statistics.interceptions | statFilter }}</span>
+</td>
+<!--END NON DEFENSE TAB-->
+
+
+<!--DEFENSE TAB-->
+<td ng-show="['DST'].indexOf(activePosName) > -1">
+    <!--DTD-->
+    <span>{{ ::p.statistics.defensiveTouchdown | statFilter }}</span>
+</td>
+<td ng-show="['DST'].indexOf(activePosName) > -1">
+    <!--RTD-->
+    <span>{{ ::p.statistics.defenseReturnTouchdown | statFilter }}</span>
+</td>
+<td ng-show="['DST'].indexOf(activePosName) > -1">
+    <!--DINT-->
+    <span>{{ ::p.statistics.defenseInterception | statFilter }}</span>
+</td>
+<td ng-show="['DST'].indexOf(activePosName) > -1">
+    <!--FR-->
+    <span>{{ ::p.statistics.defenseFumbleRecovery | statFilter }}</span>
+</td>
+<td ng-show="['DST'].indexOf(activePosName) > -1">
+    <!--SACK-->
+    <span>{{ ::p.statistics.defenseSack | statFilter }}</span>
+</td>
+<td ng-show="['DST'].indexOf(activePosName) > -1">
+    <!--SFTY-->
+    <span>{{ ::p.statistics.defenseSafety | statFilter }}</span>
+</td>
+<td ng-show="['DST'].indexOf(activePosName) > -1">
+    <!--BK-->
+    <span>{{ ::p.statistics.defenseBlockedKicks | statFilter }}</span>
+</td>
+BK
+
+<!--END DEFENSE TAB-->
+
+<td>
+    <!--FFPG-->
+    <span>{{ ::p.statistics.averageFantasyPoints | currency:'':2}}</span>
+</td>
